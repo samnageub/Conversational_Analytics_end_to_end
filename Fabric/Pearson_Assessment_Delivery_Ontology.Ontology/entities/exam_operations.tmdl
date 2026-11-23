@@ -1,0 +1,140 @@
+/// Operational fact table for exam delivery, reservations, cancellations, and utilization by date and test center.
+entity exam_operations
+	lineageTag: 06e2c75d-9cba-4809-885c-469f2ba57bde
+	backingTable: exam_operations
+	keyProperty: exam_operations_key
+
+	property exam_operations_key
+		dataType: string
+		lineageTag: 2c1409cc-b0c3-4707-bed4-fecad6a31157
+
+		backingConfiguration
+			valueColumn: exam_operations.exam_operations_key
+
+		synonym 'exam operations key'
+
+		synonym 'operations key'
+
+		synonym key
+
+	property test_center_key
+		dataType: string
+		lineageTag: 91c912f4-dacb-48ae-a0a7-b0541cf49cc1
+
+		backingConfiguration
+			valueColumn: exam_operations.test_center_key
+
+		synonym 'test center key'
+
+		synonym 'center key'
+
+		synonym key
+
+	property operation_date_key
+		dataType: int64
+		lineageTag: d328df47-711c-47fc-b86c-a9917d143f06
+
+		backingConfiguration
+			valueColumn: exam_operations.operation_date_key
+
+		synonym 'operation date key'
+
+		synonym 'date key'
+
+		synonym 'operation day key'
+
+	property available_seats
+		dataType: int64
+		lineageTag: 9bde913f-31ac-49f9-b68e-2b34ce68c472
+
+		backingConfiguration
+			valueColumn: exam_operations.available_seats
+
+		synonym 'available seats'
+
+		synonym capacity
+
+		synonym 'seat capacity'
+
+	property reserved_seats
+		dataType: int64
+		lineageTag: 3f658f4f-bc22-4279-bcba-0dc49b0bfe37
+
+		backingConfiguration
+			valueColumn: exam_operations.reserved_seats
+
+		synonym 'reserved seats'
+
+		synonym reservations
+
+	property delivered_exams
+		dataType: int64
+		lineageTag: 86a49202-36cf-46c9-8146-fe1cb1180c87
+
+		backingConfiguration
+			valueColumn: exam_operations.delivered_exams
+
+		synonym 'delivered exams'
+
+		synonym 'delivered test count'
+
+		synonym 'completed exams'
+
+	property cancelled_exams
+		dataType: int64
+		lineageTag: 9dbfb24c-58e6-434c-97a0-ab858653dfcb
+
+		backingConfiguration
+			valueColumn: exam_operations.cancelled_exams
+
+		synonym 'cancelled exams'
+
+		synonym 'canceled exams'
+
+		synonym 'cancelled test count'
+
+	property actual_utilization_rate
+		dataType: decimal
+		lineageTag: e04d10a6-2eb7-4385-87bf-803daaf56497
+
+		backingConfiguration
+			valueColumn: exam_operations.actual_utilization_rate
+
+		synonym 'actual utilization rate'
+
+		synonym 'utilization rate'
+
+		synonym utilization
+
+	property operational_pressure
+		dataType: string
+		lineageTag: aaa09e92-d0b3-4515-a637-c9c2a0893a5e
+
+		backingConfiguration
+			valueColumn: exam_operations.operational_pressure
+
+		synonym 'operational pressure'
+
+		synonym pressure
+
+	property operation_day_count
+		dataType: int64
+		lineageTag: cf2cd2e4-c4b7-4f80-bd4d-ce0ee8e91cfe
+
+		backingConfiguration
+			valueColumn: exam_operations.operation_day_count
+
+		synonym 'operation day count'
+
+		synonym 'day count'
+
+	synonym 'exam operations'
+
+	synonym operations
+
+	synonym 'exam delivery'
+
+	synonym 'delivery operations'
+
+	synonym 'operations fact'
+

@@ -1,0 +1,69 @@
+/// Test center dimension shared by assessment analytics and exam operations.
+entity test_center
+	lineageTag: 1d33a20f-eaea-4b12-b404-e60d4b97d285
+	backingTable: test_center
+	keyProperty: test_center_key
+
+	property base_daily_capacity
+		dataType: int64
+		lineageTag: 11cbfe6f-83e2-4d37-bdd8-bcb89ff58aff
+
+		backingConfiguration
+			valueColumn: test_center.base_daily_capacity
+
+	property city
+		dataType: string
+		lineageTag: f12a0c71-5a26-42f7-bda7-0efca229bbbe
+
+		backingConfiguration
+			valueColumn: test_center.city
+
+	property region
+		dataType: string
+		lineageTag: f4c4bc17-40bb-4eae-80bb-1ae75ad35aca
+
+		backingConfiguration
+			valueColumn: test_center.region
+
+	property state
+		dataType: string
+		lineageTag: d4c000ee-38d7-4dde-8ba1-db342d2e087a
+
+		backingConfiguration
+			valueColumn: test_center.state
+
+	property test_center_key
+		dataType: string
+		lineageTag: c6eb4aff-e54f-43f5-a17f-98627e1792a2
+
+		backingConfiguration
+			valueColumn: test_center.test_center_key
+
+	property test_center_name
+		dataType: string
+		lineageTag: 7cb0cc41-c45c-46bf-a0a6-2b1567fd2915
+
+		backingConfiguration
+			valueColumn: test_center.test_center_name
+
+	property test_center_status
+		dataType: string
+		lineageTag: 90f42f3e-a8a6-4b1c-bb1e-cf8115c4538a
+
+		backingConfiguration
+			valueColumn: test_center.test_center_status
+
+	additionalBackingTable
+		table: test_center_2
+		relationship: test_center_test_center_2_join
+
+	synonym 'test center'
+
+	synonym center
+
+	synonym 'testing center'
+
+	synonym 'exam center'
+
+	synonym 'exam site'
+

@@ -1,0 +1,60 @@
+version: 2
+
+sources:
+  - name: silver
+    description: >
+      Trusted Silver data staged from Pearson_Silver_LH into
+      Pearson_Gold_DW before the Gold dbt build.
+
+    schema: silver_stage
+
+    tables:
+
+      - name: customer
+        description: Clean customer master.
+
+      - name: candidate
+        description: Clean candidate master.
+
+      - name: program
+        description: Clean certification program master.
+
+      - name: assessment
+        description: Clean assessment master.
+
+      - name: topic
+        description: Assessment topic master.
+
+      - name: item
+        description: Assessment item and question master.
+
+      - name: test_center
+        description: Test center master.
+
+      - name: calendar
+        description: Enterprise calendar.
+
+      - name: registration_enriched
+        description: >
+          Registration data enriched with exam scheduling
+          and rescheduling attributes.
+
+      - name: attempt
+        description: Completed assessment attempts and scores.
+
+      - name: response
+        description: Question-level assessment responses.
+
+      - name: finance
+        description: Payment and refund transactions.
+
+      - name: daily_test_center_operations
+        description: >
+          Integrated daily capacity, exam delivery,
+          staffing and operational pressure metrics.
+
+      - name: proctor_staffing
+        description: Daily proctor staffing information.
+
+      - name: capacity_plan
+        description: Test center capacity planning information.

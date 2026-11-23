@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataBuildToolJob",
+    "displayName": "03_Silver_To_Gold_dbt"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b716d6b4-4967-9ea6-40fc-93824de8d4b4"
+  }
+}

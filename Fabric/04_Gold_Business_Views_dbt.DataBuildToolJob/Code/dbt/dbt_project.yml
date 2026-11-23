@@ -1,0 +1,28 @@
+name: pearson_gold_business_views
+version: '1.0.0'
+config-version: 2
+profile: pearson_gold_business_views
+
+# Standalone project for Fabric dbt Job: 04_Gold_Business_Views_dbt
+# The Fabric-managed profile supplies DataWarehouse / Pearson_Gold_DW / dbo.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  pearson_gold_business_views:
+    business:
+      +materialized: view
+      +schema: business
+      +tags: ["business"]
+
+# macros/generate_schema_name.sql resolves the business custom schema exactly
+# as business rather than dbt's default dbo_business.

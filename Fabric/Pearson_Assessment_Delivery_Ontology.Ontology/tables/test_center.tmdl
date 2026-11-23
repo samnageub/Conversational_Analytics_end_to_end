@@ -1,0 +1,64 @@
+table test_center
+	lineageTag: 5626b2a1-a881-466b-965d-8ce961f885a4
+	sourceLineageTag: e9b58af4-d977-4b9d-b522-0236efed92b8
+
+	column test_center_key
+		dataType: string
+		lineageTag: 640d55e2-9e2b-4464-93a7-a565da42d8a6
+		sourceLineageTag: 6b084dc9-17fe-4864-8c05-d617204a3c95
+		sourceColumn: test_center_key
+
+	column test_center_name
+		dataType: string
+		lineageTag: 1292134e-d873-413f-be5e-8457fab151b3
+		sourceLineageTag: fd67d172-c717-48b7-8cea-754064c48d4c
+		sourceColumn: test_center_name
+
+	column city
+		dataType: string
+		lineageTag: d9c864f1-abd1-4759-ab3d-e6257f3ec826
+		sourceLineageTag: b58319e0-1be6-49c3-a424-679dcf8d7054
+		sourceColumn: city
+
+	column state
+		dataType: string
+		lineageTag: 8496a4f3-083b-4ed7-ba85-a06f4345c950
+		sourceLineageTag: d3eec63d-a6c0-45f9-bd16-e9064be80957
+		sourceColumn: state
+
+	column region
+		dataType: string
+		lineageTag: f4d9ea3a-38dd-4b6c-811e-b0fe8d6514db
+		sourceLineageTag: dc0f9813-2e5b-4a12-aa4b-f35dc9f94a8f
+		sourceColumn: region
+
+	column base_daily_capacity
+		dataType: int64
+		lineageTag: 2e88115b-459d-46a8-86ac-3336f236f9a5
+		sourceLineageTag: 897c17dd-e63f-464b-ba98-238b5b4b9235
+		sourceColumn: base_daily_capacity
+
+	column test_center_status
+		dataType: string
+		lineageTag: 5cb4ff25-c7ef-4425-bb3e-6756ae1f1177
+		sourceLineageTag: fb30ca56-53b9-4a21-b338-3eb52944eb72
+		sourceColumn: test_center_status
+
+	partition test_center-partition = entity
+		mode: directQuery
+		source
+			entityName: test_center
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

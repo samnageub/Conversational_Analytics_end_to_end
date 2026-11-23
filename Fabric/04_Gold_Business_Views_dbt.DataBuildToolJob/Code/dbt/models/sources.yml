@@ -1,0 +1,184 @@
+version: 2
+sources:
+- name: gold
+  description: Existing physical Gold tables in Pearson_Gold_DW.dbo, built and tested by 03_Silver_To_Gold_dbt.
+  schema: dbo
+  tables:
+  - name: dim_customer
+    description: Physical Gold customer dimension created by Job 03.
+    columns:
+    - name: customer_key
+    - name: customer_name
+    - name: customer_segment
+    - name: country
+    - name: customer_status
+  - name: dim_candidate
+    description: Physical Gold candidate dimension created by Job 03.
+    columns:
+    - name: candidate_key
+    - name: customer_key
+    - name: candidate_display_name
+    - name: region_code
+    - name: region_name
+    - name: candidate_status
+  - name: dim_program
+    description: Physical Gold program dimension created by Job 03.
+    columns:
+    - name: program_key
+    - name: customer_key
+    - name: program_code
+    - name: program_name
+    - name: program_category
+    - name: program_status
+  - name: dim_assessment
+    description: Physical Gold assessment dimension created by Job 03.
+    columns:
+    - name: assessment_key
+    - name: customer_key
+    - name: program_key
+    - name: assessment_code
+    - name: assessment_name
+    - name: assessment_level
+    - name: passing_score
+    - name: standard_duration_minutes
+    - name: standard_price
+    - name: assessment_status
+  - name: dim_topic
+    description: Physical Gold topic dimension created by Job 03.
+    columns:
+    - name: topic_key
+    - name: topic_name
+    - name: topic_description
+    - name: topic_status
+  - name: dim_item
+    description: Physical Gold assessment-item dimension created by Job 03.
+    columns:
+    - name: item_key
+    - name: topic_key
+    - name: item_name
+    - name: difficulty
+    - name: maximum_points
+    - name: item_status
+  - name: dim_test_center
+    description: Physical Gold test-center dimension created by Job 03.
+    columns:
+    - name: test_center_key
+    - name: test_center_name
+    - name: city
+    - name: state
+    - name: region
+    - name: base_daily_capacity
+    - name: test_center_status
+  - name: dim_date
+    description: Physical Gold calendar dimension created by Job 03.
+    columns:
+    - name: date_key
+    - name: calendar_date
+    - name: calendar_year
+    - name: calendar_quarter
+    - name: month_number
+    - name: month_name
+    - name: year_month
+    - name: week_number
+    - name: day_of_month
+    - name: day_name
+    - name: is_weekend
+  - name: fact_registration
+    description: Physical Gold registration fact created by Job 03.
+    columns:
+    - name: registration_id
+    - name: customer_key
+    - name: candidate_key
+    - name: program_key
+    - name: assessment_key
+    - name: test_center_key
+    - name: registration_date_key
+    - name: original_exam_date_key
+    - name: final_exam_date_key
+    - name: registration_status
+    - name: delivery_mode
+    - name: was_rescheduled
+    - name: reschedule_count
+    - name: days_shifted
+    - name: registration_count
+  - name: fact_attempt
+    description: Physical Gold assessment-attempt fact created by Job 03.
+    columns:
+    - name: attempt_id
+    - name: registration_id
+    - name: customer_key
+    - name: candidate_key
+    - name: program_key
+    - name: assessment_key
+    - name: test_center_key
+    - name: attempt_date_key
+    - name: attempt_number
+    - name: score
+    - name: passing_score
+    - name: score_margin
+    - name: passed
+    - name: attempt_status
+    - name: duration_minutes
+    - name: attempt_count
+  - name: fact_response
+    description: Physical Gold item-response fact created by Job 03.
+    columns:
+    - name: response_id
+    - name: attempt_id
+    - name: customer_key
+    - name: candidate_key
+    - name: assessment_key
+    - name: topic_key
+    - name: item_key
+    - name: attempt_date_key
+    - name: question_sequence
+    - name: is_correct
+    - name: points_available
+    - name: points_earned
+    - name: response_seconds
+    - name: response_count
+  - name: fact_finance
+    description: Physical Gold financial-transaction fact created by Job 03.
+    columns:
+    - name: transaction_id
+    - name: registration_id
+    - name: customer_key
+    - name: candidate_key
+    - name: assessment_key
+    - name: transaction_date_key
+    - name: transaction_type
+    - name: amount
+    - name: currency
+    - name: payment_status
+    - name: transaction_count
+  - name: fact_exam_operations
+    description: Physical Gold daily exam-operations fact created by Job 03.
+    columns:
+    - name: exam_operations_key
+    - name: test_center_key
+    - name: operation_date_key
+    - name: available_seats
+    - name: reserved_seats
+    - name: delivered_exams
+    - name: cancelled_exams
+    - name: actual_utilization_rate
+    - name: operational_pressure
+    - name: operation_day_count
+  - name: fact_capacity_staffing
+    description: Physical Gold daily capacity-and-staffing fact created by Job 03.
+    columns:
+    - name: capacity_staffing_key
+    - name: test_center_key
+    - name: planning_date_key
+    - name: physical_capacity
+    - name: planned_demand
+    - name: capacity_gap
+    - name: planning_status
+    - name: proctors_scheduled
+    - name: proctors_absent
+    - name: proctors_available
+    - name: proctors_required
+    - name: staffing_gap
+    - name: is_understaffed
+    - name: staffing_coverage_rate
+    - name: capacity_staffing_day_count

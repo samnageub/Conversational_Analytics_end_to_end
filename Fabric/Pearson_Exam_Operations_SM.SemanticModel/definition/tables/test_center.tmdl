@@ -1,0 +1,77 @@
+table test_center
+	lineageTag: 11787575-b525-487f-9783-18c9849f7930
+	sourceLineageTag: [dbo].[dim_test_center]
+
+	column test_center_key
+		dataType: string
+		lineageTag: e377ecff-9f72-48b4-9189-e42e1fc46868
+		sourceLineageTag: test_center_key
+		summarizeBy: none
+		sourceColumn: test_center_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_name
+		dataType: string
+		lineageTag: c7300ea3-2532-4288-b25a-128b7b8b2e57
+		sourceLineageTag: test_center_name
+		summarizeBy: none
+		sourceColumn: test_center_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: c59accc8-780f-4b2d-8f5b-3c240b6acf09
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: f731c17f-785b-41c5-bb22-4e6cf9c9968f
+		sourceLineageTag: state
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 89f07c14-4937-4109-8107-e6bafd68b22c
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_daily_capacity
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c984a00-933a-4ac7-9c08-8d2c8bdd5d49
+		sourceLineageTag: base_daily_capacity
+		summarizeBy: sum
+		sourceColumn: base_daily_capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_status
+		dataType: string
+		lineageTag: bfd94375-c69c-4c20-9e37-8392efa9f0a6
+		sourceLineageTag: test_center_status
+		summarizeBy: none
+		sourceColumn: test_center_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition test_center = entity
+		mode: directLake
+		source
+			entityName: dim_test_center
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

@@ -1,0 +1,30 @@
+table test_center_2
+	lineageTag: c604e181-9cb0-4af3-a7c6-33676b36c85a
+
+	column test_center_key
+		dataType: string
+		lineageTag: 055e30eb-a8d1-48e4-9ede-910684df617a
+		sourceColumn: test_center_key
+
+	partition test_center_2 = entity
+		mode: directQuery
+		source
+			entityName: test_center
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 6c8e8e21-e76c-993f-471d-e7e20e92bb84
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_SemanticModelServer = powerbi://api.powerbi.com/v1.0/fa8de806-3675-4a4b-84e4-50290ac5ea80
+
+		annotation ONT_SemanticModelDatabase = Pearson_Exam_Operations_SM
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:44:00Z
+

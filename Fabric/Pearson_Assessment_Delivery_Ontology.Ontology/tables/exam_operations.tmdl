@@ -1,0 +1,202 @@
+table exam_operations
+	lineageTag: b617ee0b-e11b-4cbf-8405-36f413167d35
+
+	/// Calculates the total number of delivered exams by summing the delivered_exams column in the exam_operations table.
+	measure 'Delivered Exams' = EXTERNALMEASURE("Delivered Exams", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: f74d3ac7-b7e2-48b5-b7f6-b0295d8fc7de
+		sourceLineageTag: 6a91087e-8061-437b-ae35-1ef269322d5e
+
+		annotation measure_Delivered_Exams = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Delivered Exams","d":"Calculates the total number of delivered exams by summing the delivered_exams column in the exam_operations table."}
+
+	/// Sums the total number of cancelled exams from the exam_operations table.
+	measure 'Cancelled Exams' = EXTERNALMEASURE("Cancelled Exams", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 0738d390-eaf7-419a-9872-c9058b1158a0
+		sourceLineageTag: 55dd7cc9-b6d1-4da1-bea3-a5400cd0446b
+
+		annotation measure_Cancelled_Exams = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Cancelled Exams","d":"Sums the total number of cancelled exams from the exam_operations table."}
+
+	/// Sums the available_seats values in the exam_operations table to return the total number of available seats.
+	measure 'Available Seats' = EXTERNALMEASURE("Available Seats", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 4b2b3a5d-63dc-4788-a2c8-cc0b9f9f0afd
+		sourceLineageTag: c3b6d9ed-9139-4e1c-bde8-fee77c875673
+
+		annotation measure_Available_Seats = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Available Seats","d":"Sums the available_seats values in the exam_operations table to return the total number of available seats."}
+
+	/// Sums the total number of reserved seats from the exam_operations table.
+	measure 'Reserved Seats' = EXTERNALMEASURE("Reserved Seats", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 94b1c108-ff3f-4f66-a039-4a84230c94bf
+		sourceLineageTag: 0bdd9a96-544b-4988-9c56-da4b2047076e
+
+		annotation measure_Reserved_Seats = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Reserved Seats","d":"Sums the total number of reserved seats from the exam_operations table."}
+
+	/// Calculates the actual utilization rate by dividing Delivered Exams by Available Seats to show how fully exam capacity is being used.
+	measure 'Actual Utilization Rate' = EXTERNALMEASURE("Actual Utilization Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 66a6b820-049e-45b9-9a18-80642d090348
+		sourceLineageTag: b1ed1f33-9689-48f1-9c4c-1627fc7b6644
+
+		annotation measure_Actual_Utilization_Rate = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Actual Utilization Rate","d":"Calculates the actual utilization rate by dividing Delivered Exams by Available Seats to show how fully exam capacity is being used."}
+
+	/// Calculates the reservation rate as the ratio of reserved seats to available seats.
+	measure 'Reservation Rate' = EXTERNALMEASURE("Reservation Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3e4256e7-177a-4cd2-97d0-bba419d59fdb
+		sourceLineageTag: 7b450749-f4b7-4e52-aae8-8e37ba24df59
+
+		annotation measure_Reservation_Rate = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Reservation Rate","d":"Calculates the reservation rate as the ratio of reserved seats to available seats."}
+
+	/// Calculates the cancellation rate as the ratio of cancelled exams to reserved seats.
+	measure 'Cancellation Rate' = EXTERNALMEASURE("Cancellation Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 99e6b7c1-b03b-4013-895b-71c98eff1cf4
+		sourceLineageTag: e3777695-9a39-4696-ad77-cd7a58a2212b
+
+		annotation measure_Cancellation_Rate = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Cancellation Rate","d":"Calculates the cancellation rate as the ratio of cancelled exams to reserved seats."}
+
+	/// Counts the distinct operation dates where the operational pressure is equal to the specified value "STRING LITERAL".
+	measure 'High Pressure Days' = EXTERNALMEASURE("High Pressure Days", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0
+		lineageTag: e3b2e1db-467e-4f98-91d4-8e02dadbc69c
+		sourceLineageTag: a0fc3dae-3441-4d83-ab0d-9ff0eb5b88a2
+
+		annotation measure_High_Pressure_Days = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"High Pressure Days","d":"Counts the distinct operation dates where the operational pressure is equal to the specified value \u0022STRING LITERAL\u0022."}
+
+	/// Counts the number of distinct operational days based on the unique operation_date_key values in the exam_operations table.
+	measure 'Operational Days' = EXTERNALMEASURE("Operational Days", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 4491d658-8ce1-42ef-85c9-0344ed2c9f95
+		sourceLineageTag: 3ea4b94e-8cf7-4c26-b2bb-38cf3374731e
+
+		annotation measure_Operational_Days = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Operational Days","d":"Counts the number of distinct operational days based on the unique operation_date_key values in the exam_operations table."}
+
+	/// Calculates the rate of high pressure days by dividing High Pressure Days by Operational Days.
+	measure 'High Pressure Day Rate' = EXTERNALMEASURE("High Pressure Day Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: abb7712c-d5ae-42a0-84b5-0e88566b4616
+		sourceLineageTag: 04daf2eb-488f-444a-a003-b61aa5716ab0
+
+		annotation measure_High_Pressure_Day_Rate = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"High Pressure Day Rate","d":"Calculates the rate of high pressure days by dividing High Pressure Days by Operational Days."}
+
+	/// Calculates the year-to-date total of delivered exams based on the Delivered Exams measure over the calendar_date field.
+	measure 'Delivered Exams YTD' = EXTERNALMEASURE("Delivered Exams YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 4ce37d81-804b-4658-b4b1-07c8d30f1da5
+		sourceLineageTag: ef5d5925-614b-4e46-ab03-9dcbdb4117a5
+
+		annotation measure_Delivered_Exams_YTD = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Delivered Exams YTD","d":"Calculates the year-to-date total of delivered exams based on the Delivered Exams measure over the calendar_date field."}
+
+	/// Calculates the year-to-date number of delivered exams for the same period in the previous year, based on the calendar date from the Date table.
+	measure 'Delivered Exams Previous Year YTD' = EXTERNALMEASURE("Delivered Exams Previous Year YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0
+		lineageTag: 8cb7c7af-8ccd-4a9b-822e-07d5bc65103b
+		sourceLineageTag: 1ba8e07e-02e4-4ba7-844b-1c4ab3d0d0ef
+
+		annotation measure_Delivered_Exams_Previous_Year_YTD = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Delivered Exams Previous Year YTD","d":"Calculates the year-to-date number of delivered exams for the same period in the previous year, based on the calendar date from the Date table."}
+
+	measure 'Delivered Exams YoY %' = EXTERNALMEASURE("Delivered Exams YoY %", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d4c22fb4-aa36-4fe7-8598-197fa0ed28c9
+		sourceLineageTag: ee83428f-a249-426c-9062-4b95cacc0a2d
+
+		annotation measure_Delivered_Exams_YoY_Pct = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Delivered Exams YoY %"}
+
+	/// Calculates the year-to-date Actual Utilization Rate based on the 'Date'[calendar_date] dimension.
+	measure 'Actual Utilization Rate YTD' = EXTERNALMEASURE("Actual Utilization Rate YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4f14d1c0-95a9-44fb-bfc0-267750a615a0
+		sourceLineageTag: 165fa3a2-0327-4124-84fc-5dcafb88f8be
+
+		annotation measure_Actual_Utilization_Rate_YTD = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Actual Utilization Rate YTD","d":"Calculates the year-to-date Actual Utilization Rate based on the \u0027Date\u0027[calendar_date] dimension."}
+
+	/// Calculates the actual utilization rate year to date for the same period in the previous calendar year, based on the Date[calendar_date] column.
+	measure 'Actual Utilization Rate Previous Year YTD' = EXTERNALMEASURE("Actual Utilization Rate Previous Year YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8c3750e0-f894-4083-83ca-0fee8e99c1d1
+		sourceLineageTag: b5e2dc8f-f4ee-4915-924a-4e09139c2539
+
+		annotation measure_Actual_Utilization_Rate_Previous_Year_YTD = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Actual Utilization Rate Previous Year YTD","d":"Calculates the actual utilization rate year to date for the same period in the previous calendar year, based on the Date[calendar_date] column."}
+
+	/// Calculates the year-over-year change in the actual utilization rate by subtracting the previous year's year-to-date actual utilization rate from the current year-to-date actual utilization rate.
+	measure 'Actual Utilization YoY Change' = EXTERNALMEASURE("Actual Utilization YoY Change", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b193c67b-8d62-402b-8aaf-0493d562f879
+		sourceLineageTag: a541df83-97ce-4253-9611-4db40a35d0a4
+
+		annotation measure_Actual_Utilization_YoY_Change = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"exam_operations","m":"Actual Utilization YoY Change","d":"Calculates the year-over-year change in the actual utilization rate by subtracting the previous year\u0027s year-to-date actual utilization rate from the current year-to-date actual utilization rate."}
+
+	column exam_operations_key
+		dataType: string
+		lineageTag: 439d1d49-f891-4a94-9bd0-24a799e1f3b6
+		sourceColumn: exam_operations_key
+
+	column test_center_key
+		dataType: string
+		lineageTag: ead96135-430d-4d5c-bc5e-2cdae1b8406d
+		sourceColumn: test_center_key
+
+	column operation_date_key
+		dataType: int64
+		lineageTag: ac8ba153-b203-4479-96b3-83989b3fe84e
+		sourceColumn: operation_date_key
+
+	column available_seats
+		dataType: int64
+		lineageTag: 38264bf4-671f-41b7-91fe-b7431cc91c38
+		sourceColumn: available_seats
+
+	column reserved_seats
+		dataType: int64
+		lineageTag: 270c2834-9333-4d41-bbe5-3b3f951e02ca
+		sourceColumn: reserved_seats
+
+	column delivered_exams
+		dataType: int64
+		lineageTag: f9e19e24-0148-4c88-a9f6-e0488347ed0d
+		sourceColumn: delivered_exams
+
+	column cancelled_exams
+		dataType: int64
+		lineageTag: d58ad965-3848-491a-9450-f3edbb444613
+		sourceColumn: cancelled_exams
+
+	column actual_utilization_rate
+		dataType: decimal
+		lineageTag: 8a0313eb-f204-4a0e-bb08-ef49867bcbac
+		sourceColumn: actual_utilization_rate
+
+	column operational_pressure
+		dataType: string
+		lineageTag: 0beb316b-344d-4b60-b82a-78a9c88c4e9d
+		sourceColumn: operational_pressure
+
+	column operation_day_count
+		dataType: int64
+		lineageTag: 3e9a86bc-2f96-43b1-86ec-da4d9346aac3
+		sourceColumn: operation_day_count
+
+	partition exam_operations = entity
+		mode: directQuery
+		source
+			entityName: exam_operations
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 6c8e8e21-e76c-993f-471d-e7e20e92bb84
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_SemanticModelServer = powerbi://api.powerbi.com/v1.0/fa8de806-3675-4a4b-84e4-50290ac5ea80
+
+		annotation ONT_SemanticModelDatabase = Pearson_Exam_Operations_SM
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:44:00Z
+

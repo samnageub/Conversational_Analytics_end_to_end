@@ -1,0 +1,82 @@
+table assessment
+	lineageTag: a6d9004c-ef30-465f-8559-ed4a0b9e6cec
+	sourceLineageTag: 1c213159-8c90-420c-9dd2-223c06610d90
+
+	column assessment_key
+		dataType: string
+		lineageTag: 1c8ca191-b205-4004-84c2-6b31407b38dc
+		sourceLineageTag: 4ce75005-34dd-48a6-b3d3-8e9289085509
+		sourceColumn: assessment_key
+
+	column customer_key
+		dataType: string
+		lineageTag: fdb14ae9-36c8-45fe-8247-9f60c38f91ad
+		sourceLineageTag: cd5fe2ee-07c1-46b7-b56d-801e1b70a5ce
+		sourceColumn: customer_key
+
+	column program_key
+		dataType: string
+		lineageTag: 8f755c55-7bd8-41dd-b225-c858489b56fd
+		sourceLineageTag: 38ae34ce-e796-45eb-965b-9cb8a6021aac
+		sourceColumn: program_key
+
+	column assessment_code
+		dataType: string
+		lineageTag: 9b08f95b-7fe7-48bc-902c-2d29c702f157
+		sourceLineageTag: 27e90ee9-23fb-4217-b7f0-8df8361fe14a
+		sourceColumn: assessment_code
+
+	column assessment_name
+		dataType: string
+		lineageTag: a4b886e0-321e-41db-8246-e4d76f2938da
+		sourceLineageTag: d3f0c8e8-a013-4af1-8a65-648c4aae029f
+		sourceColumn: assessment_name
+
+	column assessment_level
+		dataType: string
+		lineageTag: 9b764dc4-e419-4388-88ec-ee27701d7a3f
+		sourceLineageTag: 4ab680d8-300c-4cbe-84e4-069709bf20ec
+		sourceColumn: assessment_level
+
+	column passing_score
+		dataType: int64
+		lineageTag: 3642724e-d10e-4e7e-9653-83b375f52f73
+		sourceLineageTag: cb1060d0-fd2d-4b1e-8f1a-8aca0cf60567
+		sourceColumn: passing_score
+
+	column standard_duration_minutes
+		dataType: int64
+		lineageTag: 48af81fb-43aa-42dd-b8c6-441ec8c693dd
+		sourceLineageTag: 18b05466-3190-4b39-8f72-ca7631593c51
+		sourceColumn: standard_duration_minutes
+
+	column standard_price
+		dataType: double
+		lineageTag: 0842cd57-1727-493f-92e0-fad73264826d
+		sourceLineageTag: 569ed695-862c-436a-971d-0fed2fec0c08
+		sourceColumn: standard_price
+
+	column assessment_status
+		dataType: string
+		lineageTag: 732ae4cf-4ff0-4460-9c20-e7b3cd4d6e96
+		sourceLineageTag: ec7de048-4f14-421a-b913-97dfc7be2d0e
+		sourceColumn: assessment_status
+
+	partition assessment-partition = entity
+		mode: directQuery
+		source
+			entityName: assessment
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

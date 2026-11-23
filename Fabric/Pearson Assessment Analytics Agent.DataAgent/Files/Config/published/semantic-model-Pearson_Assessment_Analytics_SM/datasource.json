@@ -1,0 +1,1443 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "296f8c90-01f2-9cf2-4474-da2c100f5a47",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "Pearson_Assessment_Analytics_SM",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": null,
+  "elements": [
+    {
+      "id": "1c213159-8c90-420c-9dd2-223c06610d90",
+      "is_selected": true,
+      "display_name": "assessment",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "4ce75005-34dd-48a6-b3d3-8e9289085509",
+          "is_selected": true,
+          "display_name": "assessment_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cd5fe2ee-07c1-46b7-b56d-801e1b70a5ce",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "38ae34ce-e796-45eb-965b-9cb8a6021aac",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "27e90ee9-23fb-4217-b7f0-8df8361fe14a",
+          "is_selected": true,
+          "display_name": "assessment_code",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d3f0c8e8-a013-4af1-8a65-648c4aae029f",
+          "is_selected": true,
+          "display_name": "assessment_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4ab680d8-300c-4cbe-84e4-069709bf20ec",
+          "is_selected": true,
+          "display_name": "assessment_level",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cb1060d0-fd2d-4b1e-8f1a-8aca0cf60567",
+          "is_selected": true,
+          "display_name": "passing_score",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "18b05466-3190-4b39-8f72-ca7631593c51",
+          "is_selected": true,
+          "display_name": "standard_duration_minutes",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "569ed695-862c-436a-971d-0fed2fec0c08",
+          "is_selected": true,
+          "display_name": "standard_price",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ec7de048-4f14-421a-b913-97dfc7be2d0e",
+          "is_selected": true,
+          "display_name": "assessment_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c44e88b5-1f90-476a-b230-dbdc293acec3",
+      "is_selected": true,
+      "display_name": "candidate",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "fdb6ca05-2c75-4df7-8f01-6a9c2d1695dc",
+          "is_selected": true,
+          "display_name": "candidate_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f10877b9-2c7b-4d7c-a5f4-f030265ec4e1",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "29184b10-a59c-4c69-b5d1-af59259ce9b7",
+          "is_selected": true,
+          "display_name": "candidate_display_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a47e6108-d4e9-4f52-9615-58ea77a98850",
+          "is_selected": true,
+          "display_name": "region_code",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4a522842-16fe-4b45-bc14-6852ca4b44da",
+          "is_selected": true,
+          "display_name": "region_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0024edaa-d748-4a51-8f64-f38aa044425d",
+          "is_selected": true,
+          "display_name": "candidate_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "b8d1dd23-57c4-4d8e-b4cb-91a8763392ec",
+      "is_selected": true,
+      "display_name": "customer",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "60b27fdf-7ee3-4763-a20b-2ec3fd3cb9ea",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "25d03cac-19a1-42d3-bc00-192baa5a22ea",
+          "is_selected": true,
+          "display_name": "customer_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "26b47861-7fc0-4635-a86b-ed78f3224f53",
+          "is_selected": true,
+          "display_name": "customer_segment",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1de2c217-ffdc-4a35-801e-e63c4c129d2e",
+          "is_selected": true,
+          "display_name": "country",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4b9d88b6-bf21-49ef-8f24-2d8e3aa3d8dd",
+          "is_selected": true,
+          "display_name": "customer_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c26ff239-3393-4096-b3ea-98c429305d16",
+      "is_selected": true,
+      "display_name": "date",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "951d9e6d-0cfa-4d46-a511-84d9fb7d1bbc",
+          "is_selected": true,
+          "display_name": "date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d72af9b9-5a23-474f-8360-319597ece082",
+          "is_selected": true,
+          "display_name": "calendar_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ce4d517f-633e-4d67-bff2-3ab22c51a6b6",
+          "is_selected": true,
+          "display_name": "calendar_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "51b06385-e340-4445-8a0c-77dd2764657b",
+          "is_selected": true,
+          "display_name": "calendar_quarter",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9c612b97-f500-4aa8-b195-0d17c50c1bf9",
+          "is_selected": true,
+          "display_name": "month_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fcb8940b-7a5b-41ab-9ceb-959422a89b52",
+          "is_selected": true,
+          "display_name": "month_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c49c5e8d-96aa-4d7d-8098-d4f7acf62364",
+          "is_selected": true,
+          "display_name": "year_month",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2078755b-4aaa-4256-b3c4-f710499166a9",
+          "is_selected": true,
+          "display_name": "week_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cc21b612-f1fc-4cdb-b037-2f372ebc9629",
+          "is_selected": true,
+          "display_name": "day_of_month",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "99711281-d1fc-4d10-8e65-5a3db34046b8",
+          "is_selected": true,
+          "display_name": "day_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9e16265e-9612-4cdb-92d3-2ea31628ae07",
+          "is_selected": true,
+          "display_name": "is_weekend",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "4af98b4d-d55b-4411-82a9-eea2f4f4edca",
+      "is_selected": true,
+      "display_name": "item",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "75077984-8c11-4e50-8b00-89e7f4b967fd",
+          "is_selected": true,
+          "display_name": "item_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "81931c0f-ef58-4213-8c31-677e581df10c",
+          "is_selected": true,
+          "display_name": "topic_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6fe33c2a-93da-40c2-a2db-5604e40c0512",
+          "is_selected": true,
+          "display_name": "item_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6c9daa7f-d392-4322-bdf6-31c63df63eed",
+          "is_selected": true,
+          "display_name": "difficulty",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4e18da30-ecb2-4f52-b164-4099c6129dab",
+          "is_selected": true,
+          "display_name": "maximum_points",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "01af30c4-9889-426e-ae2d-effb8969aada",
+          "is_selected": true,
+          "display_name": "item_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "510df73a-46aa-405a-8bac-afcd3384ff4c",
+      "is_selected": true,
+      "display_name": "program",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "2c7fa78e-9ad0-4794-9cf4-618c4d1b5660",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "25d75d8e-0fbf-4289-98fc-9024d57154eb",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "679a3b91-043c-4d79-9860-38adb26c2fda",
+          "is_selected": true,
+          "display_name": "program_code",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f33288ff-37a1-414e-b164-76d2bbdd4263",
+          "is_selected": true,
+          "display_name": "program_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "38c56047-650e-4ece-af25-3b4482004180",
+          "is_selected": true,
+          "display_name": "program_category",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1e611500-76c9-4ecb-9ab4-8b79fe1b0441",
+          "is_selected": true,
+          "display_name": "program_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "e9b58af4-d977-4b9d-b522-0236efed92b8",
+      "is_selected": true,
+      "display_name": "test_center",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "6b084dc9-17fe-4864-8c05-d617204a3c95",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fd67d172-c717-48b7-8cea-754064c48d4c",
+          "is_selected": true,
+          "display_name": "test_center_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b58319e0-1be6-49c3-a424-679dcf8d7054",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d3eec63d-a6c0-45f9-bd16-e9064be80957",
+          "is_selected": true,
+          "display_name": "state",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dc0f9813-2e5b-4a12-aa4b-f35dc9f94a8f",
+          "is_selected": true,
+          "display_name": "region",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "897c17dd-e63f-464b-ba98-238b5b4b9235",
+          "is_selected": true,
+          "display_name": "base_daily_capacity",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fb30ca56-53b9-4a21-b338-3eb52944eb72",
+          "is_selected": true,
+          "display_name": "test_center_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "71dc18fc-f3bf-408e-bfac-4c2ed69b943c",
+      "is_selected": true,
+      "display_name": "topic",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "d92e3a64-c7b8-4e01-84b7-0eff25775d8a",
+          "is_selected": true,
+          "display_name": "topic_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "58d2e2ab-35c1-4e46-94f8-6e023efbda57",
+          "is_selected": true,
+          "display_name": "topic_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7721367d-7e69-4993-ab43-a3fe22129358",
+          "is_selected": true,
+          "display_name": "topic_description",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "52088827-498a-46ae-b155-d91195dd5926",
+          "is_selected": true,
+          "display_name": "topic_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "67f37035-01db-4a40-8a20-1eb176d74a66",
+      "is_selected": true,
+      "display_name": "attempt",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "cecaefc8-06a4-42e5-9e8c-785a8fc8c7bc",
+          "is_selected": true,
+          "display_name": "attempt_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1be39570-d452-4c6b-938e-02e4600cf203",
+          "is_selected": true,
+          "display_name": "registration_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ab9e6615-0347-4bf2-b9e4-e38bb3adb2d2",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "29142869-ce61-47d6-8874-2b7cfc65cce3",
+          "is_selected": true,
+          "display_name": "candidate_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a8a82797-070c-4fac-9022-653c7d758438",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "60cb412f-31fc-42ed-afa2-752259b9be9b",
+          "is_selected": true,
+          "display_name": "assessment_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "574453d2-a662-43cc-b6b6-a9de706cc1cc",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c7407906-feaf-4b7b-92d8-8c1fdc10b3e7",
+          "is_selected": true,
+          "display_name": "attempt_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "84bd7936-4051-485a-a157-0e62fcfa05a2",
+          "is_selected": true,
+          "display_name": "attempt_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4e5109b0-3de6-4226-b1a8-6018f15c1215",
+          "is_selected": true,
+          "display_name": "score",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7541d77e-13fa-49a2-9753-8b15c672609a",
+          "is_selected": true,
+          "display_name": "passing_score",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "eeb08a81-1a5e-4637-93e7-b021e2029de9",
+          "is_selected": true,
+          "display_name": "score_margin",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "24c8bca0-f26a-4b4d-9888-ec1ed2f0d482",
+          "is_selected": true,
+          "display_name": "passed",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6cee42be-9ddf-4710-bffe-568a096a4a83",
+          "is_selected": true,
+          "display_name": "attempt_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "47982e46-9dcd-4601-80dc-916a790b83b3",
+          "is_selected": true,
+          "display_name": "duration_minutes",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "87660033-55b5-4023-8665-93335aefd184",
+          "is_selected": true,
+          "display_name": "attempt_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4c488c53-5bea-47ec-9f39-0ce6d607bb82",
+          "is_selected": true,
+          "display_name": "Completed Tests",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of completed test attempts by counting rows in the attempt table.",
+          "children": []
+        },
+        {
+          "id": "91ca7bcd-5379-4e3e-b3c9-a5d21a439801",
+          "is_selected": true,
+          "display_name": "Passed Tests",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of attempt records where the passed flag is TRUE, representing the total count of passed tests.",
+          "children": []
+        },
+        {
+          "id": "38eb3037-d025-421f-8e84-ded6e283ae02",
+          "is_selected": true,
+          "display_name": "Failed Tests",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the number of failed tests by subtracting Passed Tests from Completed Tests.",
+          "children": []
+        },
+        {
+          "id": "2d1e04d2-416d-49b0-b2d5-d62b67c3c67d",
+          "is_selected": true,
+          "display_name": "Pass Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b24cb176-b144-465d-abc7-b8a5713ed143",
+          "is_selected": true,
+          "display_name": "Average Score",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average of the 'score' values across all records in the 'attempt' table.",
+          "children": []
+        },
+        {
+          "id": "4addc4d0-d17e-40b3-adaf-e40f35a622a2",
+          "is_selected": true,
+          "display_name": "Average Test Duration",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average test duration in minutes across all attempts in the 'attempt' table.",
+          "children": []
+        },
+        {
+          "id": "d6f0efca-11d2-439d-aad4-60b5649c25f5",
+          "is_selected": true,
+          "display_name": "Unique Test Takers",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of unique test takers based on the distinct candidate_key values in the attempt table.",
+          "children": []
+        },
+        {
+          "id": "b227e162-abf5-471c-a8ee-c2e8bed18ba3",
+          "is_selected": true,
+          "display_name": "Completion Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the completion rate as the ratio of completed tests to total registrations.",
+          "children": []
+        },
+        {
+          "id": "135a0f03-76a9-4975-a479-991c5c146332",
+          "is_selected": true,
+          "display_name": "Completed Tests YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the year to date total of completed tests based on the 'Date'[calendar_date] column.",
+          "children": []
+        },
+        {
+          "id": "8cad460d-c24f-4943-93ed-90bac74c0e19",
+          "is_selected": true,
+          "display_name": "Completed Tests Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the completed tests for the same year-to-date period in the previous calendar year, based on the Completed Tests Year to Date measure and the calendar date from the Date table.",
+          "children": []
+        },
+        {
+          "id": "c69edb77-231c-4dca-8c59-9490e8952dbb",
+          "is_selected": true,
+          "display_name": "Completed Tests YoY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year over year percentage change in completed tests by comparing completed tests year to date with completed tests for the same year to date period in the previous year.",
+          "children": []
+        },
+        {
+          "id": "4214ef56-f57e-4ba4-accc-df644732c1b1",
+          "is_selected": true,
+          "display_name": "Pass Rate YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year-to-date pass rate by evaluating [Pass Rate] over all dates from the start of the calendar year up to the current filter context date.",
+          "children": []
+        },
+        {
+          "id": "8c7a54b0-bfe3-41d2-91cc-e2ae6ebd483a",
+          "is_selected": true,
+          "display_name": "Pass Rate Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "866a5b2c-e739-4e94-a973-45f78438e408",
+          "is_selected": true,
+          "display_name": "Pass Rate YoY Change",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year over year change in the pass rate by subtracting Pass Rate Previous Year Year to date from Pass Rate Year to date.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "88958174-03fe-4269-b352-68d29cc5690d",
+      "is_selected": true,
+      "display_name": "finance",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "842b5076-709a-4770-8fe7-bab644c9d39b",
+          "is_selected": true,
+          "display_name": "transaction_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "161524ac-eba9-4269-b660-1c4463681371",
+          "is_selected": true,
+          "display_name": "registration_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "98b2f795-6e31-4735-93f4-06084c48cc61",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a544bac7-acdc-460b-abd0-6b96462ccb5c",
+          "is_selected": true,
+          "display_name": "candidate_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "20131aff-5e86-4a66-925a-faf452b1469d",
+          "is_selected": true,
+          "display_name": "assessment_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f0bb917d-fce2-4c1b-97cd-4fb37f821e6b",
+          "is_selected": true,
+          "display_name": "transaction_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3548c632-eef9-45cf-afe4-ad74237bdfd1",
+          "is_selected": true,
+          "display_name": "transaction_type",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f2a0cd1e-adfd-41c8-b304-58db4895f9ac",
+          "is_selected": true,
+          "display_name": "amount",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4790d8f7-ccd2-45f7-a78f-c2f69e03d95e",
+          "is_selected": true,
+          "display_name": "currency",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a4c8e9f6-72c3-4348-b9ba-5dfd3cd570c2",
+          "is_selected": true,
+          "display_name": "payment_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3acf4e93-14e4-47b1-83b5-c7ead0d435af",
+          "is_selected": true,
+          "display_name": "transaction_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "67557930-14f8-4a26-9d93-b16b0ee8b986",
+          "is_selected": true,
+          "display_name": "Gross Payments",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the total gross payments amount by summing 'finance'[amount] for transactions where 'finance'[transaction_type] equals \"STRING LITERAL\".",
+          "children": []
+        },
+        {
+          "id": "654e68b5-7e78-48b5-9a5d-a83cd3eb712c",
+          "is_selected": true,
+          "display_name": "Refund Amount",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the total refund amount as the negative sum of 'finance'[amount] for rows where 'finance'[transaction_type] equals \"STRING LITERAL\".",
+          "children": []
+        },
+        {
+          "id": "556091ff-130f-40b9-9228-881a1ce97cb6",
+          "is_selected": true,
+          "display_name": "Payment Count",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of rows in the finance table where the transaction_type is equal to 'STRING LITERAL'.",
+          "children": []
+        },
+        {
+          "id": "7887939d-a31d-48d8-8aaf-19fb385bf49e",
+          "is_selected": true,
+          "display_name": "Refund Count",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of refund transactions in the 'finance' table by counting rows where the transaction_type equals the specified refund code.",
+          "children": []
+        },
+        {
+          "id": "3c62b9bd-b80b-4262-bd9f-8fbe6dfd970b",
+          "is_selected": true,
+          "display_name": "Refund Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the refund rate as the ratio of the number of refunds to the total number of payments.",
+          "children": []
+        },
+        {
+          "id": "84a9b50e-679a-4293-bc76-d7cac3e24eab",
+          "is_selected": true,
+          "display_name": "Net Revenue",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates total net revenue by summing the Amount field from the finance table.",
+          "children": []
+        },
+        {
+          "id": "b6527058-bc55-4764-a348-9522ead7083a",
+          "is_selected": true,
+          "display_name": "Revenue per Completed Test",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average revenue generated for each completed test by dividing Net Revenue by Completed Tests.",
+          "children": []
+        },
+        {
+          "id": "f7bbe227-9846-40dc-8cd2-42525494163e",
+          "is_selected": true,
+          "display_name": "Net Revenue YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates net revenue year to date based on the selected 'Date'[calendar_date] context.",
+          "children": []
+        },
+        {
+          "id": "bf3a46f5-6159-4d59-bb0f-093813b11d0e",
+          "is_selected": true,
+          "display_name": "Net Revenue Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates net revenue year to date for the same period in the previous calendar year based on the 'Date'[calendar_date] column, typically for year-over-year comparison against current year-to-date net revenue.",
+          "children": []
+        },
+        {
+          "id": "92792356-87ec-4757-a25c-c29cf2463fb8",
+          "is_selected": true,
+          "display_name": "Net Revenue YoY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year-over-year percentage change in net revenue by comparing current year-to-date net revenue to the previous year-to-date net revenue.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "47950260-c0b2-40f7-8d83-66a99f494a2a",
+      "is_selected": true,
+      "display_name": "registration",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "f5aad2d3-744b-4324-87bf-8b1fc2c602d4",
+          "is_selected": true,
+          "display_name": "registration_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9d4b8117-0c40-4bbc-89e8-0cb587906d63",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cdd40da4-6ada-47ef-9255-30ff8eb724c4",
+          "is_selected": true,
+          "display_name": "candidate_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cefb9f91-c87b-4f1b-88be-bb488c3f9f7c",
+          "is_selected": true,
+          "display_name": "program_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e84a8123-3509-49f5-9578-fadb873ae11e",
+          "is_selected": true,
+          "display_name": "assessment_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6e079f4f-1f84-4135-a155-397bb8de0074",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3befc638-9f4c-4f48-a495-f04ed4c42f96",
+          "is_selected": true,
+          "display_name": "registration_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0d80dc51-d9f4-4e8b-bbb7-c791887ad57e",
+          "is_selected": true,
+          "display_name": "original_exam_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ae53fc01-3406-49df-9d4a-e5a936c6b267",
+          "is_selected": true,
+          "display_name": "final_exam_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "35881bbd-294d-4a8c-a5a9-6db2e24f1c2f",
+          "is_selected": true,
+          "display_name": "registration_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cc395d2e-f941-41b4-8bc2-892161f6b702",
+          "is_selected": true,
+          "display_name": "delivery_mode",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3f539af5-eb82-4b2c-b5bf-8e022e01a6be",
+          "is_selected": true,
+          "display_name": "was_rescheduled",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a2bcc40d-8c2e-4a9d-9b3e-76cdd3ce3e43",
+          "is_selected": true,
+          "display_name": "reschedule_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9b88e93c-2206-4ba5-a765-7865465e1009",
+          "is_selected": true,
+          "display_name": "days_shifted",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "eaa94ebe-5733-4fe2-abfa-39bb9e719bd6",
+          "is_selected": true,
+          "display_name": "registration_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "417b919e-1a9d-4baa-848d-8a94a5a8b976",
+          "is_selected": true,
+          "display_name": "Registrations",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Total Number of Registrations",
+          "children": []
+        },
+        {
+          "id": "c74d347a-ba1b-484f-be9b-643d07f78ed9",
+          "is_selected": true,
+          "display_name": "Unique Registered Candidates",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of distinct registered candidates based on the candidate_key in the registration table.",
+          "children": []
+        },
+        {
+          "id": "ea0c4ec8-a173-4d3d-83d6-a0cc4fdf297e",
+          "is_selected": true,
+          "display_name": "Registrations per Candidate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average number of registrations per unique registered candidate by dividing total registrations by the count of unique registered candidates.",
+          "children": []
+        },
+        {
+          "id": "5949f808-c59a-4ee8-b3e1-7d0f2e245f7c",
+          "is_selected": true,
+          "display_name": "Registrations YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the year-to-date total of registrations based on the 'Date'[calendar_date] context.",
+          "children": []
+        },
+        {
+          "id": "67d3a307-7326-48b9-a844-64efe354b3f1",
+          "is_selected": true,
+          "display_name": "Registrations Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Returns the year-to-date registrations for the same period in the previous calendar year, using the Date[calendar_date] column to shift the [Registrations YTD] measure one year back.",
+          "children": []
+        },
+        {
+          "id": "a6dd2c9a-1f28-40d9-ae7f-3d7042e4820e",
+          "is_selected": true,
+          "display_name": "Registrations YoY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year-over-year percentage change in year-to-date registrations compared to the previous year's year-to-date registrations.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "21291ed0-157e-4f09-94b7-20de59bd6fb3",
+      "is_selected": true,
+      "display_name": "response",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "f2fc38fa-d768-4d99-a7ce-04b223e05d01",
+          "is_selected": true,
+          "display_name": "response_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ae3397e8-66a7-4a19-93f1-1d12c3409830",
+          "is_selected": true,
+          "display_name": "attempt_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6eb4f2cb-087d-4516-8257-c27c33b834fa",
+          "is_selected": true,
+          "display_name": "customer_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3d3c7283-d7a0-4fd3-b504-b6b5725a654e",
+          "is_selected": true,
+          "display_name": "candidate_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0daa30f4-cf33-4f47-ba18-00d572ac3768",
+          "is_selected": true,
+          "display_name": "assessment_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ef047dff-f7ca-4363-b9b0-547effec1f95",
+          "is_selected": true,
+          "display_name": "topic_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2cb89a40-98ac-405b-8756-47d0abc8fcf2",
+          "is_selected": true,
+          "display_name": "item_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "589dd99e-5720-48d0-92b4-8e7e288cbf29",
+          "is_selected": true,
+          "display_name": "attempt_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "21ab3f9b-ca63-49fa-98e0-37e673f3b776",
+          "is_selected": true,
+          "display_name": "question_sequence",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f1b25a68-6a2d-4b7e-b120-b1a963b04044",
+          "is_selected": true,
+          "display_name": "is_correct",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8d72817d-6fdb-4a79-9956-c3507a3a7a2f",
+          "is_selected": true,
+          "display_name": "points_available",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2676777e-a40c-45d1-8597-50c42fbdd62b",
+          "is_selected": true,
+          "display_name": "points_earned",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "184c9b12-d5b2-47b6-ac3c-f38ec5d88f76",
+          "is_selected": true,
+          "display_name": "response_seconds",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b4066068-299f-434e-ba87-df7ee16b5704",
+          "is_selected": true,
+          "display_name": "response_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6db53966-735b-4583-b5ed-8e9d4cb09e66",
+          "is_selected": true,
+          "display_name": "Total Responses",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the total number of rows in the 'response' table to return the total number of responses.",
+          "children": []
+        },
+        {
+          "id": "1af6a278-e999-4fe9-b43a-7f7f23930e5d",
+          "is_selected": true,
+          "display_name": "Correct Responses",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of responses marked as correct in the 'response' table.",
+          "children": []
+        },
+        {
+          "id": "cd70d74e-5222-4f5c-a98f-9be4a9f93344",
+          "is_selected": true,
+          "display_name": "Incorrect Responses",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculate the number of incorrect responses by subtracting Correct Responses from Total Responses.",
+          "children": []
+        },
+        {
+          "id": "0d51957a-c5a8-40c1-a64a-f09710dbd012",
+          "is_selected": true,
+          "display_name": "Topic Accuracy",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the percentage of topic accuracy by dividing the number of correct responses by the total responses.",
+          "children": []
+        },
+        {
+          "id": "1a3ff940-69b3-41f5-bf0b-bcf2e4034d57",
+          "is_selected": true,
+          "display_name": "Average Response Time",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average response time in seconds across all response records.",
+          "children": []
+        },
+        {
+          "id": "c3b59c62-85ab-4aef-b944-ea7b6b6eb43e",
+          "is_selected": true,
+          "display_name": "Average Points Earned",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the average number of points earned across all response records.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+table finance
+	lineageTag: 331632ff-dd16-4c9b-98e6-c9bb25b7d74c
+	sourceLineageTag: 88958174-03fe-4269-b352-68d29cc5690d
+
+	/// Calculates the total gross payments amount by summing 'finance'[amount] for transactions where 'finance'[transaction_type] equals "STRING LITERAL".
+	measure 'Gross Payments' = EXTERNALMEASURE("Gross Payments", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 129131eb-a81a-4a34-a222-dae50883f1d5
+		sourceLineageTag: 67557930-14f8-4a26-9d93-b16b0ee8b986
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates the total refund amount as the negative sum of 'finance'[amount] for rows where 'finance'[transaction_type] equals "STRING LITERAL".
+	measure 'Refund Amount' = EXTERNALMEASURE("Refund Amount", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: d97d6bfc-6497-4860-a537-fc99c20ea180
+		sourceLineageTag: 654e68b5-7e78-48b5-9a5d-a83cd3eb712c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Counts the number of rows in the finance table where the transaction_type is equal to 'STRING LITERAL'.
+	measure 'Payment Count' = EXTERNALMEASURE("Payment Count", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: d30e396c-1e35-4568-8eee-b10976ea32f6
+		sourceLineageTag: 556091ff-130f-40b9-9228-881a1ce97cb6
+
+	/// Counts the number of refund transactions in the 'finance' table by counting rows where the transaction_type equals the specified refund code.
+	measure 'Refund Count' = EXTERNALMEASURE("Refund Count", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: cbf4f07f-7bc4-4aae-a812-41e124c11206
+		sourceLineageTag: 7887939d-a31d-48d8-8aaf-19fb385bf49e
+
+	/// Calculates the refund rate as the ratio of the number of refunds to the total number of payments.
+	measure 'Refund Rate' = EXTERNALMEASURE("Refund Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9d90dbfe-594a-492c-b0ea-06ae224532df
+		sourceLineageTag: 3c62b9bd-b80b-4262-bd9f-8fbe6dfd970b
+
+	/// Calculates total net revenue by summing the Amount field from the finance table.
+	measure 'Net Revenue' = EXTERNALMEASURE("Net Revenue", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0ffce6e1-4585-4dff-8976-0723ef1d229a
+		sourceLineageTag: 84a9b50e-679a-4293-bc76-d7cac3e24eab
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates the average revenue generated for each completed test by dividing Net Revenue by Completed Tests.
+	measure 'Revenue per Completed Test' = EXTERNALMEASURE("Revenue per Completed Test", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: e29ee2e6-ace7-44de-a512-7f37c629dc46
+		sourceLineageTag: b6527058-bc55-4764-a348-9522ead7083a
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates net revenue year to date based on the selected 'Date'[calendar_date] context.
+	measure 'Net Revenue YTD' = EXTERNALMEASURE("Net Revenue YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c6aaf530-d0c9-4fb3-bcfc-36153a9fb1f1
+		sourceLineageTag: f7bbe227-9846-40dc-8cd2-42525494163e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates net revenue year to date for the same period in the previous calendar year based on the 'Date'[calendar_date] column, typically for year-over-year comparison against current year-to-date net revenue.
+	measure 'Net Revenue Previous Year YTD' = EXTERNALMEASURE("Net Revenue Previous Year YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		lineageTag: 08935e92-fa85-45d6-9e2b-cc14373fb3ab
+		sourceLineageTag: bf3a46f5-6159-4d59-bb0f-093813b11d0e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the year-over-year percentage change in net revenue by comparing current year-to-date net revenue to the previous year-to-date net revenue.
+	measure 'Net Revenue YoY %' = EXTERNALMEASURE("Net Revenue YoY %", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a20f986b-e29f-4ee3-9d54-e782582c71b1
+		sourceLineageTag: 92792356-87ec-4757-a25c-c29cf2463fb8
+
+	column transaction_id
+		dataType: string
+		lineageTag: e6518a17-307d-4967-80c0-c4b4410825cf
+		sourceLineageTag: 842b5076-709a-4770-8fe7-bab644c9d39b
+		sourceColumn: transaction_id
+
+	column registration_id
+		dataType: string
+		lineageTag: 86172148-c0da-4236-8040-a500a7f93fc4
+		sourceLineageTag: 161524ac-eba9-4269-b660-1c4463681371
+		sourceColumn: registration_id
+
+	column customer_key
+		dataType: string
+		lineageTag: c556ab54-b3f9-4934-9fbb-61faf6f937b4
+		sourceLineageTag: 98b2f795-6e31-4735-93f4-06084c48cc61
+		sourceColumn: customer_key
+
+	column candidate_key
+		dataType: string
+		lineageTag: afba2db9-5ea9-440d-8b43-77ca87032df5
+		sourceLineageTag: a544bac7-acdc-460b-abd0-6b96462ccb5c
+		sourceColumn: candidate_key
+
+	column assessment_key
+		dataType: string
+		lineageTag: a271e377-c431-4090-b47a-7333658d1826
+		sourceLineageTag: 20131aff-5e86-4a66-925a-faf452b1469d
+		sourceColumn: assessment_key
+
+	column transaction_date_key
+		dataType: int64
+		lineageTag: 17f06e1e-2d2e-4076-824d-a9ca484c5ea3
+		sourceLineageTag: f0bb917d-fce2-4c1b-97cd-4fb37f821e6b
+		sourceColumn: transaction_date_key
+
+	column transaction_type
+		dataType: string
+		lineageTag: f8b05675-0973-4f06-bb43-57890e742919
+		sourceLineageTag: 3548c632-eef9-45cf-afe4-ad74237bdfd1
+		sourceColumn: transaction_type
+
+	column amount
+		dataType: double
+		lineageTag: 9aee700b-f51e-433d-a1a9-6664cd34be70
+		sourceLineageTag: f2a0cd1e-adfd-41c8-b304-58db4895f9ac
+		sourceColumn: amount
+
+	column currency
+		dataType: string
+		lineageTag: f794c74f-38d6-48e4-88ef-3522a9ea3a9b
+		sourceLineageTag: 4790d8f7-ccd2-45f7-a78f-c2f69e03d95e
+		sourceColumn: currency
+
+	column payment_status
+		dataType: string
+		lineageTag: 787a237b-10a0-4738-b574-f0489a0527b2
+		sourceLineageTag: a4c8e9f6-72c3-4348-b9ba-5dfd3cd570c2
+		sourceColumn: payment_status
+
+	column transaction_count
+		dataType: int64
+		lineageTag: e8ad5299-f1d5-4bfe-b534-316329c797c2
+		sourceLineageTag: 3acf4e93-14e4-47b1-83b5-c7ead0d435af
+		sourceColumn: transaction_count
+
+	partition finance-partition = entity
+		mode: directQuery
+		source
+			entityName: finance
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

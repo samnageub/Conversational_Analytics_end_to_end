@@ -1,0 +1,107 @@
+table assessment
+	lineageTag: 1c213159-8c90-420c-9dd2-223c06610d90
+	sourceLineageTag: [dbo].[dim_assessment]
+
+	column assessment_key
+		dataType: string
+		lineageTag: 4ce75005-34dd-48a6-b3d3-8e9289085509
+		sourceLineageTag: assessment_key
+		summarizeBy: none
+		sourceColumn: assessment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: cd5fe2ee-07c1-46b7-b56d-801e1b70a5ce
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: string
+		lineageTag: 38ae34ce-e796-45eb-965b-9cb8a6021aac
+		sourceLineageTag: program_key
+		summarizeBy: none
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_code
+		dataType: string
+		lineageTag: 27e90ee9-23fb-4217-b7f0-8df8361fe14a
+		sourceLineageTag: assessment_code
+		summarizeBy: none
+		sourceColumn: assessment_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_name
+		dataType: string
+		lineageTag: d3f0c8e8-a013-4af1-8a65-648c4aae029f
+		sourceLineageTag: assessment_name
+		summarizeBy: none
+		sourceColumn: assessment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_level
+		dataType: string
+		lineageTag: 4ab680d8-300c-4cbe-84e4-069709bf20ec
+		sourceLineageTag: assessment_level
+		summarizeBy: none
+		sourceColumn: assessment_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column passing_score
+		dataType: int64
+		formatString: 0
+		lineageTag: cb1060d0-fd2d-4b1e-8f1a-8aca0cf60567
+		sourceLineageTag: passing_score
+		summarizeBy: sum
+		sourceColumn: passing_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column standard_duration_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 18b05466-3190-4b39-8f72-ca7631593c51
+		sourceLineageTag: standard_duration_minutes
+		summarizeBy: sum
+		sourceColumn: standard_duration_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column standard_price
+		dataType: double
+		lineageTag: 569ed695-862c-436a-971d-0fed2fec0c08
+		sourceLineageTag: standard_price
+		summarizeBy: sum
+		sourceColumn: standard_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column assessment_status
+		dataType: string
+		lineageTag: ec7de048-4f14-421a-b913-97dfc7be2d0e
+		sourceLineageTag: assessment_status
+		summarizeBy: none
+		sourceColumn: assessment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition assessment = entity
+		mode: directLake
+		source
+			entityName: dim_assessment
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

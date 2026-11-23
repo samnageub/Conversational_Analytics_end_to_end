@@ -1,0 +1,88 @@
+table date
+	lineageTag: 7c0518bd-295c-4608-a6cc-90a96545a58d
+	sourceLineageTag: c26ff239-3393-4096-b3ea-98c429305d16
+
+	column date_key
+		dataType: int64
+		lineageTag: 291712cc-3b91-4d56-b22e-5a6f14475140
+		sourceLineageTag: 951d9e6d-0cfa-4d46-a511-84d9fb7d1bbc
+		sourceColumn: date_key
+
+	column calendar_date
+		dataType: dateTime
+		lineageTag: 8f24b0a1-9511-4c48-b851-9cb7e5bdc466
+		sourceLineageTag: d72af9b9-5a23-474f-8360-319597ece082
+		sourceColumn: calendar_date
+
+	column calendar_year
+		dataType: int64
+		lineageTag: c6a3dab4-6d6a-4022-b0e8-0e679ba7cb2f
+		sourceLineageTag: ce4d517f-633e-4d67-bff2-3ab22c51a6b6
+		sourceColumn: calendar_year
+
+	column calendar_quarter
+		dataType: string
+		lineageTag: f030a5cd-b999-4474-9e40-f60dd3bfbfbc
+		sourceLineageTag: 51b06385-e340-4445-8a0c-77dd2764657b
+		sourceColumn: calendar_quarter
+
+	column month_number
+		dataType: int64
+		lineageTag: 6ce27b07-bbb9-488e-9b7d-15612193cd89
+		sourceLineageTag: 9c612b97-f500-4aa8-b195-0d17c50c1bf9
+		sourceColumn: month_number
+
+	column month_name
+		dataType: string
+		lineageTag: bf9f02a6-5f29-4132-8042-e69cdf4bc31a
+		sourceLineageTag: fcb8940b-7a5b-41ab-9ceb-959422a89b52
+		sourceColumn: month_name
+
+	column year_month
+		dataType: string
+		lineageTag: 13904bb4-52f6-4908-918d-18100df2b07e
+		sourceLineageTag: c49c5e8d-96aa-4d7d-8098-d4f7acf62364
+		sourceColumn: year_month
+
+	column week_number
+		dataType: int64
+		lineageTag: 55737044-a62f-4301-b51b-69b07160051b
+		sourceLineageTag: 2078755b-4aaa-4256-b3c4-f710499166a9
+		sourceColumn: week_number
+
+	column day_of_month
+		dataType: int64
+		lineageTag: f5b6f2e6-e7d6-466b-9d71-4ed62f44c5f0
+		sourceLineageTag: cc21b612-f1fc-4cdb-b037-2f372ebc9629
+		sourceColumn: day_of_month
+
+	column day_name
+		dataType: string
+		lineageTag: 968ba258-6a64-4e44-a2c6-d92f74812ec2
+		sourceLineageTag: 99711281-d1fc-4d10-8e65-5a3db34046b8
+		sourceColumn: day_name
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 79b9e539-70d0-485c-8145-79632aa5bd0e
+		sourceLineageTag: 9e16265e-9612-4cdb-92d3-2ea31628ae07
+		sourceColumn: is_weekend
+
+	partition date-partition = entity
+		mode: directQuery
+		source
+			entityName: date
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

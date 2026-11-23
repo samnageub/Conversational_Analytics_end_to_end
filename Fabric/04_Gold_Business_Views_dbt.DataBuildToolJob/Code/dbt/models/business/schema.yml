@@ -1,0 +1,663 @@
+version: 2
+models:
+- name: Customer
+  description: 'Business-friendly customer dimension. Grain: one row per customer.'
+  config:
+    alias: Customer
+  columns:
+  - name: CustomerKey
+    description: Stable customer relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: CustomerName
+    description: Customer display name.
+    data_tests:
+    - not_null
+  - name: CustomerSegment
+    description: Customer segment.
+  - name: Country
+    description: Customer country.
+  - name: CustomerStatus
+    description: Customer status.
+- name: Candidate
+  description: 'Business-friendly candidate dimension. Grain: one row per candidate.'
+  config:
+    alias: Candidate
+  columns:
+  - name: CandidateKey
+    description: Stable candidate relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: CustomerKey
+    description: Owning customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: CandidateDisplayName
+    description: Candidate display name.
+  - name: RegionCode
+    description: Candidate region code.
+  - name: RegionName
+    description: Candidate region name.
+  - name: CandidateStatus
+    description: Candidate status.
+- name: Program
+  description: 'Business-friendly program dimension. Grain: one row per program.'
+  config:
+    alias: Program
+  columns:
+  - name: ProgramKey
+    description: Stable program relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: CustomerKey
+    description: Owning customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: ProgramCode
+    description: Program business code.
+    data_tests:
+    - not_null
+  - name: ProgramName
+    description: Program name.
+    data_tests:
+    - not_null
+  - name: ProgramCategory
+    description: Program category.
+  - name: ProgramStatus
+    description: Program status.
+- name: Assessment
+  description: 'Business-friendly assessment dimension. Grain: one row per assessment.'
+  config:
+    alias: Assessment
+  columns:
+  - name: AssessmentKey
+    description: Stable assessment relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: CustomerKey
+    description: Owning customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: ProgramKey
+    description: Owning program relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Program')
+          field: ProgramKey
+  - name: AssessmentCode
+    description: Assessment business code.
+    data_tests:
+    - not_null
+  - name: AssessmentName
+    description: Assessment name.
+    data_tests:
+    - not_null
+  - name: AssessmentLevel
+    description: Assessment level.
+  - name: PassingScore
+    description: Assessment passing score.
+  - name: StandardDurationMinutes
+    description: Standard assessment duration in minutes.
+  - name: StandardPrice
+    description: Standard assessment price.
+  - name: AssessmentStatus
+    description: Assessment status.
+- name: Topic
+  description: 'Business-friendly topic dimension. Grain: one row per topic.'
+  config:
+    alias: Topic
+  columns:
+  - name: TopicKey
+    description: Stable topic relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: TopicName
+    description: Topic name.
+    data_tests:
+    - not_null
+  - name: TopicDescription
+    description: Topic description.
+  - name: TopicStatus
+    description: Topic status.
+- name: Item
+  description: 'Business-friendly item dimension. Grain: one row per item.'
+  config:
+    alias: Item
+  columns:
+  - name: ItemKey
+    description: Stable item relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: TopicKey
+    description: Parent topic relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Topic')
+          field: TopicKey
+  - name: ItemName
+    description: Assessment item name.
+    data_tests:
+    - not_null
+  - name: Difficulty
+    description: Item difficulty band.
+  - name: MaximumPoints
+    description: Maximum available points.
+  - name: ItemStatus
+    description: Item status.
+- name: TestCenter
+  description: 'Business-friendly test-center dimension. Grain: one row per test center.'
+  config:
+    alias: TestCenter
+  columns:
+  - name: TestCenterKey
+    description: Stable test-center relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: TestCenterName
+    description: Test center name.
+    data_tests:
+    - not_null
+  - name: City
+    description: Test center city.
+  - name: State
+    description: State or regional subdivision.
+  - name: Region
+    description: Operating region.
+  - name: BaseDailyCapacity
+    description: Configured base daily capacity.
+  - name: TestCenterStatus
+    description: Test center status.
+- name: Calendar
+  description: 'Business-friendly calendar dimension. Grain: one row per calendar date.'
+  config:
+    alias: Calendar
+  columns:
+  - name: DateKey
+    description: Integer date relationship key in YYYYMMDD form.
+    data_tests:
+    - unique
+    - not_null
+  - name: CalendarDate
+    description: Calendar date.
+    data_tests:
+    - unique
+    - not_null
+  - name: CalendarYear
+    description: Calendar year.
+    data_tests:
+    - not_null
+  - name: CalendarQuarter
+    description: Calendar quarter.
+  - name: MonthNumber
+    description: Month number.
+  - name: MonthName
+    description: Month name.
+  - name: YearMonth
+    description: Year-month label.
+  - name: WeekNumber
+    description: Week number.
+  - name: DayOfMonth
+    description: Day number within month.
+  - name: DayName
+    description: Day name.
+  - name: IsWeekend
+    description: Weekend indicator.
+- name: Registrations
+  description: 'Registration business process view. Grain: one row per registration.'
+  config:
+    alias: Registrations
+  columns:
+  - name: RegistrationId
+    description: Registration row identifier and relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: CustomerKey
+    description: Customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: CandidateKey
+    description: Candidate relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Candidate')
+          field: CandidateKey
+  - name: ProgramKey
+    description: Program relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Program')
+          field: ProgramKey
+  - name: AssessmentKey
+    description: Assessment relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Assessment')
+          field: AssessmentKey
+  - name: TestCenterKey
+    description: Test-center relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('TestCenter')
+          field: TestCenterKey
+  - name: RegistrationDateKey
+    description: Registration-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: OriginalExamDateKey
+    description: Original exam-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: FinalExamDateKey
+    description: Final exam-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: RegistrationStatus
+    description: Registration status.
+    data_tests:
+    - not_null
+  - name: DeliveryMode
+    description: Exam delivery mode.
+  - name: WasRescheduled
+    description: Reschedule indicator.
+    data_tests:
+    - not_null
+  - name: RescheduleCount
+    description: Number of reschedules.
+    data_tests:
+    - not_null
+  - name: DaysShifted
+    description: Days between original and final dates.
+    data_tests:
+    - not_null
+  - name: RegistrationCount
+    description: Additive registration row counter.
+    data_tests:
+    - not_null
+- name: AssessmentPerformance
+  description: 'Assessment-attempt performance view. Grain: one row per assessment attempt.'
+  config:
+    alias: AssessmentPerformance
+  columns:
+  - name: AttemptId
+    description: Attempt row identifier and relationship key.
+    data_tests:
+    - unique
+    - not_null
+  - name: RegistrationId
+    description: Registration relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Registrations')
+          field: RegistrationId
+  - name: CustomerKey
+    description: Customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: CandidateKey
+    description: Candidate relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Candidate')
+          field: CandidateKey
+  - name: ProgramKey
+    description: Program relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Program')
+          field: ProgramKey
+  - name: AssessmentKey
+    description: Assessment relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Assessment')
+          field: AssessmentKey
+  - name: TestCenterKey
+    description: Test-center relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('TestCenter')
+          field: TestCenterKey
+  - name: AttemptDateKey
+    description: Attempt-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: AttemptNumber
+    description: Attempt ordinal.
+    data_tests:
+    - not_null
+  - name: Score
+    description: Achieved score.
+  - name: PassingScore
+    description: Passing score.
+  - name: ScoreMargin
+    description: Score minus passing score.
+  - name: Passed
+    description: Pass indicator.
+  - name: AttemptStatus
+    description: Attempt status.
+  - name: DurationMinutes
+    description: Attempt duration in minutes.
+  - name: AttemptCount
+    description: Additive attempt row counter.
+    data_tests:
+    - not_null
+- name: TopicPerformance
+  description: 'Item-response performance view. The physical ResponseId is intentionally hidden; selecting without aggregation
+    preserves the response grain. Grain: one row per item response.'
+  config:
+    alias: TopicPerformance
+  columns:
+  - name: AttemptId
+    description: Attempt relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('AssessmentPerformance')
+          field: AttemptId
+  - name: CustomerKey
+    description: Customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: CandidateKey
+    description: Candidate relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Candidate')
+          field: CandidateKey
+  - name: AssessmentKey
+    description: Assessment relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Assessment')
+          field: AssessmentKey
+  - name: TopicKey
+    description: Topic relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Topic')
+          field: TopicKey
+  - name: ItemKey
+    description: Item relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Item')
+          field: ItemKey
+  - name: AttemptDateKey
+    description: Attempt-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: QuestionSequence
+    description: Question sequence within attempt.
+    data_tests:
+    - not_null
+  - name: IsCorrect
+    description: Correct-response indicator.
+  - name: PointsAvailable
+    description: Available points.
+  - name: PointsEarned
+    description: Earned points.
+  - name: ResponseSeconds
+    description: Response duration in seconds.
+  - name: ResponseCount
+    description: Additive response row counter.
+    data_tests:
+    - not_null
+- name: FinancialPerformance
+  description: 'Financial transaction view. The physical TransactionId is intentionally hidden; selecting without aggregation
+    preserves the transaction grain. Grain: one row per financial transaction.'
+  config:
+    alias: FinancialPerformance
+  columns:
+  - name: RegistrationId
+    description: Registration relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Registrations')
+          field: RegistrationId
+  - name: CustomerKey
+    description: Customer relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Customer')
+          field: CustomerKey
+  - name: CandidateKey
+    description: Candidate relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Candidate')
+          field: CandidateKey
+  - name: AssessmentKey
+    description: Assessment relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Assessment')
+          field: AssessmentKey
+  - name: TransactionDateKey
+    description: Transaction-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: TransactionType
+    description: Transaction type.
+    data_tests:
+    - not_null
+  - name: Amount
+    description: Transaction amount.
+    data_tests:
+    - not_null
+  - name: Currency
+    description: ISO currency code.
+    data_tests:
+    - not_null
+  - name: PaymentStatus
+    description: Payment status.
+  - name: TransactionCount
+    description: Additive transaction row counter.
+    data_tests:
+    - not_null
+- name: ExamOperations
+  description: 'Daily exam operations view. The physical composite row key is intentionally hidden. Grain: one row per test-center/date
+    operational record.'
+  config:
+    alias: ExamOperations
+  columns:
+  - name: TestCenterKey
+    description: Test-center relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('TestCenter')
+          field: TestCenterKey
+  - name: OperationDateKey
+    description: Operation-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: AvailableSeats
+    description: Available seats.
+    data_tests:
+    - not_null
+  - name: ReservedSeats
+    description: Reserved seats.
+    data_tests:
+    - not_null
+  - name: DeliveredExams
+    description: Delivered exams.
+    data_tests:
+    - not_null
+  - name: CancelledExams
+    description: Cancelled exams.
+    data_tests:
+    - not_null
+  - name: ActualUtilizationRate
+    description: Delivered exams divided by available seats.
+  - name: OperationalPressure
+    description: Derived operational pressure band.
+  - name: OperationDayCount
+    description: Additive operation-day row counter.
+    data_tests:
+    - not_null
+- name: CapacityAndStaffing
+  description: 'Daily capacity and staffing view. The physical composite row key is intentionally hidden. Grain: one row per
+    test-center/date capacity and staffing record.'
+  config:
+    alias: CapacityAndStaffing
+  columns:
+  - name: TestCenterKey
+    description: Test-center relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('TestCenter')
+          field: TestCenterKey
+  - name: PlanningDateKey
+    description: Planning-date relationship key.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('Calendar')
+          field: DateKey
+  - name: PhysicalCapacity
+    description: Planned physical capacity.
+    data_tests:
+    - not_null
+  - name: PlannedDemand
+    description: Planned demand.
+    data_tests:
+    - not_null
+  - name: CapacityGap
+    description: Planned capacity gap.
+    data_tests:
+    - not_null
+  - name: PlanningStatus
+    description: Capacity planning status.
+  - name: ProctorsScheduled
+    description: Proctors scheduled.
+    data_tests:
+    - not_null
+  - name: ProctorsAbsent
+    description: Proctors absent.
+    data_tests:
+    - not_null
+  - name: ProctorsAvailable
+    description: Proctors available.
+    data_tests:
+    - not_null
+  - name: ProctorsRequired
+    description: Proctors required.
+    data_tests:
+    - not_null
+  - name: StaffingGap
+    description: Staffing gap.
+    data_tests:
+    - not_null
+  - name: IsUnderstaffed
+    description: Understaffed indicator.
+    data_tests:
+    - not_null
+  - name: StaffingCoverageRate
+    description: Available divided by required proctors.
+  - name: CapacityStaffingDayCount
+    description: Additive capacity/staffing-day row counter.
+    data_tests:
+    - not_null

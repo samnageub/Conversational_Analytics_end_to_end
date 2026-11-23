@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "Pearson Exam Operations Agent"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f08d878c-9069-9b41-423f-ec0552b30e04"
+  }
+}

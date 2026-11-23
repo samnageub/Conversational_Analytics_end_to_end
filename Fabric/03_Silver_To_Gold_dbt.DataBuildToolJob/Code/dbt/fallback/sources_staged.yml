@@ -1,0 +1,22 @@
+version: 2
+sources:
+- name: silver
+  description: Fallback copies of required Silver tables loaded into Pearson_Gold_DW by a Fabric Copy job before dbt runs.
+  database: Pearson_Gold_DW
+  schema: silver_stage
+  tables:
+  - name: customer
+  - name: program
+  - name: assessment
+  - name: topic
+  - name: item
+  - name: candidate
+  - name: test_center
+  - name: calendar
+  - name: registration_enriched
+  - name: attempt
+  - name: response
+  - name: finance
+  - name: proctor_staffing
+  - name: capacity_plan
+  - name: daily_test_center_operations

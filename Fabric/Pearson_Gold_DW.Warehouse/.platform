@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Warehouse",
+    "displayName": "Pearson_Gold_DW",
+    "description": ""
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3ab5ffe5-c5d1-a044-4679-6574250227eb"
+  }
+}

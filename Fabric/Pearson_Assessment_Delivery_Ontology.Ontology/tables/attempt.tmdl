@@ -1,0 +1,201 @@
+table attempt
+	lineageTag: 30f3a758-e0f9-4d5d-adf5-d3ebea7acc14
+	sourceLineageTag: 67f37035-01db-4a40-8a20-1eb176d74a66
+
+	/// Counts the number of completed test attempts by counting rows in the attempt table.
+	measure 'Completed Tests' = EXTERNALMEASURE("Completed Tests", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 6977632a-6109-49ec-80ab-35d6df547be4
+		sourceLineageTag: 4c488c53-5bea-47ec-9f39-0ce6d607bb82
+
+	/// Counts the number of attempt records where the passed flag is TRUE, representing the total count of passed tests.
+	measure 'Passed Tests' = EXTERNALMEASURE("Passed Tests", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: c8527eaf-b2ef-485d-aa06-07a56de3b68e
+		sourceLineageTag: 91ca7bcd-5379-4e3e-b3c9-a5d21a439801
+
+	/// Calculates the number of failed tests by subtracting Passed Tests from Completed Tests.
+	measure 'Failed Tests' = EXTERNALMEASURE("Failed Tests", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: bee522eb-a498-4195-96de-44fc0ea9a1ef
+		sourceLineageTag: 38eb3037-d025-421f-8e84-ded6e283ae02
+
+	measure 'Pass Rate' = EXTERNALMEASURE("Pass Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 887db5ab-5fcc-4af0-953b-d5bab3bc5dd9
+		sourceLineageTag: 2d1e04d2-416d-49b0-b2d5-d62b67c3c67d
+
+	/// Calculates the average of the 'score' values across all records in the 'attempt' table.
+	measure 'Average Score' = EXTERNALMEASURE("Average Score", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0
+		lineageTag: c8c482ea-4010-4f45-a371-a4c6128e8233
+		sourceLineageTag: b24cb176-b144-465d-abc7-b8a5713ed143
+
+	/// Calculates the average test duration in minutes across all attempts in the 'attempt' table.
+	measure 'Average Test Duration' = EXTERNALMEASURE("Average Test Duration", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0
+		lineageTag: 48c6e7b1-ae75-46ae-b224-874ab2bc6ae9
+		sourceLineageTag: 4addc4d0-d17e-40b3-adaf-e40f35a622a2
+
+	/// Counts the number of unique test takers based on the distinct candidate_key values in the attempt table.
+	measure 'Unique Test Takers' = EXTERNALMEASURE("Unique Test Takers", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 7c0b6fac-5cdb-43a0-9e40-042567bf0042
+		sourceLineageTag: d6f0efca-11d2-439d-aad4-60b5649c25f5
+
+	/// Calculates the completion rate as the ratio of completed tests to total registrations.
+	measure 'Completion Rate' = EXTERNALMEASURE("Completion Rate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: bc96436f-541d-4b6a-8434-ab6854be2326
+		sourceLineageTag: b227e162-abf5-471c-a8ee-c2e8bed18ba3
+
+	/// Calculates the year to date total of completed tests based on the 'Date'[calendar_date] column.
+	measure 'Completed Tests YTD' = EXTERNALMEASURE("Completed Tests YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: b1f3288d-532a-405b-b47c-16736523426a
+		sourceLineageTag: 135a0f03-76a9-4975-a479-991c5c146332
+
+	/// Calculates the completed tests for the same year-to-date period in the previous calendar year, based on the Completed Tests Year to Date measure and the calendar date from the Date table.
+	measure 'Completed Tests Previous Year YTD' = EXTERNALMEASURE("Completed Tests Previous Year YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 09267bd4-346c-4280-9f5e-6de679d07432
+		sourceLineageTag: 8cad460d-c24f-4943-93ed-90bac74c0e19
+
+	/// Calculates the year over year percentage change in completed tests by comparing completed tests year to date with completed tests for the same year to date period in the previous year.
+	measure 'Completed Tests YoY %' = EXTERNALMEASURE("Completed Tests YoY %", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: fc065722-1c81-4377-933d-07958d83e2e1
+		sourceLineageTag: c69edb77-231c-4dca-8c59-9490e8952dbb
+
+	/// Calculates the year-to-date pass rate by evaluating [Pass Rate] over all dates from the start of the calendar year up to the current filter context date.
+	measure 'Pass Rate YTD' = EXTERNALMEASURE("Pass Rate YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2c69c105-f5d0-4ff9-bb7c-610a7354a614
+		sourceLineageTag: 4214ef56-f57e-4ba4-accc-df644732c1b1
+
+	measure 'Pass Rate Previous Year YTD' = EXTERNALMEASURE("Pass Rate Previous Year YTD", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		lineageTag: 7db51ba9-c83a-4efb-a379-d5cb34305e7f
+		sourceLineageTag: 8c7a54b0-bfe3-41d2-91cc-e2ae6ebd483a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the year over year change in the pass rate by subtracting Pass Rate Previous Year Year to date from Pass Rate Year to date.
+	measure 'Pass Rate YoY Change' = EXTERNALMEASURE("Pass Rate YoY Change", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 710abe4f-1e17-4d47-8d53-e14a79937c34
+		sourceLineageTag: 866a5b2c-e739-4e94-a973-45f78438e408
+
+	column attempt_id
+		dataType: string
+		lineageTag: 65902a6b-2cb9-4d3b-99f8-fff684ecc485
+		sourceLineageTag: cecaefc8-06a4-42e5-9e8c-785a8fc8c7bc
+		sourceColumn: attempt_id
+
+	column registration_id
+		dataType: string
+		lineageTag: 16961742-b5f7-4b3a-8412-a873e1a3d558
+		sourceLineageTag: 1be39570-d452-4c6b-938e-02e4600cf203
+		sourceColumn: registration_id
+
+	column customer_key
+		dataType: string
+		lineageTag: 8bb2efd2-cbaa-4fcb-b58d-67558d2f2258
+		sourceLineageTag: ab9e6615-0347-4bf2-b9e4-e38bb3adb2d2
+		sourceColumn: customer_key
+
+	column candidate_key
+		dataType: string
+		lineageTag: 8f6d77b5-63a9-4767-bb85-e1f389e891f3
+		sourceLineageTag: 29142869-ce61-47d6-8874-2b7cfc65cce3
+		sourceColumn: candidate_key
+
+	column program_key
+		dataType: string
+		lineageTag: 74ac27bf-f82c-4770-9aaa-64dfc63a7254
+		sourceLineageTag: a8a82797-070c-4fac-9022-653c7d758438
+		sourceColumn: program_key
+
+	column assessment_key
+		dataType: string
+		lineageTag: f7fe01ac-68b5-4430-a1ce-69ef55464c55
+		sourceLineageTag: 60cb412f-31fc-42ed-afa2-752259b9be9b
+		sourceColumn: assessment_key
+
+	column test_center_key
+		dataType: string
+		lineageTag: 4ead4b25-cdd1-498d-ab2a-9ec26750bdc0
+		sourceLineageTag: 574453d2-a662-43cc-b6b6-a9de706cc1cc
+		sourceColumn: test_center_key
+
+	column attempt_date_key
+		dataType: int64
+		lineageTag: 4a14e01f-bb53-4e34-8fdc-915132d6c1ae
+		sourceLineageTag: c7407906-feaf-4b7b-92d8-8c1fdc10b3e7
+		sourceColumn: attempt_date_key
+
+	column attempt_number
+		dataType: int64
+		lineageTag: ed4f3cf0-db89-4bc6-b381-8ab597254ee4
+		sourceLineageTag: 84bd7936-4051-485a-a157-0e62fcfa05a2
+		sourceColumn: attempt_number
+
+	column score
+		dataType: int64
+		lineageTag: 8347cbc8-fc3c-4b57-b191-dd2de2373fae
+		sourceLineageTag: 4e5109b0-3de6-4226-b1a8-6018f15c1215
+		sourceColumn: score
+
+	column passing_score
+		dataType: int64
+		lineageTag: 2559a81d-1dbc-4f8f-ab34-b11f68914409
+		sourceLineageTag: 7541d77e-13fa-49a2-9753-8b15c672609a
+		sourceColumn: passing_score
+
+	column score_margin
+		dataType: int64
+		lineageTag: 290ccd6c-f927-4ed3-88f4-cec0a414547d
+		sourceLineageTag: eeb08a81-1a5e-4637-93e7-b021e2029de9
+		sourceColumn: score_margin
+
+	column passed
+		dataType: boolean
+		lineageTag: bae1136f-b5b3-436f-ab7e-874d55b000b1
+		sourceLineageTag: 24c8bca0-f26a-4b4d-9888-ec1ed2f0d482
+		sourceColumn: passed
+
+	column attempt_status
+		dataType: string
+		lineageTag: ea90e017-17ad-40f9-9ca2-f54b0b80cebf
+		sourceLineageTag: 6cee42be-9ddf-4710-bffe-568a096a4a83
+		sourceColumn: attempt_status
+
+	column duration_minutes
+		dataType: int64
+		lineageTag: 0c805376-db9c-4aac-9113-6051ad723d8d
+		sourceLineageTag: 47982e46-9dcd-4601-80dc-916a790b83b3
+		sourceColumn: duration_minutes
+
+	column attempt_count
+		dataType: int64
+		lineageTag: ef14240c-8f57-4306-bfbb-16685d02c5c9
+		sourceLineageTag: 87660033-55b5-4023-8665-93335aefd184
+		sourceColumn: attempt_count
+
+	partition attempt-partition = entity
+		mode: directQuery
+		source
+			entityName: attempt
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

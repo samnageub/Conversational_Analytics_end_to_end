@@ -1,0 +1,201 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "778e87e10c10b6b20065",
+  "displayName": "Page 1",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "autoPageGenerationConfig": {
+    "selectedFields": [
+      {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "assessment"
+            }
+          },
+          "Property": "assessment_code"
+        }
+      },
+      {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "registration"
+            }
+          },
+          "Property": "Registrations YoY %"
+        }
+      }
+    ],
+    "visualContainerConfigurations": [
+      {
+        "name": "288ca270c1d56d4402bb",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "assessment"
+                }
+              },
+              "Property": "assessment_code"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Registrations YoY %"
+            }
+          }
+        ]
+      },
+      {
+        "name": "a571b11f2851484c439d",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "assessment"
+                }
+              },
+              "Property": "assessment_level"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Registrations YoY %"
+            }
+          }
+        ]
+      },
+      {
+        "name": "21a0c573290cb05ad76c",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "assessment"
+                }
+              },
+              "Property": "customer_key"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Registrations YoY %"
+            }
+          }
+        ]
+      },
+      {
+        "name": "275ce16a9e06b2a02aa9",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "assessment"
+                }
+              },
+              "Property": "assessment_code"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Unique Registered Candidates"
+            }
+          }
+        ]
+      },
+      {
+        "name": "b987896c251ad0ee8600",
+        "fields": []
+      },
+      {
+        "name": "aa71841cb80057e89850",
+        "fields": []
+      },
+      {
+        "name": "9ae910cd24c9ea280a91",
+        "fields": []
+      },
+      {
+        "name": "3d921391061b84c01a12",
+        "fields": []
+      },
+      {
+        "name": "a57e1e9b60243207bc44",
+        "fields": []
+      },
+      {
+        "name": "93057110ca19b5d3d6c6",
+        "fields": []
+      },
+      {
+        "name": "eab4ab9fb0a032620e5b",
+        "fields": []
+      },
+      {
+        "name": "5270c04c5ed953cdba79",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Registrations YoY %"
+            }
+          }
+        ]
+      },
+      {
+        "name": "28cfafe02b14b011dd89",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "registration"
+                }
+              },
+              "Property": "Unique Registered Candidates"
+            }
+          }
+        ]
+      },
+      {
+        "name": "d0890ea8d515132929a3",
+        "fields": []
+      }
+    ],
+    "layout": {
+      "related": {
+        "version": 1
+      }
+    }
+  }
+}

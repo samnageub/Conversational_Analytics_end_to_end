@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Pearson_Exam_Operations_SM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6c8e8e21-e76c-993f-471d-e7e20e92bb84"
+  }
+}

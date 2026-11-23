@@ -1,0 +1,346 @@
+table exam_operations
+	lineageTag: 1c735a93-7a5b-4f85-b205-fa9a31cb122c
+	sourceLineageTag: [dbo].[fact_exam_operations]
+
+	/// Calculates the total number of delivered exams by summing the delivered_exams column in the exam_operations table.
+	measure 'Delivered Exams' =
+			
+			SUM ( exam_operations[delivered_exams] )
+		formatString: #,0
+		lineageTag: 6a91087e-8061-437b-ae35-1ef269322d5e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Sums the total number of cancelled exams from the exam_operations table.
+	measure 'Cancelled Exams' =
+			
+			SUM (exam_operations[cancelled_exams])
+		formatString: #,0
+		lineageTag: 55dd7cc9-b6d1-4da1-bea3-a5400cd0446b
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Sums the available_seats values in the exam_operations table to return the total number of available seats.
+	measure 'Available Seats' =
+			
+			SUM ( exam_operations[available_seats])
+		formatString: #,0
+		lineageTag: c3b6d9ed-9139-4e1c-bde8-fee77c875673
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Sums the total number of reserved seats from the exam_operations table.
+	measure 'Reserved Seats' =
+			
+			SUM (exam_operations[reserved_seats])
+		formatString: #,0
+		lineageTag: 0bdd9a96-544b-4988-9c56-da4b2047076e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the actual utilization rate by dividing Delivered Exams by Available Seats to show how fully exam capacity is being used.
+	measure 'Actual Utilization Rate' =
+			
+			DIVIDE (
+			    [Delivered Exams],
+			    [Available Seats]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b1ed1f33-9689-48f1-9c4c-1627fc7b6644
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the reservation rate as the ratio of reserved seats to available seats.
+	measure 'Reservation Rate' =
+			
+			DIVIDE (
+			    [Reserved Seats],
+			    [Available Seats]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7b450749-f4b7-4e52-aae8-8e37ba24df59
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the cancellation rate as the ratio of cancelled exams to reserved seats.
+	measure 'Cancellation Rate' =
+			
+			DIVIDE (
+			    [Cancelled Exams],
+			    [Reserved Seats]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e3777695-9a39-4696-ad77-cd7a58a2212b
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Counts the distinct operation dates where the operational pressure is equal to the specified value "STRING LITERAL".
+	measure 'High Pressure Days' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( exam_operations[operation_date_key]),
+			   exam_operations[operational_pressure] = "High"
+			)
+		formatString: 0
+		lineageTag: a0fc3dae-3441-4d83-ab0d-9ff0eb5b88a2
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+	/// Counts the number of distinct operational days based on the unique operation_date_key values in the exam_operations table.
+	measure 'Operational Days' =
+			
+			DISTINCTCOUNT(
+			    exam_operations[operation_date_key]
+			)
+		formatString: #,0
+		lineageTag: 3ea4b94e-8cf7-4c26-b2bb-38cf3374731e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the rate of high pressure days by dividing High Pressure Days by Operational Days.
+	measure 'High Pressure Day Rate' =
+			
+			DIVIDE (
+			    [High Pressure Days],
+			    [Operational Days]
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: 04daf2eb-488f-444a-a003-b61aa5716ab0
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the year-to-date total of delivered exams based on the Delivered Exams measure over the calendar_date field.
+	measure 'Delivered Exams YTD' =
+			
+			CALCULATE (
+			    [Delivered Exams],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: #,0
+		lineageTag: ef5d5925-614b-4e46-ab03-9dcbdb4117a5
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = Description
+
+	/// Calculates the year-to-date number of delivered exams for the same period in the previous year, based on the calendar date from the Date table.
+	measure 'Delivered Exams Previous Year YTD' =
+			
+			CALCULATE (
+			    [Delivered Exams YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		formatString: 0
+		lineageTag: 1ba8e07e-02e4-4ba7-844b-1c4ab3d0d0ef
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+	measure 'Delivered Exams YoY %' =
+			
+			DIVIDE (
+			    [Delivered Exams YTD] - [Delivered Exams Previous Year YTD],
+			    [Delivered Exams Previous Year YTD]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ee83428f-a249-426c-9062-4b95cacc0a2d
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	/// Calculates the year-to-date Actual Utilization Rate based on the 'Date'[calendar_date] dimension.
+	measure 'Actual Utilization Rate YTD' =
+			
+			CALCULATE (
+			    [Actual Utilization Rate],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 165fa3a2-0327-4124-84fc-5dcafb88f8be
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the actual utilization rate year to date for the same period in the previous calendar year, based on the Date[calendar_date] column.
+	measure 'Actual Utilization Rate Previous Year YTD' =
+			
+			CALCULATE (
+			    [Actual Utilization Rate YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b5e2dc8f-f4ee-4915-924a-4e09139c2539
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the year-over-year change in the actual utilization rate by subtracting the previous year's year-to-date actual utilization rate from the current year-to-date actual utilization rate.
+	measure 'Actual Utilization YoY Change' =
+			
+			[Actual Utilization Rate YTD]
+			    - [Actual Utilization Rate Previous Year YTD]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a541df83-97ce-4253-9611-4db40a35d0a4
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = Description
+
+	column exam_operations_key
+		dataType: string
+		lineageTag: 5ba62c43-419a-4594-9c04-bee9da162e22
+		sourceLineageTag: exam_operations_key
+		summarizeBy: none
+		sourceColumn: exam_operations_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_key
+		dataType: string
+		lineageTag: 16e1ce14-0b75-4ed9-b19b-6f72bd57d22a
+		sourceLineageTag: test_center_key
+		summarizeBy: none
+		sourceColumn: test_center_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column operation_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 10a6b078-7d60-447d-9434-b104f2937313
+		sourceLineageTag: operation_date_key
+		summarizeBy: none
+		sourceColumn: operation_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column available_seats
+		dataType: int64
+		formatString: 0
+		lineageTag: fa895099-b068-4601-b15a-25cb593ebb77
+		sourceLineageTag: available_seats
+		summarizeBy: sum
+		sourceColumn: available_seats
+
+		annotation SummarizationSetBy = Automatic
+
+	column reserved_seats
+		dataType: int64
+		formatString: 0
+		lineageTag: ec22dd0e-8012-43a4-84af-62ea9b7dc596
+		sourceLineageTag: reserved_seats
+		summarizeBy: sum
+		sourceColumn: reserved_seats
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_exams
+		dataType: int64
+		formatString: 0
+		lineageTag: 323d75ef-c625-4772-b05b-6957f15b57b6
+		sourceLineageTag: delivered_exams
+		summarizeBy: sum
+		sourceColumn: delivered_exams
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled_exams
+		dataType: int64
+		formatString: 0
+		lineageTag: e5fd5004-40d6-421b-b130-cbbc547cfd2d
+		sourceLineageTag: cancelled_exams
+		summarizeBy: sum
+		sourceColumn: cancelled_exams
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_utilization_rate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a50ced1d-c45a-4bea-8f03-f2f88a3d5924
+		sourceLineageTag: actual_utilization_rate
+		summarizeBy: sum
+		sourceColumn: actual_utilization_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column operational_pressure
+		dataType: string
+		lineageTag: 89529614-eed1-476a-b201-e39f25ef85d5
+		sourceLineageTag: operational_pressure
+		summarizeBy: none
+		sourceColumn: operational_pressure
+
+		annotation SummarizationSetBy = Automatic
+
+	column operation_day_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 807b17ba-440c-4431-a8e8-fc2930b61a6b
+		sourceLineageTag: operation_day_count
+		summarizeBy: sum
+		sourceColumn: operation_day_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition exam_operations = entity
+		mode: directLake
+		source
+			entityName: fact_exam_operations
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

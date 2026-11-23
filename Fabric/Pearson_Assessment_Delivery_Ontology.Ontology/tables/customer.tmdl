@@ -1,0 +1,52 @@
+table customer
+	lineageTag: 390c6f3c-1ba0-4e0a-b577-e38c83d0e3c0
+	sourceLineageTag: b8d1dd23-57c4-4d8e-b4cb-91a8763392ec
+
+	column customer_key
+		dataType: string
+		lineageTag: 0229c6ed-95d7-46c9-945b-0f36cbde45cf
+		sourceLineageTag: 60b27fdf-7ee3-4763-a20b-2ec3fd3cb9ea
+		sourceColumn: customer_key
+
+	column customer_name
+		dataType: string
+		lineageTag: 880a5e08-90c7-47ae-851c-7948c39ffd15
+		sourceLineageTag: 25d03cac-19a1-42d3-bc00-192baa5a22ea
+		sourceColumn: customer_name
+
+	column customer_segment
+		dataType: string
+		lineageTag: b7ad36d7-070b-4de2-b937-29e22a8775cc
+		sourceLineageTag: 26b47861-7fc0-4635-a86b-ed78f3224f53
+		sourceColumn: customer_segment
+
+	column country
+		dataType: string
+		lineageTag: 9c5036ca-882f-4731-8434-4f23766afa0f
+		sourceLineageTag: 1de2c217-ffdc-4a35-801e-e63c4c129d2e
+		sourceColumn: country
+
+	column customer_status
+		dataType: string
+		lineageTag: aef03d93-9ec5-4c7b-9afa-74c3de6f8bad
+		sourceLineageTag: 4b9d88b6-bf21-49ef-8f24-2d8e3aa3d8dd
+		sourceColumn: customer_status
+
+	partition customer-partition = entity
+		mode: directQuery
+		source
+			entityName: customer
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

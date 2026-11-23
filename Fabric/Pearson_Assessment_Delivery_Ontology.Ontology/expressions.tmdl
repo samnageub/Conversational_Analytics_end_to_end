@@ -1,0 +1,18 @@
+expression 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/WORKSPACE_NAME_PLACEHOLDER", "Pearson_Assessment_Analytics_SM"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 741117d5-afae-4a49-b65b-96e48338b6c7
+
+expression 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/WORKSPACE_NAME_PLACEHOLDER", "Pearson_Exam_Operations_SM"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: ba2840b1-ba92-46e8-aaf1-9edac56becc6
+

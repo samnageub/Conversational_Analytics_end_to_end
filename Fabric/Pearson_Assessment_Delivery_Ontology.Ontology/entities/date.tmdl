@@ -1,0 +1,97 @@
+/// Calendar date dimension shared by assessment analytics and exam operations.
+entity date
+	lineageTag: 963b6d70-371b-45fe-8c43-afd5348b6e89
+	backingTable: date
+	keyProperty: date_key
+
+	property calendar_date
+		dataType: dateTime
+		lineageTag: db9eb11b-dc81-43fd-af2c-ff728982d674
+
+		backingConfiguration
+			valueColumn: date.calendar_date
+
+	property calendar_quarter
+		dataType: string
+		lineageTag: 365b28dc-d670-41b0-8f14-72188fd6dcb0
+
+		backingConfiguration
+			valueColumn: date.calendar_quarter
+
+	property calendar_year
+		dataType: int64
+		lineageTag: 74c75449-632d-42dc-8120-5563e663eeb2
+
+		backingConfiguration
+			valueColumn: date.calendar_year
+
+	property date_key
+		dataType: int64
+		lineageTag: 23a29ad9-6fcb-4e91-9413-3a7d4edf6340
+
+		backingConfiguration
+			valueColumn: date.date_key
+
+	property day_name
+		dataType: string
+		lineageTag: 180a7186-8f09-4876-a8fd-abb5f7203cda
+
+		backingConfiguration
+			valueColumn: date.day_name
+
+	property day_of_month
+		dataType: int64
+		lineageTag: 81bdff41-8a6f-4abf-977b-cf6262dce2b1
+
+		backingConfiguration
+			valueColumn: date.day_of_month
+
+	property is_weekend
+		dataType: boolean
+		lineageTag: cea8e469-dd98-460d-b0f9-e634efa1b64a
+
+		backingConfiguration
+			valueColumn: date.is_weekend
+
+	property month_name
+		dataType: string
+		lineageTag: c274079c-ad00-49df-80f3-b23e9fb5a335
+
+		backingConfiguration
+			valueColumn: date.month_name
+
+	property month_number
+		dataType: int64
+		lineageTag: 2e19f9a7-f056-4fa4-93b2-4f49138791e2
+
+		backingConfiguration
+			valueColumn: date.month_number
+
+	property week_number
+		dataType: int64
+		lineageTag: 556de0a8-ba23-48ba-aaec-7a78ddd64e82
+
+		backingConfiguration
+			valueColumn: date.week_number
+
+	property year_month
+		dataType: string
+		lineageTag: 17b5cf19-52dc-413a-96e8-70e49d54f63b
+
+		backingConfiguration
+			valueColumn: date.year_month
+
+	additionalBackingTable
+		table: date_2
+		relationship: date_date_2_join
+
+	synonym date
+
+	synonym 'calendar date'
+
+	synonym calendar
+
+	synonym day
+
+	synonym 'date dimension'
+

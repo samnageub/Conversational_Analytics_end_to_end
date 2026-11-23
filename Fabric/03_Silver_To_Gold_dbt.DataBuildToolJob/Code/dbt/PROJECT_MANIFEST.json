@@ -1,0 +1,24 @@
+{
+  "project": "pearson_gold",
+  "target_warehouse": "Pearson_Gold_DW",
+  "target_schema": "dbo",
+  "source_database": "Pearson_Silver_LH",
+  "source_schema": "dbo",
+  "models": [
+    "dim_assessment",
+    "dim_candidate",
+    "dim_customer",
+    "dim_date",
+    "dim_item",
+    "dim_program",
+    "dim_test_center",
+    "dim_topic",
+    "fact_attempt",
+    "fact_capacity_staffing",
+    "fact_exam_operations",
+    "fact_finance",
+    "fact_registration",
+    "fact_response"
+  ],
+  "model_count": 14
+}

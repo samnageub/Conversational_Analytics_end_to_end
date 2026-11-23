@@ -1,0 +1,58 @@
+table candidate
+	lineageTag: ac192bfe-4368-48e8-8a67-b12d99ebc4f0
+	sourceLineageTag: c44e88b5-1f90-476a-b230-dbdc293acec3
+
+	column candidate_key
+		dataType: string
+		lineageTag: 1e624357-9f99-4384-8d6b-f969fbb5e78e
+		sourceLineageTag: fdb6ca05-2c75-4df7-8f01-6a9c2d1695dc
+		sourceColumn: candidate_key
+
+	column customer_key
+		dataType: string
+		lineageTag: 07a89caa-efc8-4bc8-a59e-36311f781c60
+		sourceLineageTag: f10877b9-2c7b-4d7c-a5f4-f030265ec4e1
+		sourceColumn: customer_key
+
+	column candidate_display_name
+		dataType: string
+		lineageTag: 30a6dcd3-db86-4cfa-beef-e12b29833278
+		sourceLineageTag: 29184b10-a59c-4c69-b5d1-af59259ce9b7
+		sourceColumn: candidate_display_name
+
+	column region_code
+		dataType: string
+		lineageTag: 9c004c63-2fe4-4a64-a34b-cdc73b0acbde
+		sourceLineageTag: a47e6108-d4e9-4f52-9615-58ea77a98850
+		sourceColumn: region_code
+
+	column region_name
+		dataType: string
+		lineageTag: 3e241dd7-afdd-4837-b417-6d813517d6e6
+		sourceLineageTag: 4a522842-16fe-4b45-bc14-6852ca4b44da
+		sourceColumn: region_name
+
+	column candidate_status
+		dataType: string
+		lineageTag: c2f05a96-370b-4407-a0bb-6fb0cb980f13
+		sourceLineageTag: 0024edaa-d748-4a51-8f64-f38aa044425d
+		sourceColumn: candidate_status
+
+	partition candidate-partition = entity
+		mode: directQuery
+		source
+			entityName: candidate
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "CopyJob",
+    "displayName": "02B_Silver_To_Gold_Stage"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9032015e-360d-a245-4b45-cb2077c09aac"
+  }
+}

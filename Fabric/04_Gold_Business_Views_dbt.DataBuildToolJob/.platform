@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataBuildToolJob",
+    "displayName": "04_Gold_Business_Views_dbt"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "63a0f49a-d682-b9c6-4a07-0daea0f54ca4"
+  }
+}

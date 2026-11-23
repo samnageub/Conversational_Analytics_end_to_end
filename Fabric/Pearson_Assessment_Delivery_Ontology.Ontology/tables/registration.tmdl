@@ -1,0 +1,148 @@
+table registration
+	lineageTag: 773a8c2d-634e-4398-927a-34e392a0a8ea
+	sourceLineageTag: 47950260-c0b2-40f7-8d83-66a99f494a2a
+
+	/// Total Number of Registrations
+	measure Registrations = EXTERNALMEASURE("Registrations", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 77386414-d3a6-475c-8d75-60a2e6546725
+		sourceLineageTag: 417b919e-1a9d-4baa-848d-8a94a5a8b976
+
+	/// Counts the number of distinct registered candidates based on the candidate_key in the registration table.
+	measure 'Unique Registered Candidates' = EXTERNALMEASURE("Unique Registered Candidates", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 0da74647-c479-4e39-88fa-4fdd7ca9dc56
+		sourceLineageTag: c74d347a-ba1b-484f-be9b-643d07f78ed9
+
+	/// Calculates the average number of registrations per unique registered candidate by dividing total registrations by the count of unique registered candidates.
+	measure 'Registrations per Candidate' = EXTERNALMEASURE("Registrations per Candidate", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0.0
+		lineageTag: 6b12f9ff-29c4-4f51-bc82-7147e0a2469a
+		sourceLineageTag: ea0c4ec8-a173-4d3d-83d6-a0cc4fdf297e
+
+	/// Calculates the year-to-date total of registrations based on the 'Date'[calendar_date] context.
+	measure 'Registrations YTD' = EXTERNALMEASURE("Registrations YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 182f1ea1-811a-4c96-a621-a45e6e17efc7
+		sourceLineageTag: 5949f808-c59a-4ee8-b3e1-7d0f2e245f7c
+
+	/// Returns the year-to-date registrations for the same period in the previous calendar year, using the Date[calendar_date] column to shift the [Registrations YTD] measure one year back.
+	measure 'Registrations Previous Year YTD' = EXTERNALMEASURE("Registrations Previous Year YTD", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 97a20250-5e68-4398-851d-bef3dbad6823
+		sourceLineageTag: 67d3a307-7326-48b9-a844-64efe354b3f1
+
+	/// Calculates the year-over-year percentage change in year-to-date registrations compared to the previous year's year-to-date registrations.
+	measure 'Registrations YoY %' = EXTERNALMEASURE("Registrations YoY %", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: ab750ba3-ac2c-44c5-8741-738089b07189
+		sourceLineageTag: a6dd2c9a-1f28-40d9-ae7f-3d7042e4820e
+
+	column registration_id
+		dataType: string
+		lineageTag: d6eecdae-4de9-41af-9fcd-d7609c49c7e1
+		sourceLineageTag: f5aad2d3-744b-4324-87bf-8b1fc2c602d4
+		sourceColumn: registration_id
+
+	column customer_key
+		dataType: string
+		lineageTag: 4a63e63e-b804-49fd-9070-3c8506f5e9eb
+		sourceLineageTag: 9d4b8117-0c40-4bbc-89e8-0cb587906d63
+		sourceColumn: customer_key
+
+	column candidate_key
+		dataType: string
+		lineageTag: d7d57e72-c6a0-4d4f-9c90-058fa06a95cd
+		sourceLineageTag: cdd40da4-6ada-47ef-9255-30ff8eb724c4
+		sourceColumn: candidate_key
+
+	column program_key
+		dataType: string
+		lineageTag: 0d92c772-d99f-4822-8532-1a9a13e7d28c
+		sourceLineageTag: cefb9f91-c87b-4f1b-88be-bb488c3f9f7c
+		sourceColumn: program_key
+
+	column assessment_key
+		dataType: string
+		lineageTag: 50156804-589f-40ae-917f-f5d8fc6583ba
+		sourceLineageTag: e84a8123-3509-49f5-9578-fadb873ae11e
+		sourceColumn: assessment_key
+
+	column test_center_key
+		dataType: string
+		lineageTag: 349e8471-6570-463c-adb9-388c55becb51
+		sourceLineageTag: 6e079f4f-1f84-4135-a155-397bb8de0074
+		sourceColumn: test_center_key
+
+	column registration_date_key
+		dataType: int64
+		lineageTag: fe6baa9a-408a-4a53-ad7a-e5b52802eb19
+		sourceLineageTag: 3befc638-9f4c-4f48-a495-f04ed4c42f96
+		sourceColumn: registration_date_key
+
+	column original_exam_date_key
+		dataType: int64
+		lineageTag: b23bc8e3-b7df-413b-915a-1b2875eea7cf
+		sourceLineageTag: 0d80dc51-d9f4-4e8b-bbb7-c791887ad57e
+		sourceColumn: original_exam_date_key
+
+	column final_exam_date_key
+		dataType: int64
+		lineageTag: 9814507a-5e80-4251-b946-f843c6a27ef7
+		sourceLineageTag: ae53fc01-3406-49df-9d4a-e5a936c6b267
+		sourceColumn: final_exam_date_key
+
+	column registration_status
+		dataType: string
+		lineageTag: 20ddcac7-1e67-4690-8046-efe6bde61c52
+		sourceLineageTag: 35881bbd-294d-4a8c-a5a9-6db2e24f1c2f
+		sourceColumn: registration_status
+
+	column delivery_mode
+		dataType: string
+		lineageTag: d1abb407-9e77-4c41-bb27-caee21e03e4b
+		sourceLineageTag: cc395d2e-f941-41b4-8bc2-892161f6b702
+		sourceColumn: delivery_mode
+
+	column was_rescheduled
+		dataType: boolean
+		lineageTag: a0dc3ccf-bc01-4b41-9982-ed7535d6efc4
+		sourceLineageTag: 3f539af5-eb82-4b2c-b5bf-8e022e01a6be
+		sourceColumn: was_rescheduled
+
+	column reschedule_count
+		dataType: int64
+		lineageTag: af4f2b59-5078-4451-ad69-d6f61da0c7fb
+		sourceLineageTag: a2bcc40d-8c2e-4a9d-9b3e-76cdd3ce3e43
+		sourceColumn: reschedule_count
+
+	column days_shifted
+		dataType: int64
+		lineageTag: 215a556d-57f8-4d4a-a5d3-94ad1e9d682a
+		sourceLineageTag: 9b88e93c-2206-4ba5-a765-7865465e1009
+		sourceColumn: days_shifted
+
+	column registration_count
+		dataType: int64
+		lineageTag: c91d3555-cd35-4e23-9438-a9ec32e9200c
+		sourceLineageTag: eaa94ebe-5733-4fe2-abfa-39bb9e719bd6
+		sourceColumn: registration_count
+
+	partition registration-partition = entity
+		mode: directQuery
+		source
+			entityName: registration
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

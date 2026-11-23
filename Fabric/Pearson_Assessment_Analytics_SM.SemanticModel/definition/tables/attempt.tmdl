@@ -1,0 +1,422 @@
+table attempt
+	lineageTag: 67f37035-01db-4a40-8a20-1eb176d74a66
+	sourceLineageTag: [dbo].[fact_attempt]
+
+	/// Counts the number of completed test attempts by counting rows in the attempt table.
+	measure 'Completed Tests' =
+			
+			COUNTROWS ( attempt)
+		formatString: #,0
+		lineageTag: 4c488c53-5bea-47ec-9f39-0ce6d607bb82
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Counts the number of attempt records where the passed flag is TRUE, representing the total count of passed tests.
+	measure 'Passed Tests' =
+			
+			CALCULATE (
+			    COUNTROWS( 'attempt'),
+			    'attempt'[passed] = TRUE ()
+			)
+		formatString: #,0
+		lineageTag: 91ca7bcd-5379-4e3e-b3c9-a5d21a439801
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the number of failed tests by subtracting Passed Tests from Completed Tests.
+	measure 'Failed Tests' =
+			
+			[Completed Tests] - [Passed Tests]
+		formatString: #,0
+		lineageTag: 38eb3037-d025-421f-8e84-ded6e283ae02
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	measure 'Pass Rate' =
+			
+			DIVIDE (
+			    [Passed Tests],
+			    [Completed Tests]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2d1e04d2-416d-49b0-b2d5-d62b67c3c67d
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the average of the 'score' values across all records in the 'attempt' table.
+	measure 'Average Score' =
+			
+			AVERAGE ( 'attempt'[score] )
+		formatString: 0.0
+		lineageTag: b24cb176-b144-465d-abc7-b8a5713ed143
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the average test duration in minutes across all attempts in the 'attempt' table.
+	measure 'Average Test Duration' =
+			
+			AVERAGE ( 'attempt'[duration_minutes] )
+		formatString: 0.0
+		lineageTag: 4addc4d0-d17e-40b3-adaf-e40f35a622a2
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Counts the number of unique test takers based on the distinct candidate_key values in the attempt table.
+	measure 'Unique Test Takers' =
+			
+			DISTINCTCOUNT (
+			    'attempt'[candidate_key]
+			)
+		formatString: #,0
+		lineageTag: d6f0efca-11d2-439d-aad4-60b5649c25f5
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the completion rate as the ratio of completed tests to total registrations.
+	measure 'Completion Rate' =
+			
+			DIVIDE (
+			    [Completed Tests],
+			    [Registrations]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b227e162-abf5-471c-a8ee-c2e8bed18ba3
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = Description
+
+		changedProperty = IsHidden
+
+	/// Calculates the year to date total of completed tests based on the 'Date'[calendar_date] column.
+	measure 'Completed Tests YTD' =
+			
+			CALCULATE (
+			    [Completed Tests],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: #,0.00
+		lineageTag: 135a0f03-76a9-4975-a479-991c5c146332
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the completed tests for the same year-to-date period in the previous calendar year, based on the Completed Tests Year to Date measure and the calendar date from the Date table.
+	measure 'Completed Tests Previous Year YTD' =
+			
+			CALCULATE (
+			    [Completed Tests YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		formatString: #,0
+		lineageTag: 8cad460d-c24f-4943-93ed-90bac74c0e19
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the year over year percentage change in completed tests by comparing completed tests year to date with completed tests for the same year to date period in the previous year.
+	measure 'Completed Tests YoY %' =
+			
+			DIVIDE (
+			    [Completed Tests YTD] - [Completed Tests Previous Year YTD],
+			    [Completed Tests Previous Year YTD]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c69edb77-231c-4dca-8c59-9490e8952dbb
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = IsHidden
+
+		changedProperty = FormatString
+
+	/// Calculates the year-to-date pass rate by evaluating [Pass Rate] over all dates from the start of the calendar year up to the current filter context date.
+	measure 'Pass Rate YTD' =
+			
+			CALCULATE (
+			    [Pass Rate],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4214ef56-f57e-4ba4-accc-df644732c1b1
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	measure 'Pass Rate Previous Year YTD' =
+			
+			CALCULATE (
+			    [Pass Rate YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		lineageTag: 8c7a54b0-bfe3-41d2-91cc-e2ae6ebd483a
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the year over year change in the pass rate by subtracting Pass Rate Previous Year Year to date from Pass Rate Year to date.
+	measure 'Pass Rate YoY Change' =
+			
+			[Pass Rate YTD] - [Pass Rate Previous Year YTD]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 866a5b2c-e739-4e94-a973-45f78438e408
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	column attempt_id
+		dataType: string
+		lineageTag: cecaefc8-06a4-42e5-9e8c-785a8fc8c7bc
+		sourceLineageTag: attempt_id
+		summarizeBy: none
+		sourceColumn: attempt_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column registration_id
+		dataType: string
+		lineageTag: 1be39570-d452-4c6b-938e-02e4600cf203
+		sourceLineageTag: registration_id
+		summarizeBy: none
+		sourceColumn: registration_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: ab9e6615-0347-4bf2-b9e4-e38bb3adb2d2
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_key
+		dataType: string
+		lineageTag: 29142869-ce61-47d6-8874-2b7cfc65cce3
+		sourceLineageTag: candidate_key
+		summarizeBy: none
+		sourceColumn: candidate_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: string
+		lineageTag: a8a82797-070c-4fac-9022-653c7d758438
+		sourceLineageTag: program_key
+		summarizeBy: none
+		sourceColumn: program_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_key
+		dataType: string
+		lineageTag: 60cb412f-31fc-42ed-afa2-752259b9be9b
+		sourceLineageTag: assessment_key
+		summarizeBy: none
+		sourceColumn: assessment_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_key
+		dataType: string
+		lineageTag: 574453d2-a662-43cc-b6b6-a9de706cc1cc
+		sourceLineageTag: test_center_key
+		summarizeBy: none
+		sourceColumn: test_center_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c7407906-feaf-4b7b-92d8-8c1fdc10b3e7
+		sourceLineageTag: attempt_date_key
+		summarizeBy: none
+		sourceColumn: attempt_date_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_number
+		dataType: int64
+		formatString: 0
+		lineageTag: 84bd7936-4051-485a-a157-0e62fcfa05a2
+		sourceLineageTag: attempt_number
+		summarizeBy: sum
+		sourceColumn: attempt_number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column score
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e5109b0-3de6-4226-b1a8-6018f15c1215
+		sourceLineageTag: score
+		summarizeBy: sum
+		sourceColumn: score
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column passing_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 7541d77e-13fa-49a2-9753-8b15c672609a
+		sourceLineageTag: passing_score
+		summarizeBy: sum
+		sourceColumn: passing_score
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_margin
+		dataType: int64
+		formatString: 0
+		lineageTag: eeb08a81-1a5e-4637-93e7-b021e2029de9
+		sourceLineageTag: score_margin
+		summarizeBy: sum
+		sourceColumn: score_margin
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column passed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 24c8bca0-f26a-4b4d-9888-ec1ed2f0d482
+		sourceLineageTag: passed
+		summarizeBy: none
+		sourceColumn: passed
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_status
+		dataType: string
+		lineageTag: 6cee42be-9ddf-4710-bffe-568a096a4a83
+		sourceLineageTag: attempt_status
+		summarizeBy: none
+		sourceColumn: attempt_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration_minutes
+		dataType: int64
+		formatString: 0
+		lineageTag: 47982e46-9dcd-4601-80dc-916a790b83b3
+		sourceLineageTag: duration_minutes
+		summarizeBy: sum
+		sourceColumn: duration_minutes
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 87660033-55b5-4023-8665-93335aefd184
+		sourceLineageTag: attempt_count
+		summarizeBy: sum
+		sourceColumn: attempt_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition attempt = entity
+		mode: directLake
+		source
+			entityName: fact_attempt
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+

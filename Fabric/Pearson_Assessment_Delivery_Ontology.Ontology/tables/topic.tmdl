@@ -1,0 +1,46 @@
+table topic
+	lineageTag: 479377c4-ba3c-4d2a-98b9-58947f2167ac
+	sourceLineageTag: 71dc18fc-f3bf-408e-bfac-4c2ed69b943c
+
+	column topic_key
+		dataType: string
+		lineageTag: 8228309d-15d4-4dfc-9c27-c57839a7c1fb
+		sourceLineageTag: d92e3a64-c7b8-4e01-84b7-0eff25775d8a
+		sourceColumn: topic_key
+
+	column topic_name
+		dataType: string
+		lineageTag: 1c26fe96-788b-4f9a-ac61-f9887f052c11
+		sourceLineageTag: 58d2e2ab-35c1-4e46-94f8-6e023efbda57
+		sourceColumn: topic_name
+
+	column topic_description
+		dataType: string
+		lineageTag: 70aeee90-260d-419e-ae31-4f0684ef26e0
+		sourceLineageTag: 7721367d-7e69-4993-ab43-a3fe22129358
+		sourceColumn: topic_description
+
+	column topic_status
+		dataType: string
+		lineageTag: ffb73d92-20dc-4aeb-8e45-d65156bb1df8
+		sourceLineageTag: 52088827-498a-46ae-b155-d91195dd5926
+		sourceColumn: topic_status
+
+	partition topic-partition = entity
+		mode: directQuery
+		source
+			entityName: topic
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

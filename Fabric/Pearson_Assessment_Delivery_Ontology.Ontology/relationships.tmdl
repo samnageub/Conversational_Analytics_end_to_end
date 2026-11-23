@@ -1,0 +1,150 @@
+relationship registration_to_customer
+	fromColumn: registration.customer_key
+	toColumn: customer.customer_key
+
+	annotation ONT_SourceRelationship = c10cae3f-1303-5ce3-afb0-86ace4953d3a
+
+relationship registration_to_assessment
+	fromColumn: registration.assessment_key
+	toColumn: assessment.assessment_key
+
+	annotation ONT_SourceRelationship = 6cb27306-f0cc-154b-2609-a21c9ec975fe
+
+relationship registration_to_date
+	fromColumn: registration.registration_date_key
+	toColumn: date.date_key
+
+	annotation ONT_SourceRelationship = a137cd58-da5c-1319-bfe1-478f1ae30770
+
+relationship registration_to_program
+	fromColumn: registration.program_key
+	toColumn: program.customer_key
+
+	annotation ONT_SourceRelationship = d5d9a04b-240b-c301-6b9d-a159c39bb95e
+
+relationship registration_to_candidate
+	fromColumn: registration.candidate_key
+	toColumn: candidate.candidate_key
+
+	annotation ONT_SourceRelationship = d496e174-865a-d909-335f-95a8244a66df
+
+relationship registration_to_test_center
+	fromColumn: registration.test_center_key
+	toColumn: test_center.test_center_key
+
+	annotation ONT_SourceRelationship = 8cd14019-c834-1a56-02f5-e87a73396a68
+
+relationship attempt_to_customer
+	fromColumn: attempt.customer_key
+	toColumn: customer.customer_key
+
+	annotation ONT_SourceRelationship = 4c85eed7-3a0b-99b6-cb79-4d9a61a8394f
+
+relationship attempt_to_date
+	fromColumn: attempt.attempt_date_key
+	toColumn: date.date_key
+
+	annotation ONT_SourceRelationship = c053884e-c7fd-8fbc-c562-5e16621aed93
+
+relationship attempt_to_program
+	fromColumn: attempt.program_key
+	toColumn: program.program_key
+
+	annotation ONT_SourceRelationship = a758556a-105c-88df-e2da-37fe0c033073
+
+relationship attempt_to_test_center
+	fromColumn: attempt.test_center_key
+	toColumn: test_center.test_center_key
+
+	annotation ONT_SourceRelationship = 698d5392-a711-197a-2a89-e76696f270c2
+
+relationship attempt_to_candidate
+	fromColumn: attempt.candidate_key
+	toColumn: candidate.candidate_key
+
+	annotation ONT_SourceRelationship = e523db4c-8cc4-0492-4352-369b4fde662a
+
+relationship response_to_customer
+	fromColumn: response.customer_key
+	toColumn: customer.customer_key
+
+	annotation ONT_SourceRelationship = d74bf32c-67ef-7971-a6d7-b853771cfde5
+
+relationship response_to_date
+	fromColumn: response.attempt_date_key
+	toColumn: date.date_key
+
+	annotation ONT_SourceRelationship = 8d843243-5cc0-1040-ea45-6150f05da4fa
+
+relationship response_to_candidate
+	fromColumn: response.candidate_key
+	toColumn: candidate.candidate_key
+
+	annotation ONT_SourceRelationship = b74e4928-2b55-faf0-93b3-bd404e8054f6
+
+relationship response_to_assessment
+	fromColumn: response.assessment_key
+	toColumn: assessment.assessment_key
+
+	annotation ONT_SourceRelationship = a1b2c2cf-9e73-7512-92fb-ccd590fe206d
+
+relationship response_to_item
+	fromColumn: response.item_key
+	toColumn: item.item_key
+
+	annotation ONT_SourceRelationship = b7e478d0-5723-3eed-2465-edb1a5e0f6c5
+
+relationship response_to_topic
+	fromColumn: response.topic_key
+	toColumn: topic.topic_key
+
+	annotation ONT_SourceRelationship = 4f62a732-f542-7c43-0779-8324d425405c
+
+relationship finance_to_customer
+	fromColumn: finance.customer_key
+	toColumn: customer.customer_key
+
+	annotation ONT_SourceRelationship = 8eb4234e-c9fd-6e98-00f1-46c8bb44ac81
+
+relationship finance_to_candidate
+	fromColumn: finance.candidate_key
+	toColumn: candidate.candidate_key
+
+	annotation ONT_SourceRelationship = 16d9551c-95f6-9287-a3e5-0529935e4934
+
+relationship finance_to_date
+	fromColumn: finance.transaction_date_key
+	toColumn: date.date_key
+
+	annotation ONT_SourceRelationship = 35b60d51-e331-7791-0b26-64c122b9b748
+
+relationship finance_to_assessment
+	fromColumn: finance.assessment_key
+	toColumn: assessment.assessment_key
+
+	annotation ONT_SourceRelationship = d73b1627-0672-e3f8-229d-4a9587fd7108
+
+relationship date_date_2_join
+	fromColumn: date_2.date_key
+	toColumn: date.date_key
+
+relationship test_center_test_center_2_join
+	fromColumn: test_center_2.test_center_key
+	toColumn: test_center.test_center_key
+
+relationship exam_operations_to_test_center_join
+	fromColumn: exam_operations.test_center_key
+	toColumn: test_center.test_center_key
+
+relationship exam_operations_to_date_join
+	fromColumn: exam_operations.operation_date_key
+	toColumn: date.date_key
+
+relationship capacity_staffing_to_test_center_join
+	fromColumn: capacity_staffing.test_center_key
+	toColumn: test_center.test_center_key
+
+relationship capacity_staffing_to_date_join
+	fromColumn: capacity_staffing.planning_date_key
+	toColumn: date.date_key
+

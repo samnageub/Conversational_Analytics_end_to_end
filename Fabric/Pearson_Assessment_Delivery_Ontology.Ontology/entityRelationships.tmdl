@@ -1,0 +1,40 @@
+/// Links exam operations to the shared test center dimension.
+entityRelationship exam_operations_to_test_center
+	label: exam_operations_to_test_center
+	lineageTag: 082733d2-d14a-4cd3-9993-4a5f24c47d19
+	fromEntity: exam_operations
+	toEntity: test_center
+
+	backingConfiguration
+		relationship: exam_operations_to_test_center_join
+
+/// Links exam operations to the shared date dimension.
+entityRelationship exam_operations_to_date
+	label: exam_operations_to_date
+	lineageTag: 086fe2ff-2496-40dd-851f-4523f9b396e8
+	fromEntity: exam_operations
+	toEntity: date
+
+	backingConfiguration
+		relationship: exam_operations_to_date_join
+
+/// Links capacity staffing to the shared test center dimension.
+entityRelationship capacity_staffing_to_test_center
+	label: capacity_staffing_to_test_center
+	lineageTag: b508e025-cb32-429c-bf9e-6ebf740e6d95
+	fromEntity: capacity_staffing
+	toEntity: test_center
+
+	backingConfiguration
+		relationship: capacity_staffing_to_test_center_join
+
+/// Links capacity staffing to the shared date dimension.
+entityRelationship capacity_staffing_to_date
+	label: capacity_staffing_to_date
+	lineageTag: fe641fa4-8deb-4cb1-9110-74184dcf7df3
+	fromEntity: capacity_staffing
+	toEntity: date
+
+	backingConfiguration
+		relationship: capacity_staffing_to_date_join
+

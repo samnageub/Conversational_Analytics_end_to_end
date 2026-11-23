@@ -1,0 +1,282 @@
+table finance
+	lineageTag: 88958174-03fe-4269-b352-68d29cc5690d
+	sourceLineageTag: [dbo].[fact_finance]
+
+	/// Calculates the total gross payments amount by summing 'finance'[amount] for transactions where 'finance'[transaction_type] equals "STRING LITERAL".
+	measure 'Gross Payments' =
+			
+			CALCULATE (
+			    SUM ( 'finance'[amount] ),
+			    'finance'[transaction_type] = "Payment"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 67557930-14f8-4a26-9d93-b16b0ee8b986
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates the total refund amount as the negative sum of 'finance'[amount] for rows where 'finance'[transaction_type] equals "STRING LITERAL".
+	measure 'Refund Amount' =
+			
+			-CALCULATE (
+			    SUM ( 'finance'[amount] ),
+			    'finance'[transaction_type] = "Refund"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 654e68b5-7e78-48b5-9a5d-a83cd3eb712c
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Counts the number of rows in the finance table where the transaction_type is equal to 'STRING LITERAL'.
+	measure 'Payment Count' =
+			
+			CALCULATE (
+			    COUNTROWS ( 'finance' ),
+			    'finance'[transaction_type] = "Payment"
+			)
+		formatString: #,0
+		lineageTag: 556091ff-130f-40b9-9228-881a1ce97cb6
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Counts the number of refund transactions in the 'finance' table by counting rows where the transaction_type equals the specified refund code.
+	measure 'Refund Count' =
+			
+			CALCULATE (
+			    COUNTROWS ( 'finance' ),
+			    'finance'[transaction_type] = "Refund"
+			)
+		formatString: #,0
+		lineageTag: 7887939d-a31d-48d8-8aaf-19fb385bf49e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the refund rate as the ratio of the number of refunds to the total number of payments.
+	measure 'Refund Rate' =
+			
+			DIVIDE (
+			    [Refund Count],
+			    [Payment Count]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3c62b9bd-b80b-4262-bd9f-8fbe6dfd970b
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates total net revenue by summing the Amount field from the finance table.
+	measure 'Net Revenue' =
+			
+			SUM ( 'finance'[amount] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 84a9b50e-679a-4293-bc76-d7cac3e24eab
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates the average revenue generated for each completed test by dividing Net Revenue by Completed Tests.
+	measure 'Revenue per Completed Test' =
+			
+			DIVIDE (
+			    [Net Revenue],
+			    [Completed Tests]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: b6527058-bc55-4764-a348-9522ead7083a
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates net revenue year to date based on the selected 'Date'[calendar_date] context.
+	measure 'Net Revenue YTD' =
+			
+			CALCULATE (
+			    [Net Revenue],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f7bbe227-9846-40dc-8cd2-42525494163e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	/// Calculates net revenue year to date for the same period in the previous calendar year based on the 'Date'[calendar_date] column, typically for year-over-year comparison against current year-to-date net revenue.
+	measure 'Net Revenue Previous Year YTD' =
+			
+			CALCULATE (
+			    [Net Revenue YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		lineageTag: bf3a46f5-6159-4d59-bb0f-093813b11d0e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the year-over-year percentage change in net revenue by comparing current year-to-date net revenue to the previous year-to-date net revenue.
+	measure 'Net Revenue YoY %' =
+			
+			DIVIDE (
+			    [Net Revenue YTD] - [Net Revenue Previous Year YTD],
+			    [Net Revenue Previous Year YTD]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 92792356-87ec-4757-a25c-c29cf2463fb8
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	column transaction_id
+		dataType: string
+		lineageTag: 842b5076-709a-4770-8fe7-bab644c9d39b
+		sourceLineageTag: transaction_id
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column registration_id
+		dataType: string
+		lineageTag: 161524ac-eba9-4269-b660-1c4463681371
+		sourceLineageTag: registration_id
+		summarizeBy: none
+		sourceColumn: registration_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: 98b2f795-6e31-4735-93f4-06084c48cc61
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_key
+		dataType: string
+		lineageTag: a544bac7-acdc-460b-abd0-6b96462ccb5c
+		sourceLineageTag: candidate_key
+		summarizeBy: none
+		sourceColumn: candidate_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_key
+		dataType: string
+		lineageTag: 20131aff-5e86-4a66-925a-faf452b1469d
+		sourceLineageTag: assessment_key
+		summarizeBy: none
+		sourceColumn: assessment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f0bb917d-fce2-4c1b-97cd-4fb37f821e6b
+		sourceLineageTag: transaction_date_key
+		summarizeBy: none
+		sourceColumn: transaction_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_type
+		dataType: string
+		lineageTag: 3548c632-eef9-45cf-afe4-ad74237bdfd1
+		sourceLineageTag: transaction_type
+		summarizeBy: none
+		sourceColumn: transaction_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: f2a0cd1e-adfd-41c8-b304-58db4895f9ac
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column currency
+		dataType: string
+		lineageTag: 4790d8f7-ccd2-45f7-a78f-c2f69e03d95e
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_status
+		dataType: string
+		lineageTag: a4c8e9f6-72c3-4348-b9ba-5dfd3cd570c2
+		sourceLineageTag: payment_status
+		summarizeBy: none
+		sourceColumn: payment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 3acf4e93-14e4-47b1-83b5-c7ead0d435af
+		sourceLineageTag: transaction_count
+		summarizeBy: sum
+		sourceColumn: transaction_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition finance = entity
+		mode: directLake
+		source
+			entityName: fact_finance
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

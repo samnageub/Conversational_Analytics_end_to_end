@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DirectLake - Pearson_Gold_DW"]
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit","Copilot","CopilotMeasureDescriptions","CopilotTooling"]
+
+ref table date
+ref table test_center
+ref table capacity_staffing
+ref table exam_operations
+
+ref cultureInfo en-US
+

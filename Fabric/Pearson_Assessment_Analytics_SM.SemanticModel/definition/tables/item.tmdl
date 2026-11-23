@@ -1,0 +1,68 @@
+table item
+	lineageTag: 4af98b4d-d55b-4411-82a9-eea2f4f4edca
+	sourceLineageTag: [dbo].[dim_item]
+
+	column item_key
+		dataType: string
+		lineageTag: 75077984-8c11-4e50-8b00-89e7f4b967fd
+		sourceLineageTag: item_key
+		summarizeBy: none
+		sourceColumn: item_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column topic_key
+		dataType: string
+		lineageTag: 81931c0f-ef58-4213-8c31-677e581df10c
+		sourceLineageTag: topic_key
+		summarizeBy: none
+		sourceColumn: topic_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_name
+		dataType: string
+		lineageTag: 6fe33c2a-93da-40c2-a2db-5604e40c0512
+		sourceLineageTag: item_name
+		summarizeBy: none
+		sourceColumn: item_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column difficulty
+		dataType: string
+		lineageTag: 6c9daa7f-d392-4322-bdf6-31c63df63eed
+		sourceLineageTag: difficulty
+		summarizeBy: none
+		sourceColumn: difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column maximum_points
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e18da30-ecb2-4f52-b164-4099c6129dab
+		sourceLineageTag: maximum_points
+		summarizeBy: none
+		sourceColumn: maximum_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_status
+		dataType: string
+		lineageTag: 01af30c4-9889-426e-ae2d-effb8969aada
+		sourceLineageTag: item_status
+		summarizeBy: none
+		sourceColumn: item_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition item = entity
+		mode: directLake
+		source
+			entityName: dim_item
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

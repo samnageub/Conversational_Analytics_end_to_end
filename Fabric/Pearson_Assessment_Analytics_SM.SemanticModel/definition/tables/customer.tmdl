@@ -1,0 +1,58 @@
+table customer
+	lineageTag: b8d1dd23-57c4-4d8e-b4cb-91a8763392ec
+	sourceLineageTag: [dbo].[dim_customer]
+
+	column customer_key
+		dataType: string
+		lineageTag: 60b27fdf-7ee3-4763-a20b-2ec3fd3cb9ea
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 25d03cac-19a1-42d3-bc00-192baa5a22ea
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segment
+		dataType: string
+		lineageTag: 26b47861-7fc0-4635-a86b-ed78f3224f53
+		sourceLineageTag: customer_segment
+		summarizeBy: none
+		sourceColumn: customer_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 1de2c217-ffdc-4a35-801e-e63c4c129d2e
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_status
+		dataType: string
+		lineageTag: 4b9d88b6-bf21-49ef-8f24-2d8e3aa3d8dd
+		sourceLineageTag: customer_status
+		summarizeBy: none
+		sourceColumn: customer_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

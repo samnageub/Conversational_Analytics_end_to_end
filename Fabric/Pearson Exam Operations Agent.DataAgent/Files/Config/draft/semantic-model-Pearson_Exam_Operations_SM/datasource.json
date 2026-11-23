@@ -1,0 +1,651 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "6c8e8e21-e76c-993f-471d-e7e20e92bb84",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "Pearson_Exam_Operations_SM",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": null,
+  "elements": [
+    {
+      "id": "a1dad114-1829-4bbd-9efe-f5d0cbacfdd4",
+      "is_selected": true,
+      "display_name": "date",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "25e20948-7452-4634-955f-9a3b03986549",
+          "is_selected": true,
+          "display_name": "date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d5a6e345-2d1c-4eb4-b398-4cfee862f963",
+          "is_selected": true,
+          "display_name": "calendar_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d59267ef-4f02-4f0c-9924-1ac1a6b0eaac",
+          "is_selected": true,
+          "display_name": "calendar_year",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d6a3cf0f-72b0-485a-b9a3-15e78f0b12b2",
+          "is_selected": true,
+          "display_name": "calendar_quarter",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3d1460a8-a6e7-4e47-852a-c16c6da404ab",
+          "is_selected": true,
+          "display_name": "month_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4a8ae076-a603-4243-a6d8-794c9c821ac0",
+          "is_selected": true,
+          "display_name": "month_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2b75c106-041c-4a54-9a1e-28e7013bae2e",
+          "is_selected": true,
+          "display_name": "year_month",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "df3daeef-37d1-4796-815e-914bfa5f2dfe",
+          "is_selected": true,
+          "display_name": "week_number",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "08f9f2fd-d0f9-4418-9a98-ce55e74f49c5",
+          "is_selected": true,
+          "display_name": "day_of_month",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "92aba029-cb4c-4a66-9108-a14b86d99819",
+          "is_selected": true,
+          "display_name": "day_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "159ebcb5-2689-4c6d-a987-644fee5ab235",
+          "is_selected": true,
+          "display_name": "is_weekend",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "11787575-b525-487f-9783-18c9849f7930",
+      "is_selected": true,
+      "display_name": "test_center",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "e377ecff-9f72-48b4-9189-e42e1fc46868",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c7300ea3-2532-4288-b25a-128b7b8b2e57",
+          "is_selected": true,
+          "display_name": "test_center_name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c59accc8-780f-4b2d-8f5b-3c240b6acf09",
+          "is_selected": true,
+          "display_name": "city",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f731c17f-785b-41c5-bb22-4e6cf9c9968f",
+          "is_selected": true,
+          "display_name": "state",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "89f07c14-4937-4109-8107-e6bafd68b22c",
+          "is_selected": true,
+          "display_name": "region",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8c984a00-933a-4ac7-9c08-8d2c8bdd5d49",
+          "is_selected": true,
+          "display_name": "base_daily_capacity",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "bfd94375-c69c-4c20-9e37-8392efa9f0a6",
+          "is_selected": true,
+          "display_name": "test_center_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "a85bf27b-46bc-4396-8a68-c76915de9215",
+      "is_selected": true,
+      "display_name": "capacity_staffing",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "d5f4af56-9622-46c0-93b3-bfbe68f3a54e",
+          "is_selected": true,
+          "display_name": "capacity_staffing_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8fbc4ff1-a347-4a37-90da-6ec47c7f45af",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "db398947-3e20-4d9d-8a99-d2e4769f0811",
+          "is_selected": true,
+          "display_name": "planning_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "256232b1-3efe-4a5b-b968-532c51120d4d",
+          "is_selected": true,
+          "display_name": "physical_capacity",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "920649c8-5d53-4f5d-897e-451492bf8522",
+          "is_selected": true,
+          "display_name": "planned_demand",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "562712ed-64fa-4259-a2d2-df9d472206e7",
+          "is_selected": true,
+          "display_name": "capacity_gap",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2d8e3921-ec69-4c8a-a689-a9cde8ab268e",
+          "is_selected": true,
+          "display_name": "planning_status",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9444d462-fc54-4878-8780-f25aacb9bbc4",
+          "is_selected": true,
+          "display_name": "proctors_scheduled",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5714f858-c160-4bb5-9854-875bffc86b0b",
+          "is_selected": true,
+          "display_name": "proctors_absent",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "654edbeb-53dc-4a89-92d8-54f62db8b884",
+          "is_selected": true,
+          "display_name": "proctors_available",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "bd8bbd53-8362-45eb-94e4-50ab8f82f06f",
+          "is_selected": true,
+          "display_name": "proctors_required",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2b7ad9ed-12d8-41b8-a9f7-630e08ee2253",
+          "is_selected": true,
+          "display_name": "staffing_gap",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5698793f-57e6-4b7a-8edd-bdb8fa7ea0a2",
+          "is_selected": true,
+          "display_name": "is_understaffed",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8bf6b77b-8c87-4c77-84de-ff265835566c",
+          "is_selected": true,
+          "display_name": "staffing_coverage_rate",
+          "type": "semantic_model.column",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "05814226-4831-4fc6-bd06-554d653f1708",
+          "is_selected": true,
+          "display_name": "capacity_staffing_day_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0283d6a4-3548-4abc-9274-5dc9c59d203e",
+          "is_selected": true,
+          "display_name": "Planned Capacity",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the total planned physical capacity by summing the physical_capacity values across all relevant records.",
+          "children": []
+        },
+        {
+          "id": "34cbb881-a218-4501-bd5c-afa57a9bc7a8",
+          "is_selected": true,
+          "display_name": "Planned Demand",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the planned_demand values in the capacity_staffing table to calculate total planned demand for the selected filter context.",
+          "children": []
+        },
+        {
+          "id": "5f5272f4-db4e-4cee-affc-fd4c4c0beabb",
+          "is_selected": true,
+          "display_name": "Capacity Gap",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the capacity_gap values to show the total staffing capacity shortfall across the selected context.",
+          "children": []
+        },
+        {
+          "id": "dae6cd11-3fe9-4bc2-9839-13182d0ecfb7",
+          "is_selected": true,
+          "display_name": "Planned Utilization",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates planned utilization as the ratio of Planned Demand to Planned Capacity to show how fully planned capacity is expected to be used.",
+          "children": []
+        },
+        {
+          "id": "2359d63d-beb1-4d29-ab16-c5ed1451e3f5",
+          "is_selected": true,
+          "display_name": "Proctors Required",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the total number of proctors required by summing the 'proctors_required' column in the Capacity_Staffing table.",
+          "children": []
+        },
+        {
+          "id": "12554c5b-9ca5-4c19-9e75-fafa515622ff",
+          "is_selected": true,
+          "display_name": "Proctors Available",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the number of proctors available across the selected filter context.",
+          "children": []
+        },
+        {
+          "id": "894da910-be5a-4c91-ad91-9ec71f04e7e5",
+          "is_selected": true,
+          "display_name": "Staffing Gap",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the total staffing gap by summing the 'Capacity_Staffing'[staffing_gap] values over the current filter context.",
+          "children": []
+        },
+        {
+          "id": "9e3fd24c-81bf-4594-a1cc-6d5e3344c75a",
+          "is_selected": true,
+          "display_name": "Staffing Coverage",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the staffing coverage ratio by dividing the number of proctors available by the number of proctors required, indicating how fully proctor needs are met.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "1c735a93-7a5b-4f85-b205-fa9a31cb122c",
+      "is_selected": true,
+      "display_name": "exam_operations",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "5ba62c43-419a-4594-9c04-bee9da162e22",
+          "is_selected": true,
+          "display_name": "exam_operations_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "16e1ce14-0b75-4ed9-b19b-6f72bd57d22a",
+          "is_selected": true,
+          "display_name": "test_center_key",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "10a6b078-7d60-447d-9434-b104f2937313",
+          "is_selected": true,
+          "display_name": "operation_date_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fa895099-b068-4601-b15a-25cb593ebb77",
+          "is_selected": true,
+          "display_name": "available_seats",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ec22dd0e-8012-43a4-84af-62ea9b7dc596",
+          "is_selected": true,
+          "display_name": "reserved_seats",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "323d75ef-c625-4772-b05b-6957f15b57b6",
+          "is_selected": true,
+          "display_name": "delivered_exams",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e5fd5004-40d6-421b-b130-cbbc547cfd2d",
+          "is_selected": true,
+          "display_name": "cancelled_exams",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a50ced1d-c45a-4bea-8f03-f2f88a3d5924",
+          "is_selected": true,
+          "display_name": "actual_utilization_rate",
+          "type": "semantic_model.column",
+          "data_type": "Decimal",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "89529614-eed1-476a-b201-e39f25ef85d5",
+          "is_selected": true,
+          "display_name": "operational_pressure",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "807b17ba-440c-4431-a8e8-fc2930b61a6b",
+          "is_selected": true,
+          "display_name": "operation_day_count",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6a91087e-8061-437b-ae35-1ef269322d5e",
+          "is_selected": true,
+          "display_name": "Delivered Exams",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the total number of delivered exams by summing the delivered_exams column in the exam_operations table.",
+          "children": []
+        },
+        {
+          "id": "55dd7cc9-b6d1-4da1-bea3-a5400cd0446b",
+          "is_selected": true,
+          "display_name": "Cancelled Exams",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the total number of cancelled exams from the exam_operations table.",
+          "children": []
+        },
+        {
+          "id": "c3b6d9ed-9139-4e1c-bde8-fee77c875673",
+          "is_selected": true,
+          "display_name": "Available Seats",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the available_seats values in the exam_operations table to return the total number of available seats.",
+          "children": []
+        },
+        {
+          "id": "0bdd9a96-544b-4988-9c56-da4b2047076e",
+          "is_selected": true,
+          "display_name": "Reserved Seats",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Sums the total number of reserved seats from the exam_operations table.",
+          "children": []
+        },
+        {
+          "id": "b1ed1f33-9689-48f1-9c4c-1627fc7b6644",
+          "is_selected": true,
+          "display_name": "Actual Utilization Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the actual utilization rate by dividing Delivered Exams by Available Seats to show how fully exam capacity is being used.",
+          "children": []
+        },
+        {
+          "id": "7b450749-f4b7-4e52-aae8-8e37ba24df59",
+          "is_selected": true,
+          "display_name": "Reservation Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the reservation rate as the ratio of reserved seats to available seats.",
+          "children": []
+        },
+        {
+          "id": "e3777695-9a39-4696-ad77-cd7a58a2212b",
+          "is_selected": true,
+          "display_name": "Cancellation Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the cancellation rate as the ratio of cancelled exams to reserved seats.",
+          "children": []
+        },
+        {
+          "id": "a0fc3dae-3441-4d83-ab0d-9ff0eb5b88a2",
+          "is_selected": true,
+          "display_name": "High Pressure Days",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the distinct operation dates where the operational pressure is equal to the specified value \"STRING LITERAL\".",
+          "children": []
+        },
+        {
+          "id": "3ea4b94e-8cf7-4c26-b2bb-38cf3374731e",
+          "is_selected": true,
+          "display_name": "Operational Days",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Counts the number of distinct operational days based on the unique operation_date_key values in the exam_operations table.",
+          "children": []
+        },
+        {
+          "id": "04daf2eb-488f-444a-a003-b61aa5716ab0",
+          "is_selected": true,
+          "display_name": "High Pressure Day Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the rate of high pressure days by dividing High Pressure Days by Operational Days.",
+          "children": []
+        },
+        {
+          "id": "ef5d5925-614b-4e46-ab03-9dcbdb4117a5",
+          "is_selected": true,
+          "display_name": "Delivered Exams YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the year-to-date total of delivered exams based on the Delivered Exams measure over the calendar_date field.",
+          "children": []
+        },
+        {
+          "id": "1ba8e07e-02e4-4ba7-844b-1c4ab3d0d0ef",
+          "is_selected": true,
+          "display_name": "Delivered Exams Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": "Calculates the year-to-date number of delivered exams for the same period in the previous year, based on the calendar date from the Date table.",
+          "children": []
+        },
+        {
+          "id": "ee83428f-a249-426c-9062-4b95cacc0a2d",
+          "is_selected": true,
+          "display_name": "Delivered Exams YoY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "165fa3a2-0327-4124-84fc-5dcafb88f8be",
+          "is_selected": true,
+          "display_name": "Actual Utilization Rate YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year-to-date Actual Utilization Rate based on the 'Date'[calendar_date] dimension.",
+          "children": []
+        },
+        {
+          "id": "b5e2dc8f-f4ee-4915-924a-4e09139c2539",
+          "is_selected": true,
+          "display_name": "Actual Utilization Rate Previous Year YTD",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the actual utilization rate year to date for the same period in the previous calendar year, based on the Date[calendar_date] column.",
+          "children": []
+        },
+        {
+          "id": "a541df83-97ce-4253-9611-4db40a35d0a4",
+          "is_selected": true,
+          "display_name": "Actual Utilization YoY Change",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Calculates the year-over-year change in the actual utilization rate by subtracting the previous year's year-to-date actual utilization rate from the current year-to-date actual utilization rate.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

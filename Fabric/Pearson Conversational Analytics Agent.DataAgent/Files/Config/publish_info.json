@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/publishInfo/1.0.0/schema.json",
+  "description": "Provides unified conversational analytics across synthetic Pearson assessment and exam-operations data using governed business context from the Pearson Assessment & Delivery Ontology. Explore registrations, completed tests, pass rates, topic performance, financial outcomes, exam delivery, utilization, capacity, staffing, and operational pressure, including cross-domain questions across shared Test Center and Date context. The agent uses governed measures and relationships and avoids unsupported joins, causal claims, benchmarks, or missing-data assumptions."
+}

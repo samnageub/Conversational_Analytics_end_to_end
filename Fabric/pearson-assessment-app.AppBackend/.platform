@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "AppBackend",
+    "displayName": "pearson-assessment-app"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d5d14594-050c-b8ad-45ef-930a824357c3"
+  }
+}

@@ -1,0 +1,58 @@
+table program
+	lineageTag: 7a8cfcfe-54cc-4b0b-9fe2-d7bd68f8a5f2
+	sourceLineageTag: 510df73a-46aa-405a-8bac-afcd3384ff4c
+
+	column program_key
+		dataType: string
+		lineageTag: 28653b33-c531-4221-86d9-ccba2b8f416f
+		sourceLineageTag: 2c7fa78e-9ad0-4794-9cf4-618c4d1b5660
+		sourceColumn: program_key
+
+	column customer_key
+		dataType: string
+		lineageTag: 5e7ae4ae-27ae-4191-85d9-16f818d3fb00
+		sourceLineageTag: 25d75d8e-0fbf-4289-98fc-9024d57154eb
+		sourceColumn: customer_key
+
+	column program_code
+		dataType: string
+		lineageTag: fe3f5ca1-60f4-4208-b2e5-7ecbf43e5d80
+		sourceLineageTag: 679a3b91-043c-4d79-9860-38adb26c2fda
+		sourceColumn: program_code
+
+	column program_name
+		dataType: string
+		lineageTag: 940eb64b-d5bd-40b3-a23a-86681eb8a014
+		sourceLineageTag: f33288ff-37a1-414e-b164-76d2bbdd4263
+		sourceColumn: program_name
+
+	column program_category
+		dataType: string
+		lineageTag: 5ab59c9b-7e69-4bca-a4fd-1c1115532759
+		sourceLineageTag: 38c56047-650e-4ece-af25-3b4482004180
+		sourceColumn: program_category
+
+	column program_status
+		dataType: string
+		lineageTag: bab5622c-03ee-4355-aa6a-bd36f1ab769b
+		sourceLineageTag: 1e611500-76c9-4ecb-9ab4-8b79fe1b0441
+		sourceColumn: program_status
+
+	partition program-partition = entity
+		mode: directQuery
+		source
+			entityName: program
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

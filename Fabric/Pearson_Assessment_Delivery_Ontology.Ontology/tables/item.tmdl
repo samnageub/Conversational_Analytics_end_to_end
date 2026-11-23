@@ -1,0 +1,58 @@
+table item
+	lineageTag: d86fd022-7b65-4045-a2f0-4bc9a3be21e5
+	sourceLineageTag: 4af98b4d-d55b-4411-82a9-eea2f4f4edca
+
+	column item_key
+		dataType: string
+		lineageTag: ffbfef56-0ffb-4538-8583-f16f1b096808
+		sourceLineageTag: 75077984-8c11-4e50-8b00-89e7f4b967fd
+		sourceColumn: item_key
+
+	column topic_key
+		dataType: string
+		lineageTag: 3004585b-bd27-45c2-8017-ef18096c6b54
+		sourceLineageTag: 81931c0f-ef58-4213-8c31-677e581df10c
+		sourceColumn: topic_key
+
+	column item_name
+		dataType: string
+		lineageTag: 3c2fe0e0-793d-4d21-8311-02aa4784f3c9
+		sourceLineageTag: 6fe33c2a-93da-40c2-a2db-5604e40c0512
+		sourceColumn: item_name
+
+	column difficulty
+		dataType: string
+		lineageTag: d48014e7-8513-47e5-acdb-9cd39aa505e9
+		sourceLineageTag: 6c9daa7f-d392-4322-bdf6-31c63df63eed
+		sourceColumn: difficulty
+
+	column maximum_points
+		dataType: int64
+		lineageTag: e5d99235-bdf1-426a-b7f2-b66fd77f1b57
+		sourceLineageTag: 4e18da30-ecb2-4f52-b164-4099c6129dab
+		sourceColumn: maximum_points
+
+	column item_status
+		dataType: string
+		lineageTag: 0d48a5dc-be04-403f-aa87-212363369191
+		sourceLineageTag: 01af30c4-9889-426e-ae2d-effb8969aada
+		sourceColumn: item_status
+
+	partition item-partition = entity
+		mode: directQuery
+		source
+			entityName: item
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

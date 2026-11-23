@@ -1,0 +1,164 @@
+table capacity_staffing
+	lineageTag: 5f3be84f-0109-4d42-ad84-fd2ca344cd83
+
+	/// Calculates the total planned physical capacity by summing the physical_capacity values across all relevant records.
+	measure 'Planned Capacity' = EXTERNALMEASURE("Planned Capacity", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: f0f6fbd7-7519-4aa3-89ec-aae275848e02
+		sourceLineageTag: 0283d6a4-3548-4abc-9274-5dc9c59d203e
+
+		annotation measure_Planned_Capacity = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Planned Capacity","d":"Calculates the total planned physical capacity by summing the physical_capacity values across all relevant records."}
+
+	/// Sums the planned_demand values in the capacity_staffing table to calculate total planned demand for the selected filter context.
+	measure 'Planned Demand' = EXTERNALMEASURE("Planned Demand", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 02fb8be9-103b-4499-ab6a-4d203c7be429
+		sourceLineageTag: 34cbb881-a218-4501-bd5c-afa57a9bc7a8
+
+		annotation measure_Planned_Demand = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Planned Demand","d":"Sums the planned_demand values in the capacity_staffing table to calculate total planned demand for the selected filter context."}
+
+	/// Sums the capacity_gap values to show the total staffing capacity shortfall across the selected context.
+	measure 'Capacity Gap' = EXTERNALMEASURE("Capacity Gap", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: 0
+		lineageTag: d773f307-75cc-49c3-8e29-959a092aa42e
+		sourceLineageTag: 5f5272f4-db4e-4cee-affc-fd4c4c0beabb
+
+		annotation measure_Capacity_Gap = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Capacity Gap","d":"Sums the capacity_gap values to show the total staffing capacity shortfall across the selected context."}
+
+	/// Calculates planned utilization as the ratio of Planned Demand to Planned Capacity to show how fully planned capacity is expected to be used.
+	measure 'Planned Utilization' = EXTERNALMEASURE("Planned Utilization", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: d90550d8-fbcf-45cc-a23e-960fe0deae45
+		sourceLineageTag: dae6cd11-3fe9-4bc2-9839-13182d0ecfb7
+
+		annotation measure_Planned_Utilization = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Planned Utilization","d":"Calculates planned utilization as the ratio of Planned Demand to Planned Capacity to show how fully planned capacity is expected to be used."}
+
+	/// Calculates the total number of proctors required by summing the 'proctors_required' column in the Capacity_Staffing table.
+	measure 'Proctors Required' = EXTERNALMEASURE("Proctors Required", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: 5c099400-b6fd-478d-9fde-b047450f023e
+		sourceLineageTag: 2359d63d-beb1-4d29-ab16-c5ed1451e3f5
+
+		annotation measure_Proctors_Required = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Proctors Required","d":"Calculates the total number of proctors required by summing the \u0027proctors_required\u0027 column in the Capacity_Staffing table."}
+
+	/// Sums the number of proctors available across the selected filter context.
+	measure 'Proctors Available' = EXTERNALMEASURE("Proctors Available", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: c53d1c6b-a316-4ee3-a155-04dd8514e885
+		sourceLineageTag: 12554c5b-9ca5-4c19-9e75-fafa515622ff
+
+		annotation measure_Proctors_Available = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Proctors Available","d":"Sums the number of proctors available across the selected filter context."}
+
+	/// Calculates the total staffing gap by summing the 'Capacity_Staffing'[staffing_gap] values over the current filter context.
+	measure 'Staffing Gap' = EXTERNALMEASURE("Staffing Gap", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0
+		lineageTag: e8c8e435-3ba1-4a67-9b57-2e17d0196a41
+		sourceLineageTag: 894da910-be5a-4c91-ad91-9ec71f04e7e5
+
+		annotation measure_Staffing_Gap = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Staffing Gap","d":"Calculates the total staffing gap by summing the \u0027Capacity_Staffing\u0027[staffing_gap] values over the current filter context."}
+
+	/// Calculates the staffing coverage ratio by dividing the number of proctors available by the number of proctors required, indicating how fully proctor needs are met.
+	measure 'Staffing Coverage' = EXTERNALMEASURE("Staffing Coverage", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21")
+		formatString: #,0.00
+		lineageTag: d4f66b16-3039-4ff6-a72f-109cc3170efb
+		sourceLineageTag: 9e3fd24c-81bf-4594-a1cc-6d5e3344c75a
+
+		annotation measure_Staffing_Coverage = {"w":"fa8de806-3675-4a4b-84e4-50290ac5ea80","i":"0e92bb84-e7e2-471d-993f-e76c6c8e8e21","n":"Pearson_Exam_Operations_SM","t":"capacity_staffing","m":"Staffing Coverage","d":"Calculates the staffing coverage ratio by dividing the number of proctors available by the number of proctors required, indicating how fully proctor needs are met."}
+
+	column capacity_staffing_key
+		dataType: string
+		lineageTag: b0a4a9c6-2b40-4e56-8e3a-2ce0f47ab245
+		sourceColumn: capacity_staffing_key
+
+	column test_center_key
+		dataType: string
+		lineageTag: e2ae5585-10cd-4597-8236-d36851386b1b
+		sourceColumn: test_center_key
+
+	column planning_date_key
+		dataType: int64
+		lineageTag: 0bf503f1-371a-43f8-8884-8ddabcce6a6b
+		sourceColumn: planning_date_key
+
+	column physical_capacity
+		dataType: int64
+		lineageTag: 826a7c6a-d971-4e24-a427-37609e249b4c
+		sourceColumn: physical_capacity
+
+	column planned_demand
+		dataType: int64
+		lineageTag: 53d558b3-a4dd-4bc3-be37-e1daa162a9e7
+		sourceColumn: planned_demand
+
+	column capacity_gap
+		dataType: int64
+		lineageTag: af43deb9-abe5-42f7-a9f6-bbbe95eefaa0
+		sourceColumn: capacity_gap
+
+	column planning_status
+		dataType: string
+		lineageTag: ded50d04-2d5b-4ddc-8756-4de1b5f97e1a
+		sourceColumn: planning_status
+
+	column proctors_scheduled
+		dataType: int64
+		lineageTag: d4757605-cd6b-4935-b37e-fa97fd3caee5
+		sourceColumn: proctors_scheduled
+
+	column proctors_absent
+		dataType: int64
+		lineageTag: 948df1d0-cfda-4723-b505-2dbcfd8af32f
+		sourceColumn: proctors_absent
+
+	column proctors_available
+		dataType: int64
+		lineageTag: 08084813-6f70-404b-a8e1-74f11f5ae349
+		sourceColumn: proctors_available
+
+	column proctors_required
+		dataType: int64
+		lineageTag: b4f09096-e85b-4a0d-aeef-3eb21376aacd
+		sourceColumn: proctors_required
+
+	column staffing_gap
+		dataType: int64
+		lineageTag: 597ce5ad-7a26-4210-aa72-698c56540f5f
+		sourceColumn: staffing_gap
+
+	column is_understaffed
+		dataType: boolean
+		lineageTag: 11e5c910-f5d7-417b-929a-bddf202225ec
+		sourceColumn: is_understaffed
+
+	column staffing_coverage_rate
+		dataType: decimal
+		lineageTag: 5545b955-ba4b-41c0-986f-0ee07eb7126c
+		sourceColumn: staffing_coverage_rate
+
+	column capacity_staffing_day_count
+		dataType: int64
+		lineageTag: 6fd81342-e15a-4f4d-820b-4ad55d354f0a
+		sourceColumn: capacity_staffing_day_count
+
+	partition capacity_staffing = entity
+		mode: directQuery
+		source
+			entityName: capacity_staffing
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 6c8e8e21-e76c-993f-471d-e7e20e92bb84
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_SemanticModelServer = powerbi://api.powerbi.com/v1.0/fa8de806-3675-4a4b-84e4-50290ac5ea80
+
+		annotation ONT_SemanticModelDatabase = Pearson_Exam_Operations_SM
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:44:00Z
+

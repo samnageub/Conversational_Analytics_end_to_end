@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Pearson_Assessment_Analytics_SM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "296f8c90-01f2-9cf2-4474-da2c100f5a47"
+  }
+}

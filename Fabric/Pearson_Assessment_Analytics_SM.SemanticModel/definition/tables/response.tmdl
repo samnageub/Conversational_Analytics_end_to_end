@@ -1,0 +1,234 @@
+table response
+	lineageTag: 21291ed0-157e-4f09-94b7-20de59bd6fb3
+	sourceLineageTag: [dbo].[fact_response]
+
+	/// Counts the total number of rows in the 'response' table to return the total number of responses.
+	measure 'Total Responses' =
+			
+			COUNTROWS ( 'response' )
+		formatString: #,0
+		lineageTag: 6db53966-735b-4583-b5ed-8e9d4cb09e66
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Counts the number of responses marked as correct in the 'response' table.
+	measure 'Correct Responses' =
+			
+			CALCULATE (
+			    COUNTROWS ( 'response' ),
+			    'response'[is_correct] = TRUE ()
+			)
+		formatString: #,0
+		lineageTag: 1af6a278-e999-4fe9-b43a-7f7f23930e5d
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculate the number of incorrect responses by subtracting Correct Responses from Total Responses.
+	measure 'Incorrect Responses' =
+			
+			[Total Responses] - [Correct Responses]
+		formatString: #,0
+		lineageTag: cd70d74e-5222-4f5c-a98f-9be4a9f93344
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the percentage of topic accuracy by dividing the number of correct responses by the total responses.
+	measure 'Topic Accuracy' =
+			
+			DIVIDE (
+			    [Correct Responses],
+			    [Total Responses]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 0d51957a-c5a8-40c1-a64a-f09710dbd012
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = Description
+
+	/// Calculates the average response time in seconds across all response records.
+	measure 'Average Response Time' =
+			
+			AVERAGE (
+			    'response'[response_seconds]
+			)
+		formatString: 0.0
+		lineageTag: 1a3ff940-69b3-41f5-bf0b-bcf2e4034d57
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the average number of points earned across all response records.
+	measure 'Average Points Earned' =
+			
+			AVERAGE (
+			    'response'[points_earned]
+			)
+		formatString: 0.0
+		lineageTag: c3b59c62-85ab-4aef-b944-ea7b6b6eb43e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	column response_id
+		dataType: string
+		lineageTag: f2fc38fa-d768-4d99-a7ce-04b223e05d01
+		sourceLineageTag: response_id
+		summarizeBy: none
+		sourceColumn: response_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_id
+		dataType: string
+		lineageTag: ae3397e8-66a7-4a19-93f1-1d12c3409830
+		sourceLineageTag: attempt_id
+		summarizeBy: none
+		sourceColumn: attempt_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: 6eb4f2cb-087d-4516-8257-c27c33b834fa
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_key
+		dataType: string
+		lineageTag: 3d3c7283-d7a0-4fd3-b504-b6b5725a654e
+		sourceLineageTag: candidate_key
+		summarizeBy: none
+		sourceColumn: candidate_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_key
+		dataType: string
+		lineageTag: 0daa30f4-cf33-4f47-ba18-00d572ac3768
+		sourceLineageTag: assessment_key
+		summarizeBy: none
+		sourceColumn: assessment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column topic_key
+		dataType: string
+		lineageTag: ef047dff-f7ca-4363-b9b0-547effec1f95
+		sourceLineageTag: topic_key
+		summarizeBy: none
+		sourceColumn: topic_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_key
+		dataType: string
+		lineageTag: 2cb89a40-98ac-405b-8756-47d0abc8fcf2
+		sourceLineageTag: item_key
+		summarizeBy: none
+		sourceColumn: item_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 589dd99e-5720-48d0-92b4-8e7e288cbf29
+		sourceLineageTag: attempt_date_key
+		summarizeBy: none
+		sourceColumn: attempt_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column question_sequence
+		dataType: int64
+		formatString: 0
+		lineageTag: 21ab3f9b-ca63-49fa-98e0-37e673f3b776
+		sourceLineageTag: question_sequence
+		summarizeBy: sum
+		sourceColumn: question_sequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_correct
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f1b25a68-6a2d-4b7e-b120-b1a963b04044
+		sourceLineageTag: is_correct
+		summarizeBy: none
+		sourceColumn: is_correct
+
+		annotation SummarizationSetBy = Automatic
+
+	column points_available
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d72817d-6fdb-4a79-9956-c3507a3a7a2f
+		sourceLineageTag: points_available
+		summarizeBy: sum
+		sourceColumn: points_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column points_earned
+		dataType: int64
+		formatString: 0
+		lineageTag: 2676777e-a40c-45d1-8597-50c42fbdd62b
+		sourceLineageTag: points_earned
+		summarizeBy: sum
+		sourceColumn: points_earned
+
+		annotation SummarizationSetBy = Automatic
+
+	column response_seconds
+		dataType: int64
+		formatString: 0
+		lineageTag: 184c9b12-d5b2-47b6-ac3c-f38ec5d88f76
+		sourceLineageTag: response_seconds
+		summarizeBy: sum
+		sourceColumn: response_seconds
+
+		annotation SummarizationSetBy = Automatic
+
+	column response_count
+		dataType: int64
+		formatString: 0
+		lineageTag: b4066068-299f-434e-ba87-df7ee16b5704
+		sourceLineageTag: response_count
+		summarizeBy: sum
+		sourceColumn: response_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition response = entity
+		mode: directLake
+		source
+			entityName: fact_response
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

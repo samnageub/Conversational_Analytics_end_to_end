@@ -1,0 +1,310 @@
+table capacity_staffing
+	lineageTag: a85bf27b-46bc-4396-8a68-c76915de9215
+	sourceLineageTag: [dbo].[fact_capacity_staffing]
+
+	/// Calculates the total planned physical capacity by summing the physical_capacity values across all relevant records.
+	measure 'Planned Capacity' =
+			
+			SUM ( 'capacity_staffing'[physical_capacity] )
+		formatString: #,0
+		lineageTag: 0283d6a4-3548-4abc-9274-5dc9c59d203e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Sums the planned_demand values in the capacity_staffing table to calculate total planned demand for the selected filter context.
+	measure 'Planned Demand' =
+			
+			SUM ( 'capacity_staffing'[planned_demand] )
+		formatString: #,0
+		lineageTag: 34cbb881-a218-4501-bd5c-afa57a9bc7a8
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Sums the capacity_gap values to show the total staffing capacity shortfall across the selected context.
+	measure 'Capacity Gap' =
+			
+			SUM ( capacity_staffing[capacity_gap] )
+		formatString: 0
+		lineageTag: 5f5272f4-db4e-4cee-affc-fd4c4c0beabb
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = IsHidden
+
+	/// Calculates planned utilization as the ratio of Planned Demand to Planned Capacity to show how fully planned capacity is expected to be used.
+	measure 'Planned Utilization' =
+			
+			DIVIDE (
+			    [Planned Demand],
+			    [Planned Capacity]
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: dae6cd11-3fe9-4bc2-9839-13182d0ecfb7
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+	/// Calculates the total number of proctors required by summing the 'proctors_required' column in the Capacity_Staffing table.
+	measure 'Proctors Required' =
+			
+			SUM ( 'Capacity_Staffing'[proctors_required] )
+		formatString: #,0
+		lineageTag: 2359d63d-beb1-4d29-ab16-c5ed1451e3f5
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Sums the number of proctors available across the selected filter context.
+	measure 'Proctors Available' =
+			
+			SUM ( 'capacity_staffing'[proctors_available] )
+		formatString: #,0
+		lineageTag: 12554c5b-9ca5-4c19-9e75-fafa515622ff
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the total staffing gap by summing the 'Capacity_Staffing'[staffing_gap] values over the current filter context.
+	measure 'Staffing Gap' =
+			
+			SUM ( 'Capacity_Staffing'[staffing_gap] )
+		formatString: #,0
+		lineageTag: 894da910-be5a-4c91-ad91-9ec71f04e7e5
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the staffing coverage ratio by dividing the number of proctors available by the number of proctors required, indicating how fully proctor needs are met.
+	measure 'Staffing Coverage' =
+			
+			DIVIDE (
+			    [Proctors Available],
+			    [Proctors Required]
+			)
+		formatString: #,0.00
+		lineageTag: 9e3fd24c-81bf-4594-a1cc-6d5e3344c75a
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	column capacity_staffing_key
+		dataType: string
+		lineageTag: d5f4af56-9622-46c0-93b3-bfbe68f3a54e
+		sourceLineageTag: capacity_staffing_key
+		summarizeBy: none
+		sourceColumn: capacity_staffing_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_key
+		dataType: string
+		lineageTag: 8fbc4ff1-a347-4a37-90da-6ec47c7f45af
+		sourceLineageTag: test_center_key
+		summarizeBy: none
+		sourceColumn: test_center_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column planning_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: db398947-3e20-4d9d-8a99-d2e4769f0811
+		sourceLineageTag: planning_date_key
+		summarizeBy: none
+		sourceColumn: planning_date_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column physical_capacity
+		dataType: int64
+		formatString: 0
+		lineageTag: 256232b1-3efe-4a5b-b968-532c51120d4d
+		sourceLineageTag: physical_capacity
+		summarizeBy: sum
+		sourceColumn: physical_capacity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_demand
+		dataType: int64
+		formatString: 0
+		lineageTag: 920649c8-5d53-4f5d-897e-451492bf8522
+		sourceLineageTag: planned_demand
+		summarizeBy: sum
+		sourceColumn: planned_demand
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_gap
+		dataType: int64
+		formatString: 0
+		lineageTag: 562712ed-64fa-4259-a2d2-df9d472206e7
+		sourceLineageTag: capacity_gap
+		summarizeBy: sum
+		sourceColumn: capacity_gap
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column planning_status
+		dataType: string
+		lineageTag: 2d8e3921-ec69-4c8a-a689-a9cde8ab268e
+		sourceLineageTag: planning_status
+		summarizeBy: none
+		sourceColumn: planning_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column proctors_scheduled
+		dataType: int64
+		formatString: 0
+		lineageTag: 9444d462-fc54-4878-8780-f25aacb9bbc4
+		sourceLineageTag: proctors_scheduled
+		summarizeBy: sum
+		sourceColumn: proctors_scheduled
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column proctors_absent
+		dataType: int64
+		formatString: 0
+		lineageTag: 5714f858-c160-4bb5-9854-875bffc86b0b
+		sourceLineageTag: proctors_absent
+		summarizeBy: sum
+		sourceColumn: proctors_absent
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column proctors_available
+		dataType: int64
+		formatString: 0
+		lineageTag: 654edbeb-53dc-4a89-92d8-54f62db8b884
+		sourceLineageTag: proctors_available
+		summarizeBy: sum
+		sourceColumn: proctors_available
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column proctors_required
+		dataType: int64
+		formatString: 0
+		lineageTag: bd8bbd53-8362-45eb-94e4-50ab8f82f06f
+		sourceLineageTag: proctors_required
+		summarizeBy: sum
+		sourceColumn: proctors_required
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column staffing_gap
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b7ad9ed-12d8-41b8-a9f7-630e08ee2253
+		sourceLineageTag: staffing_gap
+		summarizeBy: sum
+		sourceColumn: staffing_gap
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_understaffed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5698793f-57e6-4b7a-8edd-bdb8fa7ea0a2
+		sourceLineageTag: is_understaffed
+		summarizeBy: none
+		sourceColumn: is_understaffed
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column staffing_coverage_rate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8bf6b77b-8c87-4c77-84de-ff265835566c
+		sourceLineageTag: staffing_coverage_rate
+		summarizeBy: sum
+		sourceColumn: staffing_coverage_rate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column capacity_staffing_day_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 05814226-4831-4fc6-bd06-554d653f1708
+		sourceLineageTag: capacity_staffing_day_count
+		summarizeBy: sum
+		sourceColumn: capacity_staffing_day_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition capacity_staffing = entity
+		mode: directLake
+		source
+			entityName: fact_capacity_staffing
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+
+	changedProperty = IsHidden
+

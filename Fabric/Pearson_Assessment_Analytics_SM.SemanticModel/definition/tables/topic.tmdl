@@ -1,0 +1,49 @@
+table topic
+	lineageTag: 71dc18fc-f3bf-408e-bfac-4c2ed69b943c
+	sourceLineageTag: [dbo].[dim_topic]
+
+	column topic_key
+		dataType: string
+		lineageTag: d92e3a64-c7b8-4e01-84b7-0eff25775d8a
+		sourceLineageTag: topic_key
+		summarizeBy: none
+		sourceColumn: topic_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column topic_name
+		dataType: string
+		lineageTag: 58d2e2ab-35c1-4e46-94f8-6e023efbda57
+		sourceLineageTag: topic_name
+		summarizeBy: none
+		sourceColumn: topic_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column topic_description
+		dataType: string
+		lineageTag: 7721367d-7e69-4993-ab43-a3fe22129358
+		sourceLineageTag: topic_description
+		summarizeBy: none
+		sourceColumn: topic_description
+
+		annotation SummarizationSetBy = Automatic
+
+	column topic_status
+		dataType: string
+		lineageTag: 52088827-498a-46ae-b155-d91195dd5926
+		sourceLineageTag: topic_status
+		summarizeBy: none
+		sourceColumn: topic_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition topic = entity
+		mode: directLake
+		source
+			entityName: dim_topic
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

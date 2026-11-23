@@ -1,0 +1,142 @@
+table response
+	lineageTag: 595278c3-59da-4db8-9342-3f0a4bc77062
+	sourceLineageTag: 21291ed0-157e-4f09-94b7-20de59bd6fb3
+
+	/// Counts the total number of rows in the 'response' table to return the total number of responses.
+	measure 'Total Responses' = EXTERNALMEASURE("Total Responses", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 40f5b806-4018-4bdb-91f0-6d39d767b7c5
+		sourceLineageTag: 6db53966-735b-4583-b5ed-8e9d4cb09e66
+
+	/// Counts the number of responses marked as correct in the 'response' table.
+	measure 'Correct Responses' = EXTERNALMEASURE("Correct Responses", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: ebada431-ec31-41fa-8046-121cebbaa684
+		sourceLineageTag: 1af6a278-e999-4fe9-b43a-7f7f23930e5d
+
+	/// Calculate the number of incorrect responses by subtracting Correct Responses from Total Responses.
+	measure 'Incorrect Responses' = EXTERNALMEASURE("Incorrect Responses", INTEGER, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: #,0
+		lineageTag: 565bd6d5-5c2d-4118-95a8-3ffba63be648
+		sourceLineageTag: cd70d74e-5222-4f5c-a98f-9be4a9f93344
+
+	/// Calculates the percentage of topic accuracy by dividing the number of correct responses by the total responses.
+	measure 'Topic Accuracy' = EXTERNALMEASURE("Topic Accuracy", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 31a083e0-9eac-47c9-a716-2eadb5ca8824
+		sourceLineageTag: 0d51957a-c5a8-40c1-a64a-f09710dbd012
+
+	/// Calculates the average response time in seconds across all response records.
+	measure 'Average Response Time' = EXTERNALMEASURE("Average Response Time", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0
+		lineageTag: fcd19477-88cf-41d9-bf52-ab8f41442585
+		sourceLineageTag: 1a3ff940-69b3-41f5-bf0b-bcf2e4034d57
+
+	/// Calculates the average number of points earned across all response records.
+	measure 'Average Points Earned' = EXTERNALMEASURE("Average Points Earned", DOUBLE, "DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90")
+		formatString: 0.0
+		lineageTag: b3fc4d52-eb02-4a51-9a06-98381648fd7b
+		sourceLineageTag: c3b59c62-85ab-4aef-b944-ea7b6b6eb43e
+
+	column response_id
+		dataType: string
+		lineageTag: 18258635-d349-4410-b6e8-3b2722e8f8a3
+		sourceLineageTag: f2fc38fa-d768-4d99-a7ce-04b223e05d01
+		sourceColumn: response_id
+
+	column attempt_id
+		dataType: string
+		lineageTag: 2129a0c2-83e7-455a-9d10-ef30db024617
+		sourceLineageTag: ae3397e8-66a7-4a19-93f1-1d12c3409830
+		sourceColumn: attempt_id
+
+	column customer_key
+		dataType: string
+		lineageTag: 8c949c44-2ecb-4581-b5d1-fe99da77a63c
+		sourceLineageTag: 6eb4f2cb-087d-4516-8257-c27c33b834fa
+		sourceColumn: customer_key
+
+	column candidate_key
+		dataType: string
+		lineageTag: 37fe95bf-7fce-4a56-8fa8-77493e66b1a5
+		sourceLineageTag: 3d3c7283-d7a0-4fd3-b504-b6b5725a654e
+		sourceColumn: candidate_key
+
+	column assessment_key
+		dataType: string
+		lineageTag: 22bf2d5a-c574-47ae-8027-7893b97d0bb6
+		sourceLineageTag: 0daa30f4-cf33-4f47-ba18-00d572ac3768
+		sourceColumn: assessment_key
+
+	column topic_key
+		dataType: string
+		lineageTag: a1e7e5cf-2a6b-4709-9aa9-550c754b79e2
+		sourceLineageTag: ef047dff-f7ca-4363-b9b0-547effec1f95
+		sourceColumn: topic_key
+
+	column item_key
+		dataType: string
+		lineageTag: 9627d803-367f-4af0-95d7-0d498de1757d
+		sourceLineageTag: 2cb89a40-98ac-405b-8756-47d0abc8fcf2
+		sourceColumn: item_key
+
+	column attempt_date_key
+		dataType: int64
+		lineageTag: 736dac80-aba3-4a05-8a79-f16663bfdf31
+		sourceLineageTag: 589dd99e-5720-48d0-92b4-8e7e288cbf29
+		sourceColumn: attempt_date_key
+
+	column question_sequence
+		dataType: int64
+		lineageTag: 933f8f97-52c3-4038-8a61-997ce2a55ac8
+		sourceLineageTag: 21ab3f9b-ca63-49fa-98e0-37e673f3b776
+		sourceColumn: question_sequence
+
+	column is_correct
+		dataType: boolean
+		lineageTag: c694352c-2bbe-4f39-a353-c7370414826a
+		sourceLineageTag: f1b25a68-6a2d-4b7e-b120-b1a963b04044
+		sourceColumn: is_correct
+
+	column points_available
+		dataType: int64
+		lineageTag: 843f70fe-e9a5-4bb9-b198-101d9b3f2069
+		sourceLineageTag: 8d72817d-6fdb-4a79-9956-c3507a3a7a2f
+		sourceColumn: points_available
+
+	column points_earned
+		dataType: int64
+		lineageTag: 054ff2c5-747a-4771-b948-4e537bdf9348
+		sourceLineageTag: 2676777e-a40c-45d1-8597-50c42fbdd62b
+		sourceColumn: points_earned
+
+	column response_seconds
+		dataType: int64
+		lineageTag: bed59264-73b2-485f-b482-50f1479e472a
+		sourceLineageTag: 184c9b12-d5b2-47b6-ac3c-f38ec5d88f76
+		sourceColumn: response_seconds
+
+	column response_count
+		dataType: int64
+		lineageTag: 1a293a99-48ab-4ab1-81a0-33f63e0686ff
+		sourceLineageTag: b4066068-299f-434e-ba87-df7ee16b5704
+		sourceColumn: response_count
+
+	partition response-partition = entity
+		mode: directQuery
+		source
+			entityName: response
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/100f5a47-da2c-4474-9cf2-01f2296f8c90'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 296f8c90-01f2-9cf2-4474-da2c100f5a47
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:40:13.8183976+00:00
+

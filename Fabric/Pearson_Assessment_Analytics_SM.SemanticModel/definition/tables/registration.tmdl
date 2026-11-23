@@ -1,0 +1,245 @@
+table registration
+	lineageTag: 47950260-c0b2-40f7-8d83-66a99f494a2a
+	sourceLineageTag: [dbo].[fact_registration]
+
+	/// Total Number of Registrations
+	measure Registrations =
+			
+			COUNTROWS (registration)
+		formatString: #,0
+		lineageTag: 417b919e-1a9d-4baa-848d-8a94a5a8b976
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Counts the number of distinct registered candidates based on the candidate_key in the registration table.
+	measure 'Unique Registered Candidates' =
+			
+			DISTINCTCOUNT(registration[candidate_key])
+		formatString: #,0
+		lineageTag: c74d347a-ba1b-484f-be9b-643d07f78ed9
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = Description
+
+	/// Calculates the average number of registrations per unique registered candidate by dividing total registrations by the count of unique registered candidates.
+	measure 'Registrations per Candidate' =
+			
+			DIVIDE (
+			    [Registrations],
+			    [Unique Registered Candidates]
+			)
+		formatString: #,0.0
+		lineageTag: ea0c4ec8-a173-4d3d-83d6-a0cc4fdf297e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the year-to-date total of registrations based on the 'Date'[calendar_date] context.
+	measure 'Registrations YTD' =
+			
+			CALCULATE (
+			    [Registrations],
+			    DATESYTD ( 'Date'[calendar_date] )
+			)
+		formatString: #,0.00
+		lineageTag: 5949f808-c59a-4ee8-b3e1-7d0f2e245f7c
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Returns the year-to-date registrations for the same period in the previous calendar year, using the Date[calendar_date] column to shift the [Registrations YTD] measure one year back.
+	measure 'Registrations Previous Year YTD' =
+			
+			CALCULATE (
+			    [Registrations YTD],
+			    SAMEPERIODLASTYEAR ( 'Date'[calendar_date] )
+			)
+		formatString: #,0
+		lineageTag: 67d3a307-7326-48b9-a844-64efe354b3f1
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the year-over-year percentage change in year-to-date registrations compared to the previous year's year-to-date registrations.
+	measure 'Registrations YoY %' =
+			
+			DIVIDE (
+			    [Registrations YTD] - [Registrations Previous Year YTD],
+			    [Registrations Previous Year YTD]
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: a6dd2c9a-1f28-40d9-ae7f-3d7042e4820e
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	column registration_id
+		dataType: string
+		lineageTag: f5aad2d3-744b-4324-87bf-8b1fc2c602d4
+		sourceLineageTag: registration_id
+		summarizeBy: none
+		sourceColumn: registration_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: 9d4b8117-0c40-4bbc-89e8-0cb587906d63
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_key
+		dataType: string
+		lineageTag: cdd40da4-6ada-47ef-9255-30ff8eb724c4
+		sourceLineageTag: candidate_key
+		summarizeBy: none
+		sourceColumn: candidate_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_key
+		dataType: string
+		lineageTag: cefb9f91-c87b-4f1b-88be-bb488c3f9f7c
+		sourceLineageTag: program_key
+		summarizeBy: none
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_key
+		dataType: string
+		lineageTag: e84a8123-3509-49f5-9578-fadb873ae11e
+		sourceLineageTag: assessment_key
+		summarizeBy: none
+		sourceColumn: assessment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column test_center_key
+		dataType: string
+		lineageTag: 6e079f4f-1f84-4135-a155-397bb8de0074
+		sourceLineageTag: test_center_key
+		summarizeBy: none
+		sourceColumn: test_center_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column registration_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3befc638-9f4c-4f48-a495-f04ed4c42f96
+		sourceLineageTag: registration_date_key
+		summarizeBy: none
+		sourceColumn: registration_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column original_exam_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d80dc51-d9f4-4e8b-bbb7-c791887ad57e
+		sourceLineageTag: original_exam_date_key
+		summarizeBy: sum
+		sourceColumn: original_exam_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_exam_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ae53fc01-3406-49df-9d4a-e5a936c6b267
+		sourceLineageTag: final_exam_date_key
+		summarizeBy: sum
+		sourceColumn: final_exam_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column registration_status
+		dataType: string
+		lineageTag: 35881bbd-294d-4a8c-a5a9-6db2e24f1c2f
+		sourceLineageTag: registration_status
+		summarizeBy: none
+		sourceColumn: registration_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_mode
+		dataType: string
+		lineageTag: cc395d2e-f941-41b4-8bc2-892161f6b702
+		sourceLineageTag: delivery_mode
+		summarizeBy: none
+		sourceColumn: delivery_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column was_rescheduled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3f539af5-eb82-4b2c-b5bf-8e022e01a6be
+		sourceLineageTag: was_rescheduled
+		summarizeBy: none
+		sourceColumn: was_rescheduled
+
+		annotation SummarizationSetBy = Automatic
+
+	column reschedule_count
+		dataType: int64
+		formatString: 0
+		lineageTag: a2bcc40d-8c2e-4a9d-9b3e-76cdd3ce3e43
+		sourceLineageTag: reschedule_count
+		summarizeBy: sum
+		sourceColumn: reschedule_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_shifted
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b88e93c-2206-4ba5-a765-7865465e1009
+		sourceLineageTag: days_shifted
+		summarizeBy: sum
+		sourceColumn: days_shifted
+
+		annotation SummarizationSetBy = Automatic
+
+	column registration_count
+		dataType: int64
+		formatString: 0
+		lineageTag: eaa94ebe-5733-4fe2-abfa-39bb9e719bd6
+		sourceLineageTag: registration_count
+		summarizeBy: sum
+		sourceColumn: registration_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition registration = entity
+		mode: directLake
+		source
+			entityName: fact_registration
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

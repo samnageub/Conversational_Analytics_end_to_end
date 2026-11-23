@@ -1,0 +1,30 @@
+table date_2
+	lineageTag: 7cecc10d-4b9b-4f81-b3a4-033dc6b77eb4
+
+	column date_key
+		dataType: int64
+		lineageTag: faa488b1-62fd-4e4b-9b46-f964e7603aea
+		sourceColumn: date_key
+
+	partition date_2 = entity
+		mode: directQuery
+		source
+			entityName: date
+			expressionSource: 'DirectQuery to AS - fa8de806-3675-4a4b-84e4-50290ac5ea80/0e92bb84-e7e2-471d-993f-e76c6c8e8e21'
+
+		annotation ONT_WorkspaceId = 00000000-0000-0000-0000-000000000000
+
+		annotation ONT_ItemId = 6c8e8e21-e76c-993f-471d-e7e20e92bb84
+
+		annotation ONT_ItemKind = SemanticModel
+
+		annotation ONT_ItemName = ONT_ALM_ITEM_NAME
+
+		annotation ONT_WorkspaceName = WORKSPACE_NAME_PLACEHOLDER
+
+		annotation ONT_SemanticModelServer = powerbi://api.powerbi.com/v1.0/fa8de806-3675-4a4b-84e4-50290ac5ea80
+
+		annotation ONT_SemanticModelDatabase = Pearson_Exam_Operations_SM
+
+		annotation ONT_PinnedAtUtc = 2026-11-18T15:44:00Z
+

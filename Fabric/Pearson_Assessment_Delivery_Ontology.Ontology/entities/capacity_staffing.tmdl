@@ -1,0 +1,191 @@
+/// Planning fact table for exam capacity, demand, and proctor staffing by date and test center.
+entity capacity_staffing
+	lineageTag: 8964e822-3f3c-4436-a379-53d9897f1971
+	backingTable: capacity_staffing
+	keyProperty: capacity_staffing_key
+
+	property capacity_staffing_key
+		dataType: string
+		lineageTag: 1eee1a90-d8dd-4e92-91ce-926a08e5fa9b
+
+		backingConfiguration
+			valueColumn: capacity_staffing.capacity_staffing_key
+
+		synonym 'capacity staffing key'
+
+		synonym 'staffing key'
+
+		synonym key
+
+	property test_center_key
+		dataType: string
+		lineageTag: 7db14cd4-a5cd-4bfb-8e2c-357905b04c01
+
+		backingConfiguration
+			valueColumn: capacity_staffing.test_center_key
+
+		synonym 'test center key'
+
+		synonym 'center key'
+
+		synonym key
+
+	property planning_date_key
+		dataType: int64
+		lineageTag: 4e955a6b-ec90-4140-a9bd-cf5178651989
+
+		backingConfiguration
+			valueColumn: capacity_staffing.planning_date_key
+
+		synonym 'planning date key'
+
+		synonym 'date key'
+
+		synonym 'planning period key'
+
+	property physical_capacity
+		dataType: int64
+		lineageTag: d0cf9dbe-69c5-4207-8134-8c627e1de60b
+
+		backingConfiguration
+			valueColumn: capacity_staffing.physical_capacity
+
+		synonym 'physical capacity'
+
+		synonym capacity
+
+		synonym 'physical volume'
+
+	property planned_demand
+		dataType: int64
+		lineageTag: f9700e98-c292-42d3-b7b5-c688872d78a0
+
+		backingConfiguration
+			valueColumn: capacity_staffing.planned_demand
+
+		synonym 'planned demand'
+
+		synonym demand
+
+	property capacity_gap
+		dataType: int64
+		lineageTag: eeb6544e-18a0-4afe-99ee-4cf979426017
+
+		backingConfiguration
+			valueColumn: capacity_staffing.capacity_gap
+
+		synonym 'capacity gap'
+
+		synonym gap
+
+	property planning_status
+		dataType: string
+		lineageTag: d36f53da-6f80-4235-a672-3b0fed44e979
+
+		backingConfiguration
+			valueColumn: capacity_staffing.planning_status
+
+		synonym 'planning status'
+
+		synonym status
+
+	property proctors_scheduled
+		dataType: int64
+		lineageTag: 94f29b9f-9fbb-47bf-9e3a-cc23c13a0baf
+
+		backingConfiguration
+			valueColumn: capacity_staffing.proctors_scheduled
+
+		synonym 'proctors scheduled'
+
+		synonym 'scheduled proctors'
+
+	property proctors_absent
+		dataType: int64
+		lineageTag: 0804b201-3e2a-4cae-ae81-3bb50638c7f5
+
+		backingConfiguration
+			valueColumn: capacity_staffing.proctors_absent
+
+		synonym 'proctors absent'
+
+		synonym 'absent proctors'
+
+	property proctors_available
+		dataType: int64
+		lineageTag: 0d4db835-2ac2-4ce7-9d31-d900a901008a
+
+		backingConfiguration
+			valueColumn: capacity_staffing.proctors_available
+
+		synonym 'proctors available'
+
+		synonym 'available proctors'
+
+	property proctors_required
+		dataType: int64
+		lineageTag: 0b7522c1-e9e5-4231-a52c-c5cad8eafaa2
+
+		backingConfiguration
+			valueColumn: capacity_staffing.proctors_required
+
+		synonym 'proctors required'
+
+		synonym 'required proctors'
+
+	property staffing_gap
+		dataType: int64
+		lineageTag: 3b02e5f3-6420-4aef-9b9b-950dd722693a
+
+		backingConfiguration
+			valueColumn: capacity_staffing.staffing_gap
+
+		synonym 'staffing gap'
+
+		synonym gap
+
+	property is_understaffed
+		dataType: boolean
+		lineageTag: b3191b22-8f8a-45e9-8144-0b821e14c057
+
+		backingConfiguration
+			valueColumn: capacity_staffing.is_understaffed
+
+		synonym 'is understaffed'
+
+		synonym understaffed
+
+	property staffing_coverage_rate
+		dataType: decimal
+		lineageTag: 790a830a-23c0-4799-8148-01dbbf314a77
+
+		backingConfiguration
+			valueColumn: capacity_staffing.staffing_coverage_rate
+
+		synonym 'staffing coverage rate'
+
+		synonym 'coverage rate'
+
+		synonym 'staffing coverage'
+
+	property capacity_staffing_day_count
+		dataType: int64
+		lineageTag: 71505b78-c345-4fe5-8209-134e3102c015
+
+		backingConfiguration
+			valueColumn: capacity_staffing.capacity_staffing_day_count
+
+		synonym 'capacity staffing day count'
+
+		synonym 'day count'
+
+	synonym 'capacity staffing'
+
+	synonym staffing
+
+	synonym 'capacity planning'
+
+	synonym 'resource planning'
+
+	synonym 'proctor planning'
+

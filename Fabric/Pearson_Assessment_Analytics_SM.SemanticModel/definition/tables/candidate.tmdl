@@ -1,0 +1,67 @@
+table candidate
+	lineageTag: c44e88b5-1f90-476a-b230-dbdc293acec3
+	sourceLineageTag: [dbo].[dim_candidate]
+
+	column candidate_key
+		dataType: string
+		lineageTag: fdb6ca05-2c75-4df7-8f01-6a9c2d1695dc
+		sourceLineageTag: candidate_key
+		summarizeBy: none
+		sourceColumn: candidate_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: f10877b9-2c7b-4d7c-a5f4-f030265ec4e1
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_display_name
+		dataType: string
+		lineageTag: 29184b10-a59c-4c69-b5d1-af59259ce9b7
+		sourceLineageTag: candidate_display_name
+		summarizeBy: none
+		sourceColumn: candidate_display_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_code
+		dataType: string
+		lineageTag: a47e6108-d4e9-4f52-9615-58ea77a98850
+		sourceLineageTag: region_code
+		summarizeBy: none
+		sourceColumn: region_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		lineageTag: 4a522842-16fe-4b45-bc14-6852ca4b44da
+		sourceLineageTag: region_name
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column candidate_status
+		dataType: string
+		lineageTag: 0024edaa-d748-4a51-8f64-f38aa044425d
+		sourceLineageTag: candidate_status
+		summarizeBy: none
+		sourceColumn: candidate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition candidate = entity
+		mode: directLake
+		source
+			entityName: dim_candidate
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

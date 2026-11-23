@@ -1,0 +1,118 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "8a58e60695091b5a5282",
+  "position": {
+    "x": 857.96407185628743,
+    "y": 47.4251497005988,
+    "z": 2000,
+    "height": 431.13772455089821,
+    "width": 797.60479041916176,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "assessment"
+                    }
+                  },
+                  "Property": "assessment_name"
+                }
+              },
+              "queryRef": "assessment.assessment_name",
+              "nativeQueryRef": "assessment_name",
+              "active": true
+            }
+          ]
+        },
+        "Play": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "date"
+                    }
+                  },
+                  "Property": "year_month"
+                }
+              },
+              "queryRef": "date.year_month",
+              "nativeQueryRef": "year_month"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "assessment"
+                    }
+                  },
+                  "Property": "assessment_level"
+                }
+              },
+              "queryRef": "assessment.assessment_level",
+              "nativeQueryRef": "assessment_level"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "registration"
+                    }
+                  },
+                  "Property": "Registrations"
+                }
+              },
+              "queryRef": "registration.Registrations",
+              "nativeQueryRef": "Registrations",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "attempt"
+                        }
+                      },
+                      "Property": "attempt_number"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(attempt.attempt_number)",
+              "nativeQueryRef": "Attempts",
+              "displayName": "Attempts"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,67 @@
+table program
+	lineageTag: 510df73a-46aa-405a-8bac-afcd3384ff4c
+	sourceLineageTag: [dbo].[dim_program]
+
+	column program_key
+		dataType: string
+		lineageTag: 2c7fa78e-9ad0-4794-9cf4-618c4d1b5660
+		sourceLineageTag: program_key
+		summarizeBy: none
+		sourceColumn: program_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: string
+		lineageTag: 25d75d8e-0fbf-4289-98fc-9024d57154eb
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_code
+		dataType: string
+		lineageTag: 679a3b91-043c-4d79-9860-38adb26c2fda
+		sourceLineageTag: program_code
+		summarizeBy: none
+		sourceColumn: program_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_name
+		dataType: string
+		lineageTag: f33288ff-37a1-414e-b164-76d2bbdd4263
+		sourceLineageTag: program_name
+		summarizeBy: none
+		sourceColumn: program_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_category
+		dataType: string
+		lineageTag: 38c56047-650e-4ece-af25-3b4482004180
+		sourceLineageTag: program_category
+		summarizeBy: none
+		sourceColumn: program_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column program_status
+		dataType: string
+		lineageTag: 1e611500-76c9-4ecb-9ab4-8b79fe1b0441
+		sourceLineageTag: program_status
+		summarizeBy: none
+		sourceColumn: program_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition program = entity
+		mode: directLake
+		source
+			entityName: dim_program
+			schemaName: dbo
+			expressionSource: 'DirectLake - Pearson_Gold_DW'
+
+	changedProperty = Name
+

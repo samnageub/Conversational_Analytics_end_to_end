@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Pearson Exam Operations Executive Dashboard TBU"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "951e37d8-bd43-acaa-4c23-3957ebd52034"
+  }
+}

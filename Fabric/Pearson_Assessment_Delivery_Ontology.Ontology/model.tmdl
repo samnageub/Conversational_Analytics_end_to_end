@@ -1,0 +1,26 @@
+model Model
+
+ref table assessment
+ref table candidate
+ref table customer
+ref table date
+ref table item
+ref table program
+ref table test_center
+ref table topic
+ref table attempt
+ref table finance
+ref table registration
+ref table response
+ref table exam_operations
+ref table capacity_staffing
+ref table date_2
+ref table test_center_2
+
+ref entity exam_operations
+ref entity capacity_staffing
+ref entity date
+ref entity test_center
+
+ref namespace default
+

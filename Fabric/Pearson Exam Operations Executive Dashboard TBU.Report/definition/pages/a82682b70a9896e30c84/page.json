@@ -1,0 +1,231 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "a82682b70a9896e30c84",
+  "displayName": "Page 1",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "autoPageGenerationConfig": {
+    "selectedFields": [
+      {
+        "Column": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "date"
+            }
+          },
+          "Property": "month_name"
+        }
+      },
+      {
+        "Measure": {
+          "Expression": {
+            "SourceRef": {
+              "Entity": "capacity_staffing"
+            }
+          },
+          "Property": "Staffing Coverage"
+        }
+      }
+    ],
+    "visualContainerConfigurations": [
+      {
+        "name": "6bf0145ca622907d929b",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "date"
+                }
+              },
+              "Property": "month_name"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Staffing Coverage"
+            }
+          }
+        ]
+      },
+      {
+        "name": "6980233592bad02c59e9",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "date"
+                }
+              },
+              "Property": "month_name"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Planned Utilization"
+            }
+          }
+        ]
+      },
+      {
+        "name": "8e83e7f175c3ec9273e2",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "date"
+                }
+              },
+              "Property": "month_name"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Proctors Required"
+            }
+          }
+        ]
+      },
+      {
+        "name": "4e47db1794d480be1526",
+        "fields": [
+          {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "date"
+                }
+              },
+              "Property": "month_name"
+            }
+          },
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Planned Demand"
+            }
+          }
+        ]
+      },
+      {
+        "name": "59ad8bcc09dc3d979009",
+        "fields": []
+      },
+      {
+        "name": "c25fb7444bb213e04046",
+        "fields": []
+      },
+      {
+        "name": "8a323dd34d481d07e01e",
+        "fields": []
+      },
+      {
+        "name": "0b50338056b3784ab3b4",
+        "fields": []
+      },
+      {
+        "name": "9f1c71a917492a0c5e04",
+        "fields": []
+      },
+      {
+        "name": "b5b77128ee0d727aae6a",
+        "fields": []
+      },
+      {
+        "name": "2de78aa6d53aa0b86031",
+        "fields": []
+      },
+      {
+        "name": "693220108904d009347c",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Staffing Coverage"
+            }
+          }
+        ]
+      },
+      {
+        "name": "6329a84aa414a80cd554",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Planned Utilization"
+            }
+          }
+        ]
+      },
+      {
+        "name": "febe4af3583dc827301a",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Proctors Required"
+            }
+          }
+        ]
+      },
+      {
+        "name": "bb39c63adb17e3ce488c",
+        "fields": [
+          {
+            "Measure": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "capacity_staffing"
+                }
+              },
+              "Property": "Planned Demand"
+            }
+          }
+        ]
+      },
+      {
+        "name": "a80d3cf88330ec1d64dc",
+        "fields": []
+      }
+    ],
+    "layout": {
+      "related": {
+        "version": 1
+      }
+    }
+  }
+}

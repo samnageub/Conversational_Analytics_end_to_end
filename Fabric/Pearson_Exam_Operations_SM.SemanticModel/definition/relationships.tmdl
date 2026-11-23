@@ -1,0 +1,16 @@
+relationship e436a0ba-20a3-8fe8-3c93-da6cfc97658d
+	fromColumn: exam_operations.test_center_key
+	toColumn: test_center.test_center_key
+
+relationship c790cbac-a136-838d-8791-0d0634a84d56
+	fromColumn: exam_operations.operation_date_key
+	toColumn: date.date_key
+
+relationship d6fbb57d-dc77-fb49-e8ff-4c7311fd0842
+	fromColumn: capacity_staffing.test_center_key
+	toColumn: test_center.test_center_key
+
+relationship f0d4e2da-c9c4-2252-d863-b9fb213d1e56
+	fromColumn: capacity_staffing.planning_date_key
+	toColumn: date.date_key
+

@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/publishInfo/1.0.0/schema.json",
+  "description": "Provides governed conversational analytics over synthetic Pearson assessment data, including registrations, completed tests, pass rates, scores, topic accuracy, response times, payments, refunds, net revenue, and YTD/YoY trends. Supports comparisons and rankings across customers, programs, assessments, topics, candidates, test centers, and time periods. The agent is scoped to assessment analytics and does not provide authoritative capacity, staffing, or operational-pressure insights."
+}

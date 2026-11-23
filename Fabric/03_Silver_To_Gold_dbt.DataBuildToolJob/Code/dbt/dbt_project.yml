@@ -1,0 +1,31 @@
+name: pearson_gold
+version: '1.0.0'
+config-version: 2
+profile: pearson_gold
+
+# Fabric dbt Job supplies the managed profile/connection.
+# In 03_Silver_To_Gold_dbt, keep Adapter=DataWarehouse,
+# Connection=Pearson_Gold_DW, and target Schema=dbo.
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  pearson_gold:
+    +materialized: table
+    +tags: ["gold"]
+    gold:
+      +materialized: table
+
+# Schema is intentionally inherited from the Fabric-managed target profile.
+# Setting +schema: dbo here can produce dbo_dbo under dbt's default
+# custom-schema naming behavior. The job's target schema must be dbo.

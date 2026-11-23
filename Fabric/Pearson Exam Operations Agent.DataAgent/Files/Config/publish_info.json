@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/publishInfo/1.0.0/schema.json",
+  "description": "Provides governed conversational analytics for synthetic Pearson exam-delivery operations. Explore delivered exams, cancellations, available and reserved capacity, actual and planned utilization, capacity gaps, proctor staffing, staffing coverage, operational pressure, and YTD/YoY trends across test centers. The agent can compare and rank locations and provide executive operational summaries, but is intentionally limited to exam operations and does not provide authoritative assessment-performance or financial analytics."
+}

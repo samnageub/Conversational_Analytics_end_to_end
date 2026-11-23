@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/ontology/1.0.0/schema.json",
+  "artifactId": "bea0ba39-529f-bc19-4dea-090436a741f1",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Pearson_Assessment_Delivery_Ontology",
+  "elements": [
+    {
+      "id": "assessment",
+      "is_selected": true,
+      "display_name": "assessment",
+      "type": "ontology.entity",
+      "description": "assessment",
+      "children": []
+    },
+    {
+      "id": "attempt",
+      "is_selected": true,
+      "display_name": "attempt",
+      "type": "ontology.entity",
+      "description": "attempt",
+      "children": []
+    },
+    {
+      "id": "candidate",
+      "is_selected": true,
+      "display_name": "candidate",
+      "type": "ontology.entity",
+      "description": "candidate",
+      "children": []
+    },
+    {
+      "id": "capacity_staffing",
+      "is_selected": true,
+      "display_name": "capacity_staffing",
+      "type": "ontology.entity",
+      "description": "Planning fact table for exam capacity, demand, and proctor staffing by date and test center.",
+      "children": []
+    },
+    {
+      "id": "customer",
+      "is_selected": true,
+      "display_name": "customer",
+      "type": "ontology.entity",
+      "description": "customer",
+      "children": []
+    },
+    {
+      "id": "date",
+      "is_selected": true,
+      "display_name": "date",
+      "type": "ontology.entity",
+      "description": "Calendar date dimension shared by assessment analytics and exam operations.",
+      "children": []
+    },
+    {
+      "id": "exam_operations",
+      "is_selected": true,
+      "display_name": "exam_operations",
+      "type": "ontology.entity",
+      "description": "Operational fact table for exam delivery, reservations, cancellations, and utilization by date and test center.",
+      "children": []
+    },
+    {
+      "id": "finance",
+      "is_selected": true,
+      "display_name": "finance",
+      "type": "ontology.entity",
+      "description": "finance",
+      "children": []
+    },
+    {
+      "id": "item",
+      "is_selected": true,
+      "display_name": "item",
+      "type": "ontology.entity",
+      "description": "item",
+      "children": []
+    },
+    {
+      "id": "program",
+      "is_selected": true,
+      "display_name": "program",
+      "type": "ontology.entity",
+      "description": "program",
+      "children": []
+    },
+    {
+      "id": "registration",
+      "is_selected": true,
+      "display_name": "registration",
+      "type": "ontology.entity",
+      "description": "registration",
+      "children": []
+    },
+    {
+      "id": "response",
+      "is_selected": true,
+      "display_name": "response",
+      "type": "ontology.entity",
+      "description": "response",
+      "children": []
+    },
+    {
+      "id": "test_center",
+      "is_selected": true,
+      "display_name": "test_center",
+      "type": "ontology.entity",
+      "description": "Test center dimension shared by assessment analytics and exam operations.",
+      "children": []
+    },
+    {
+      "id": "topic",
+      "is_selected": true,
+      "display_name": "topic",
+      "type": "ontology.entity",
+      "description": "topic",
+      "children": []
+    }
+  ],
+  "entitiesWithUserAuthoredDescriptions": []
+}

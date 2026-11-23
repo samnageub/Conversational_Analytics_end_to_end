@@ -1,0 +1,28 @@
+{
+  "project": {
+    "projectType": "OneLake",
+    "folderPath": "dbt"
+  },
+  "profile": {
+    "profileType": "DataWarehouse",
+    "schema": "dbo",
+    "connectionSettings": {
+      "name": "Pearson_Gold_DW",
+      "properties": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "fa8de806-3675-4a4b-84e4-50290ac5ea80",
+          "artifactId": "250227eb-6574-4679-a044-c5d13ab5ffe5",
+          "endPoint": "tldlwqv2ywtenma7wbmstbhnte-a3ui36tvgzfuvbhekauqvrpkqa.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    }
+  },
+  "command": {
+    "operation": "build",
+    "arguments": {
+      "exclude": "",
+      "threads": 4
+    }
+  }
+}
